@@ -20,10 +20,10 @@ The ERD for the scope of Project II is fairly straightforward; two tables with a
 
 ADMINSTRATORS            ISSUES
 PK ID                    PK ID
-email					 Product
-						 Issue Description
-						 Notes
-						 FK Administrators ID
+email					           Product
+						             Issue Description
+						             Notes
+						             FK Administrators ID
 
 
 --------------------------------
@@ -34,3 +34,12 @@ The potential for adding additonal features exists.  A few thoughts on adding on
 - Adding a "This is happening to me, too" button which could be selected by users.  By clicking the button, users would become alerted when the issue was resolved (via text or email).
 - Adding geo-location information for users who click the "This is happening to me, too" button.  Track from where users are selecting that button and display with "pins" on a map.  That would give a visual representation of where issues are impacing users from a geographical perspective.  This could potentially become helpful when troubleshooting issues.
 
+--------------------------------
+HOW THE PORTAL WORKS
+________________________________
+
+Administrators can:
+1) Create new issues
+2) Read all issues created by any Administrator
+3) Update any issue
+4) Delete any issue that has been resolved
