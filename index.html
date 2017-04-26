@@ -11,10 +11,208 @@
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
-    <body class="container-fluid">
+
+    <body>
+    <!-- <body class="container-fluid"> -->
+
       <h1>Issues and Outages</h1>
-      <div id="list">insert table here using handlebars?</div>
-      <p>use this documentation https://github.com/ga-wdi-boston/handlebars</p>
-      <P>use wdi/trainings/rails-api-clinic-codealong for examples for creating db</P>
+      <br><br>
+
+   <div class="row" id='announce'> </div>
+   <div id="signinSuccessAnnounce">You successfully signed in!<br>Click New issue to start playing!</div>
+   <div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
+   <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
+   <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
+   <div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
+   <div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
+   <div id='signoutSuccessAnnounce'>You have signed out.<br>Come back soon!</div>
+   <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
+
+   <div class="row">&nbsp;</div>
+
+
+   <!-- <table class="table-for-buttons">
+     <tr><td>
+       <!-<td class="table-cells-for-buttons"><form id="create-issue"> -->
+         <!-- <fieldset>
+           <input type="submit" name="submit" value="New issue!" class="customcreate">
+         </fieldset> -->
+         <button class="create-issue clearBoard customcreate" id="newissue">New issue</button>
+       <!-- </form> -->
+     <!-- </td>
+     </tr>
+   </table> -->
+
+
+<!--begin auth buttons-->
+<table class="table-for-buttons">
+<tr>
+  <td class="table-cells-for-buttons"><button id="signin" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signinModal">
+    Sign in</button></td>
+  <td class="table-cells-for-buttons"><button id="signup" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signupModal">
+  Sign Up</button></td>
+
+</tr>
+
+<tr>
+  <td class="table-cells-for-buttons"><button id="chpw" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#changepwModal">
+  Change Password</button></td>
+  <td class="table-cells-for-buttons"><form id="sign-out">
+    <fieldset>
+      <input type="submit" id="signoff" name="submit" value="Sign out!" class="custom-manual">
+    </fieldset>
+  </form>
+  </td>
+</tr>
+
+<tr>
+  <td colspan="2" class="table-cells-for-buttons"><button id="stats" type="button" class="btn btn-default customized" data-toggle="modal" data-target="#statsModal">
+  View issues Completed</button></td>
+</tr>
+
+</table>
+<!--end auth buttons-->
+
+  <!-- signin Modal -->
+  <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="signinModalLabel">Welcome back!<br>  Please sign in to view the Issues log!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+    <!--begin signin form-->
+          <form id="sign-in">
+        <fieldset>
+          <legend></legend>
+            <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
+            <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password">
+          <input type="submit" name="submit" value="Sign in!">
+        </fieldset>
+        </form>
+        <!--end signin form-->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--end signin modal-->
+
+<br><br>
+
+<!-- signup Modal -->
+<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signupModalLabel">Welcome!<br>  Please sign up to view the issues log!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  <!--begin signup form-->
+  <form id="sign-up">
+    <fieldset>
+      <legend></legend>
+        <input type="text" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
+        <input type="password" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
+        <input type="password" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password">
+      <input type="submit" name="submit" value="Sign up!">
+    </fieldset>
+  </form>
+      <!--end signup form-->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--end signup modal-->
+
+<br><br>
+
+<!-- change stats Modal -->
+<div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="statsModalLabel">Welcome!</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+<div id='statsInsideModal'>You've completed: <span id='statnum'></span> issues.</div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+<!--end stats modal-->
+
+
+
+<!-- change password Modal -->
+<div class="modal fade" id="changepwModal" tabindex="-1" role="dialog" aria-labelledby="changepwModalLabel" aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="changepwModalLabel">Welcome!<br>  Please change your password below!</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+<!--begin change password form-->
+<form id="change-password">
+  <fieldset>
+    <legend></legend>
+      <input type="password" name="passwords[old]" id="old password" placeholder="old password">
+      <input type="password" name="passwords[new]" id="new password" placeholder="new password">
+    <input type="submit" name="submit" value="Change password!">
+  </fieldset>
+</form>
+    <!--end change password form-->
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+<!--end change password modal-->
+
+
+<!-- Modal after win! -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">issue Over!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type='button' class='create-issue' value='Play Again'>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
     </body>
 </html>

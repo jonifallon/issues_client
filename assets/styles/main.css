@@ -1,0 +1,90 @@
+/*.myBoardNOTUSED {
+  background-color: gray;
+  width: 477px;
+  height: 477px;
+  margin:auto;
+  border-width: thick;
+  background-color: yellow;
+  display:block;
+  position:fixed;
+
+}
+
+.panel {
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+
+
+}
+
+#one {
+  background-color: white;
+  margin: auto;
+  float:left;
+
+}
+
+#two {
+  background-color: white;
+  margin: auto;
+  float: left;
+
+}
+
+#three {
+  background-color: white;
+  margin: auto;
+  float: left;
+
+}
+
+#four {
+  background-color: white;
+  margin: auto;
+  clear: both;
+  float:left;
+}
+
+#five {
+  background-color: white;
+  margin: auto;
+  float: left;
+}
+
+#six {
+  background-color: white;
+  margin: auto;
+  float: left;
+}
+
+#seven {
+  background-color: white;
+  margin: auto;
+  clear: both;
+  float: left;
+}
+
+#eight {
+  background-color: white;
+  margin: auto;
+  float: left;
+}
+
+#nine {
+  background-color: white;
+  margin: auto;
+  float: left;
+}
+
+.tile {
+  width: 150px;
+  height: 150px;
+}
+
+.ticBoard {
+  width: 450;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: pink;
+}*/
