@@ -55,7 +55,7 @@ const changePassword = (data) => {
 }
 
 const createissue = (data) => {
-  console.log('inside createissue function api.js')
+  console.log('inside createissue function api.js', data)
   return $.ajax({
     url: config.apiOrigin + '/issues',
     method: 'POST',

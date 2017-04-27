@@ -2,26 +2,9 @@
 
 const store = require('../store')
 
-// $('#signupSuccessAnnounce').hide()
-// $('#signupFailureAnnounce').hide()
-// $('#signinSuccessAnnounce').hide()
-// $('#signinFailureAnnounce').hide()
-// $('#pwchangeSuccessAnnounce').hide()
-// $('#pwchangeFailureAnnounce').hide()
-// $('#signoutSuccessAnnounce').hide()
-// $('#signoutFailureAnnounce').hide()
-// $('#stats').hide()
-
 const onIndexSuccess = function (data) {
   // look through data returned from server
-  // console.log('inside the onIndexSuccess in ui.js', data)
-  const issueCount = data.issues.length
-  // console.log('issue count inside the onIndexSuccess function on ui.js', issueCount)
-  $('#statnum').html(issueCount)
-  // calculate num completed issues
-
-  // update the statsnum span with resulting num of issues
-  // using innerHTML
+  console.log('inside the onIndexSuccess in ui.js', data)
 }
 
 const signUpSuccess = (data) => {
@@ -53,9 +36,7 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  // console.log('signin success ran.  data is:', data)
-  // now enable new issue stuff
-  // events.onIndex()
+  console.log('signin success ran.  data is:', data)
   $('#signoff').show()
   $('#signup').hide()
   $('#signin').hide()
@@ -103,7 +84,7 @@ const signOutSuccess = (data) => {
   $('#signoutFailureAnnounce').hide()
   $('#stats').hide()
   document.getElementById('announce').innerHTML = ''
-  // console.log('signout success and nothing was returned')
+  console.log('signout success and nothing was returned')
   store.user = null
 }
 
@@ -131,7 +112,7 @@ const changePasswordSuccess = (data) => {
   $('#signoutFailureAnnounce').hide()
   $('#stats').show()
   document.getElementById('announce').innerHTML = ''
-  // console.log('password successfully changed')
+  console.log('password successfully changed')
 }
 
 const changePasswordFailure = (error) => {
@@ -160,7 +141,7 @@ const createissueFailure = (error) => {
 
 const updateissueSuccess = (data) => {
   store.issue = data.issue
-  // console.log('update issue successful', data)
+  console.log('update issue successful', data)
 }
 
 const updateissueFailure = (error) => {

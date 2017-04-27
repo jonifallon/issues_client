@@ -4,7 +4,6 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
-const issue = require('../issue.js')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -17,7 +16,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  // console.log('signin ran')
+  console.log('signin ran')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -27,7 +26,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  // console.log('signout ran')
+  console.log('signout ran')
 
   api.signOut()
   .then(ui.signOutSuccess)
@@ -36,8 +35,7 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  // console.log('change password ran!')
-  // clear modal form here
+  console.log('change password ran!')
   const data = getFormFields(this)
   api.changePassword(data)
   .then(ui.changePasswordSuccess)
@@ -60,18 +58,15 @@ const onGetissue = function (event) {
       .then(ui.onSuccess)
       .catch(ui.onError)
   } else {
-    // console.log('Please provide a issue id!')
+    console.log('Please provide a issue id!')
   }
 }
 
 const createissue = function (event) {
   console.log('inside the createissue function on events.js', event)
-  // issue.startissue()
   event.preventDefault()
-  // issue.clearBoard()
   const data = getFormFields(this)
   api.createissue(data)
-  // issue.reenableClick()
   .then(ui.createissueSuccess)
   .catch(ui.createissueFailure)
 }
