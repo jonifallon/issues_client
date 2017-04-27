@@ -7,6 +7,10 @@ const onIndexSuccess = function (data) {
   console.log('inside the onIndexSuccess in ui.js', data)
 }
 
+// const onSuccess = function (data) {
+//   console.log('inside onGetIssue events.js', data)
+// }
+
 const signUpSuccess = (data) => {
   $('#signup').hide()
   $('#signin').show()

@@ -71,12 +71,15 @@ const createissue = function (event) {
   .catch(ui.createissueFailure)
 }
 
+// when creating an updateIssue funciton, use similar to createissue where you use the
+// const data = getFormFieds(this)
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#stats').on('click', onIndex)
+  $('#viewIssues').on('submit', onIndex)
   $('#issue-search').on('submit', onGetissue)
   $('#create-issue').on('submit', createissue)
   $('#sign-up').trigger('reset')
