@@ -65,9 +65,10 @@ const onGetissue = function (event) {
 }
 
 const createissue = function (event) {
-  issue.startissue()
+  console.log('inside the createissue function on events.js', event)
+  // issue.startissue()
   event.preventDefault()
-  issue.clearBoard()
+  // issue.clearBoard()
   api.createissue()
   // issue.reenableClick()
   .then(ui.createissueSuccess)

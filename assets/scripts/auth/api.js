@@ -24,7 +24,7 @@ const signUp = (data) => {
 }
 
 const signIn = (data) => {
-  // console.log('signin function api', data)
+  console.log('signin function api', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-in',
     method: 'POST',
@@ -43,7 +43,7 @@ const signOut = () => {
 }
 
 const changePassword = (data) => {
-  // console.log('data is', data)
+  console.log('data is', data)
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
     method: 'PATCH',
@@ -55,7 +55,7 @@ const changePassword = (data) => {
 }
 
 const createissue = () => {
-  // console.log('issue created using the createissue function')
+  console.log('inside createissue function api.js')
   return $.ajax({
     url: config.apiOrigin + '/issues',
     method: 'POST',
@@ -67,7 +67,7 @@ const createissue = () => {
 }
 
 const updateissue = (data) => {
-  // console.log('issue updated using the updateissue function', data)
+  console.log('issue updated using the updateissue function', data)
   return $.ajax({
     url: config.apiOrigin + '/issues/' + store.issue.id,
     method: 'PATCH',

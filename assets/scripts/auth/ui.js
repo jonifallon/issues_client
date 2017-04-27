@@ -149,9 +149,9 @@ const changePasswordFailure = (error) => {
 }
 
 const createissueSuccess = (data) => {
-  // console.log('create issue success ran.  data is:', data)
+  console.log('create issue success ran.  data is:', data)
   store.issue = data.issue
-  // console.log('you are in the createissueSuccess function on ui.js', store.issue)
+  console.log('you are in the createissueSuccess function on ui.js', store.issue)
 }
 
 const createissueFailure = (error) => {

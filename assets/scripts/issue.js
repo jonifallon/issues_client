@@ -16,6 +16,14 @@ let tile
 // })
 // $('#issues').html(newHTML)
 
+// add listening event for id="button-newsubmit"
+
+
+
+
+
+
+
 const moveData = {
   'issue': {
     'cell': {
