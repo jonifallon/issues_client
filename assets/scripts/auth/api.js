@@ -54,7 +54,7 @@ const changePassword = (data) => {
   })
 }
 
-const createissue = () => {
+const createissue = (data) => {
   console.log('inside createissue function api.js')
   return $.ajax({
     url: config.apiOrigin + '/issues',
@@ -62,7 +62,7 @@ const createissue = () => {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: ''
+    data
   })
 }
 

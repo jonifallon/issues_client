@@ -69,7 +69,8 @@ const createissue = function (event) {
   // issue.startissue()
   event.preventDefault()
   // issue.clearBoard()
-  api.createissue()
+  const data = getFormFields(this)
+  api.createissue(data)
   // issue.reenableClick()
   .then(ui.createissueSuccess)
   .catch(ui.createissueFailure)
@@ -82,7 +83,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#stats').on('click', onIndex)
   $('#issue-search').on('submit', onGetissue)
-  $('.create-issue').on('click', createissue)
+  $('#create-issue').on('submit', createissue)
   $('#sign-up').trigger('reset')
   $('#signupModal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()
