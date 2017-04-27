@@ -13,13 +13,39 @@
     </head>
 
     <body>
-    <!-- <body class="container-fluid"> -->
-
       <h1>Issues and Outages</h1>
+    <!-- <body class="container-fluid"> -->
+      <p>Add a form here to submit issues, and add handlebars to display them</p>
+
+     <form id="rendered-form" data-form-render="[object Object]">
+       <div>
+         <h1 class="issuesHeader">Add an Issue</h1>
+       </div>
+
+       <div class="fb-text form-group field-text-product">
+         <label class="fb-text-label">Application or Service<span class="fb-required"> *</span></label>
+         <input type="text" required="true" placeholder="Insert the application or service name experiencing issues" class="form-control" name="text-product" id="text-product" aria-required="true"></div>
+
+      <div class="fb-textarea form-group field-textarea-description"><label class="fb-textarea-label">Issue Description<span class="fb-required"> *</span><span class="tooltip-element" tooltip="Include any known error messages">?</span></label>
+           <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="textarea-description" id="textarea-description" aria-required="true"></textarea></div>
+
+      <div class="fb-textarea form-group field-textarea-notes"><label class="fb-textarea-label">Notes</label><textarea type="textarea" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="textarea-notes" id="textarea-notes"></textarea></div>
+
+      <div class="fb-button form-group field-button-newsubmit"><button type="button" class="btn btn-success" name="button-newsubmit" style="success" id="button-newsubmit">Submit</button></div>
+    </form>
+
+<p>Add listening event for button id="button-newsubmit".  When submitted, these three fields should push to the api
+as folows:
+<ol>
+  <li>id="text-product" should populate product db column
+  <li>id="text-description" should populate description db column
+  <li>id="text-notes" should populte description db column
+</ol></p>
+
       <br><br>
 
    <div class="row" id='announce'> </div>
-   <div id="signinSuccessAnnounce">You successfully signed in!<br>Click New issue to start playing!</div>
+   <div id="signinSuccessAnnounce">You successfully signed in!<br>Click New issue to add a new issue.</div>
    <div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
    <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
    <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
@@ -205,7 +231,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <input type='button' class='create-issue' value='Play Again'>
+        <input type='button' class='create-issue' value='Create an Issue'>
       </div>
       <div class="modal-footer">
       </div>

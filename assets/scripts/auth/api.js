@@ -6,7 +6,8 @@ const store = require('../store')
 const index = function () {
   // console.log('api index running')
   return $.ajax({
-    url: config.apiOrigin + '/issues?over=true',
+    url: config.apiOrigin + '/issues',
+    // url: config.apiOrigin + '/issues?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

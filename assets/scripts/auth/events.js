@@ -68,7 +68,6 @@ const createissue = function (event) {
   issue.startissue()
   event.preventDefault()
   issue.clearBoard()
-  issue.removeXO()
   api.createissue()
   // issue.reenableClick()
   .then(ui.createissueSuccess)

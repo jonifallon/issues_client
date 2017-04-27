@@ -8,14 +8,13 @@ let issueOver = false
 let currentPlayer = 'x'
 let tile
 
-// LEFT TO DO
-// hide elements at startup
-  // user stats
-// enable after signin
-  // user stats
-// hide after signout
-  // user stats
-// show user stats
+// THIS IS THE CODE I WANT TO ADD FOR HANDLEBARS
+
+// let newHTML = ''
+// data.forEach(function (issue) {
+//   newHTML += '<li><h4>' + issue.product + '</h4> Description: ' + issue.description + ' and Notes: ' + issue.notes + '</li>'
+// })
+// $('#issues').html(newHTML)
 
 const moveData = {
   'issue': {
