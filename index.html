@@ -13,12 +13,59 @@
     </head>
 
     <body>
+      <!--begin auth buttons-->
+      <table class="table-for-buttons">
+      <tr>
+        <td class="table-cells-for-buttons"><button id="signin" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signinModal">
+          Sign in</button></td>
+        <td class="table-cells-for-buttons"><button id="signup" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signupModal">
+        Sign Up</button></td>
+
+      </tr>
+
+      <tr>
+        <td class="table-cells-for-buttons"><button id="chpw" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#changepwModal">
+        Change Password</button></td>
+        <td class="table-cells-for-buttons"><form id="sign-out">
+          <fieldset>
+            <input type="submit" id="signoff" name="submit" value="Sign out!" class="custom-manual">
+          </fieldset>
+        </form>
+        </td>
+      </tr>
+
+      <tr>
+        <td colspan="2" class="table-cells-for-buttons"><button id="stats" type="button" class="btn btn-default customized" data-toggle="modal" data-target="#statsModal">
+        View issues Completed</button></td>
+      </tr>
+
+      </table>
+      <!--end auth buttons-->
+
+      <!--begin announcements-->
+
+      <div class="row" id='announce'> </div>
+      <div id="signinSuccessAnnounce">Your signin was successful.</div>
+      <div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
+      <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
+      <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
+      <div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
+      <div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
+      <div id='signoutSuccessAnnounce'>You have signed out.<br>Come back soon!</div>
+      <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
+      <div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
+
+      <!--end announcements-->
+
+
+      <form id="view-issue"><div><h1 class="issuesHeader">View an Issue</h1></div>
+        <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
+          <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
+          <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div></form>
+
       <h1>Issues and Outages</h1>
     <!-- <body class="container-fluid"> -->
-      <p>Add a form here to submit issues, and add handlebars to display them</p>
-
      <form id="create-issue">
-
        <div class="productfield">
          <label class="fb-text-label">Application or Service</label>
          <input type="text" required="false" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
@@ -46,46 +93,9 @@ as folows:
 
       <br><br>
 
-   <div class="row" id='announce'> </div>
-   <div id="signinSuccessAnnounce">You successfully signed in!<br>Click New issue to add a new issue.</div>
-   <div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
-   <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
-   <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
-   <div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
-   <div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
-   <div id='signoutSuccessAnnounce'>You have signed out.<br>Come back soon!</div>
-   <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
 
-   <div class="row">&nbsp;</div>
 
-<!--begin auth buttons-->
-<table class="table-for-buttons">
-<tr>
-  <td class="table-cells-for-buttons"><button id="signin" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signinModal">
-    Sign in</button></td>
-  <td class="table-cells-for-buttons"><button id="signup" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signupModal">
-  Sign Up</button></td>
 
-</tr>
-
-<tr>
-  <td class="table-cells-for-buttons"><button id="chpw" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#changepwModal">
-  Change Password</button></td>
-  <td class="table-cells-for-buttons"><form id="sign-out">
-    <fieldset>
-      <input type="submit" id="signoff" name="submit" value="Sign out!" class="custom-manual">
-    </fieldset>
-  </form>
-  </td>
-</tr>
-
-<tr>
-  <td colspan="2" class="table-cells-for-buttons"><button id="stats" type="button" class="btn btn-default customized" data-toggle="modal" data-target="#statsModal">
-  View issues Completed</button></td>
-</tr>
-
-</table>
-<!--end auth buttons-->
 
   <!-- signin Modal -->
   <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">

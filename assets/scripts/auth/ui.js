@@ -5,11 +5,42 @@ const store = require('../store')
 const onIndexSuccess = function (data) {
   // look through data returned from server
   console.log('inside the onIndexSuccess in ui.js', data)
+  $('#getIssueFailureAnnounce').hide()
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinSuccessAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
 }
 
-// const onSuccess = function (data) {
-//   console.log('inside onGetIssue events.js', data)
-// }
+const onSuccess = function (data) {
+  console.log('inside onSuccess ui', data)
+  $('#getIssueFailureAnnounce').hide()
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinSuccessAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
+}
+
+const onError = function (data) {
+  $('#getIssueFailureAnnounce').show()
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinSuccessAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
+  console.log('inside onError ui.js', data)
+}
 
 const signUpSuccess = (data) => {
   $('#signup').hide()
@@ -22,6 +53,7 @@ const signUpSuccess = (data) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').hide()
   // console.log(data)
 }
@@ -35,6 +67,7 @@ const signUpFailure = (error) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').hide()
   console.error(error)
 }
@@ -54,6 +87,7 @@ const signInSuccess = (data) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').show()
   store.user = data.user
 }
@@ -67,6 +101,7 @@ const signInFailure = (error) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').hide()
   console.error('signin failure ran.  error is:', error)
 }
@@ -86,6 +121,7 @@ const signOutSuccess = (data) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').show()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').hide()
   document.getElementById('announce').innerHTML = ''
   console.log('signout success and nothing was returned')
@@ -101,6 +137,7 @@ const signOutFailure = (error) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').show()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').hide()
   console.error(error)
 }
@@ -114,6 +151,7 @@ const changePasswordSuccess = (data) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').show()
   document.getElementById('announce').innerHTML = ''
   console.log('password successfully changed')
@@ -128,6 +166,7 @@ const changePasswordFailure = (error) => {
   $('#pwchangeFailureAnnounce').show()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
   $('#stats').show()
   document.getElementById('announce').innerHTML = ''
   console.error(error)
@@ -165,5 +204,7 @@ module.exports = {
   createissueSuccess,
   updateissueFailure,
   updateissueSuccess,
-  onIndexSuccess
+  onIndexSuccess,
+  onSuccess,
+  onError
 }

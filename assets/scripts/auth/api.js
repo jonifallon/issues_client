@@ -78,6 +78,17 @@ const updateissue = (data) => {
   })
 }
 
+const showIssue = (id) => {
+  console.log('inside the showIssue function', id)
+  return $.ajax({
+    url: config.apiOrigin + '/issues/' + id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -85,6 +96,7 @@ module.exports = {
   changePassword,
   index,
   createissue,
-  updateissue
+  updateissue,
+  showIssue
 
 }

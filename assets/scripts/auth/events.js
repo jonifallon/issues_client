@@ -50,16 +50,13 @@ const onIndex = function (event) {
 }
 
 const onGetissue = function (event) {
+  // find individual issue
   event.preventDefault()
-  const issue = getFormFields(event.target).issue
+  const issue = $('#text-1493247386594').val()
 
-  if (issue.id.length !== 0) {
-    api.show(issue.id)
+  api.showIssue(issue)
       .then(ui.onSuccess)
       .catch(ui.onError)
-  } else {
-    console.log('Please provide a issue id!')
-  }
 }
 
 const createissue = function (event) {
@@ -80,7 +77,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#viewIssues').on('submit', onIndex)
-  $('#issue-search').on('submit', onGetissue)
+  $('#view-issue').on('submit', onGetissue)
   $('#create-issue').on('submit', createissue)
   $('#sign-up').trigger('reset')
   $('#signupModal').on('hidden.bs.modal', function () {

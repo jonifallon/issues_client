@@ -5,7 +5,10 @@
 //   text-align: left;
 //   width: 600px;
 // }
-//
+body {
+  margin-left: 50px;
+  margin-right: 50px;
+}
 // td {
 //   vertical-align: top;
 // }
@@ -61,7 +64,7 @@
 }
 
 #signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
-#signoutFailureAnnounce {
+#signoutFailureAnnounce, #getIssueFailureAnnounce {
   color: #000000;
   font-size: 18px;
   padding-top: 10px;
