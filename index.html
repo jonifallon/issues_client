@@ -54,14 +54,40 @@
       <div id='signoutSuccessAnnounce'>You have signed out.<br>Come back soon!</div>
       <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
       <div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
+      <div id='deleteFailureAnnounce'>Confirmation:  The issue has been deleted.</div>
+      <div id='deleteSuccessAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
 
       <!--end announcements-->
 
-
+     <!--get issues=-->
       <form id="view-issue"><div><h1 class="issuesHeader">View an Issue</h1></div>
         <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
           <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
-          <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div></form>
+          <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
+          <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
+
+        </form>
+
+        <!--delete issues-->
+        <form id="delete-issue"><div><h1 class="issuesHeader">delete an Issue</h1></div>
+          <div><label>Enter issue ID</label>
+            <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
+            <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
+          </form>
+
+          <!--update issues-->
+          <form id="update-issue"><div><h1 class="issuesHeader">Update an Issue</h1></div>
+            <div><label>Enter issue ID</label>
+              <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
+              <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
+            </form>
+
+      <!-- <form id="view-issue"><div><h1 class="issuesHeader">View an Issue</h1></div>
+        <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
+          <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
+        <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
+      </form> -->
+
 
       <h1>Issues and Outages</h1>
     <!-- <body class="container-fluid"> -->

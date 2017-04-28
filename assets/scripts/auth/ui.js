@@ -14,6 +14,8 @@ const onIndexSuccess = function (data) {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
 }
 
 const onSuccess = function (data) {
@@ -27,6 +29,8 @@ const onSuccess = function (data) {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
 }
 
 const onError = function (data) {
@@ -39,6 +43,8 @@ const onError = function (data) {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   console.log('inside onError ui.js', data)
 }
 
@@ -53,8 +59,8 @@ const signUpSuccess = (data) => {
   $('#pwchangeFailureAnnounce').hide()
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
-  $('#getIssueFailureAnnounce').hide()
-  $('#stats').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   // console.log(data)
 }
 
@@ -68,7 +74,8 @@ const signUpFailure = (error) => {
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   console.error(error)
 }
 
@@ -88,7 +95,8 @@ const signInSuccess = (data) => {
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').show()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   store.user = data.user
 }
 
@@ -102,7 +110,8 @@ const signInFailure = (error) => {
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   console.error('signin failure ran.  error is:', error)
 }
 
@@ -122,7 +131,8 @@ const signOutSuccess = (data) => {
   $('#signoutSuccessAnnounce').show()
   $('#signoutFailureAnnounce').hide()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   document.getElementById('announce').innerHTML = ''
   console.log('signout success and nothing was returned')
   store.user = null
@@ -138,7 +148,8 @@ const signOutFailure = (error) => {
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').show()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   console.error(error)
 }
 
@@ -152,7 +163,8 @@ const changePasswordSuccess = (data) => {
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').show()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   document.getElementById('announce').innerHTML = ''
   console.log('password successfully changed')
 }
@@ -167,9 +179,44 @@ const changePasswordFailure = (error) => {
   $('#signoutSuccessAnnounce').hide()
   $('#signoutFailureAnnounce').hide()
   $('#getIssueFailureAnnounce').hide()
-  $('#stats').show()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
   document.getElementById('announce').innerHTML = ''
   console.error(error)
+}
+
+const deleteIssueSuccess = (data) => {
+  console.log('inside the deleteIssueSuccess ui script.  data is:', data)
+  // store.issue = data.issue
+  // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.issue)
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinSuccessAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').show()
+  $('#deleteFailureAnnounce').hide()
+}
+
+const deleteIssueFailure = (data) => {
+  // console.log('deleteIssue failed.  data is:', data)
+  // store.issue = data.issue
+  console.log('inside the deleteIssueFailure ui script', store.issue)
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinSuccessAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
+  $('#getIssueFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').show()
 }
 
 const createissueSuccess = (data) => {
@@ -206,5 +253,7 @@ module.exports = {
   updateissueSuccess,
   onIndexSuccess,
   onSuccess,
-  onError
+  onError,
+  deleteIssueSuccess,
+  deleteIssueFailure
 }

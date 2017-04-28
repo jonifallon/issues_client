@@ -58,6 +58,21 @@ const onGetissue = function (event) {
       .then(ui.onSuccess)
       .catch(ui.onError)
 }
+// DELETE ISSUES FUNCTION BEING ADDED
+// add a form and button and reference it below
+// create api script
+// create success and error UI scripts
+// create confirmation msg in index.html
+// hide and show confirmation messages
+// fix css
+const deleteIssue = function (event) {
+  console.log('inside the deleteIssue function events.js', event)
+  event.preventDefault()
+  const issue = $('#text-1493247386594').val()
+  api.deleteIssue(issue)
+      .then(ui.deleteIssueSuccess)
+      .catch(ui.deleteIssueFailure)
+}
 
 const createissue = function (event) {
   console.log('inside the createissue function on events.js', event)
@@ -79,6 +94,7 @@ const addHandlers = () => {
   $('#viewIssues').on('submit', onIndex)
   $('#view-issue').on('submit', onGetissue)
   $('#create-issue').on('submit', createissue)
+  $('#delete-issue').on('submit', deleteIssue)
   $('#sign-up').trigger('reset')
   $('#signupModal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()

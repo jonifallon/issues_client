@@ -66,6 +66,17 @@ const createissue = (data) => {
   })
 }
 
+const deleteIssue = (id) => {
+  console.log('inside delete issue function api.js', id)
+  return $.ajax({
+    url: config.apiOrigin + '/issues/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateissue = (data) => {
   console.log('issue updated using the updateissue function', data)
   return $.ajax({
@@ -97,6 +108,7 @@ module.exports = {
   index,
   createissue,
   updateissue,
-  showIssue
+  showIssue,
+  deleteIssue
 
 }
