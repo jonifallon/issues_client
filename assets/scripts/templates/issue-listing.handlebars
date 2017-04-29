@@ -1,0 +1,46 @@
+<!-- Use this if/when I want to add a delete button beside any list item
+https://github.com/ga-wdi-boston/full-stack-project/issues/620 -->
+
+<!-- {{#each issues as |issue|}}
+
+  <ul id="removeme" data-id="{{issue.id}}"> <li>Title: {{issue.title}}</small>
+  <div class="issuelisting">
+    {{#if issue.description}}
+      {{issue.description}}
+    {{else}}
+      No description.
+    {{/if}}
+    <br><button class="remove">Remove</button>
+  </div>
+</ul>
+{{/each}} -->
+
+
+
+<!-- {{#each issues as |issue|}}
+
+  <ul data-id="{{issue.id}}">
+    <li><data-id="{{issue.id}}">Issue ID: {{issue.id}} Product: {{issue.product}}, Description: {{issue.description}}, Notes: {{issue.notes}}</small></li>
+  </ul>
+
+{{/each}} -->
+
+
+
+<!-- BEGIN PRODUCT LOOP // -->
+{{#each issues as |issue|}}
+   <tr class="item">
+        <td valign="top" class="textContent">
+            <!-- <img src=""{{img}}" width="50" height="75" class="itemImage"" /> -->
+
+            <h4 class="itemName">{{issue.product}}</h4>
+            <span class="contentSecondary"><data-id="{{issue.id}}">Issue ID: {{issue.id}}</span><br />
+            <span class="contentSecondary">Description: {{issue.description}}</span><br />
+            <span class="contentSecondary">Notes: {{issue.notes}}</span><br />
+        </td>
+        <td valign="top" class="textContent alignRight priceWidth">
+            something else goes here
+        </td>
+    </tr>
+    {{/each}}
+<!-- // END PRODUCT LOOP -->

@@ -77,15 +77,14 @@ const deleteIssue = (id) => {
   })
 }
 
-const updateissue = (data) => {
-  console.log('issue updated using the updateissue function', data)
+const updateIssue = (id) => {
+  console.log('data is', id)
   return $.ajax({
-    url: config.apiOrigin + '/issues/' + store.issue.id,
+    url: config.apiOrigin + '/issues/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
@@ -100,6 +99,12 @@ const showIssue = (id) => {
   })
 }
 
+// let newHTML = ''
+// data.forEach(function(issue){
+//   newHTML += '<li>' + issue.id + ' ' + issue.product + ' ' + issue.description + ' ' + issue.notes + ' ' + 'spaceforeditbutton</li>'
+// })
+// $('#issues').html(newHTML)
+
 module.exports = {
   signUp,
   signIn,
@@ -107,7 +112,7 @@ module.exports = {
   changePassword,
   index,
   createissue,
-  updateissue,
+  updateIssue,
   showIssue,
   deleteIssue
 

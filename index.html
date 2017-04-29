@@ -13,17 +13,49 @@
     </head>
 
     <body>
+
+      <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">What's Down?</a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Account<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li id="signin" data-toggle="modal" data-target="#signinModal"><a href="#">Sign In</a></li>
+                              <li id="signup" data-toggle="modal" data-target="#signupModal"><a href="#">Sign Up (new users)</a></li>
+                              <li id="chpw" data-toggle="modal" data-target="#changepwModal"><a href="#">Change Password</a></li>
+                              <li id="sign-out"><a href="#">Sign Out</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+
       <!--begin auth buttons-->
-      <table class="table-for-buttons">
-      <tr>
+      <!-- <table class="table-for-buttons"> -->
+      <!-- <tr>
         <td class="table-cells-for-buttons"><button id="signin" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signinModal">
           Sign in</button></td>
         <td class="table-cells-for-buttons"><button id="signup" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signupModal">
         Sign Up</button></td>
 
-      </tr>
+      </tr> -->
 
-      <tr>
+      <!-- <tr>
         <td class="table-cells-for-buttons"><button id="chpw" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#changepwModal">
         Change Password</button></td>
         <td class="table-cells-for-buttons"><form id="sign-out">
@@ -32,20 +64,21 @@
           </fieldset>
         </form>
         </td>
-      </tr>
+      </tr> -->
 
-      <tr>
+      <!-- <tr>
         <td colspan="2" class="table-cells-for-buttons"><button id="stats" type="button" class="btn btn-default customized" data-toggle="modal" data-target="#statsModal">
         View issues Completed</button></td>
-      </tr>
+      </tr> -->
 
-      </table>
+      <!-- </table> -->
       <!--end auth buttons-->
+
+
 
       <!--begin announcements-->
 
       <div class="row" id='announce'> </div>
-      <div id="signinSuccessAnnounce">Your signin was successful.</div>
       <div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
       <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
       <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
@@ -56,38 +89,97 @@
       <div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
       <div id='deleteFailureAnnounce'>Confirmation:  The issue has been deleted.</div>
       <div id='deleteSuccessAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
+      <div id='updateFailureAnnounce'>Your issue update was not successful.  Please try again.</div>
+      <div id='updateSuccessAnnounce'>Your issue was successfully updated.</div>
+      <div id='indexFailureAnnounce'>There are no issues to display??</div>
 
       <!--end announcements-->
+      <div class="carousel">
 
-     <!--get issues=-->
-      <form id="view-issue"><div><h1 class="issuesHeader">View an Issue</h1></div>
-        <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
-          <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
-          <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="./assets/images/sunrise.jpg" alt="Chania">
+      <div class="carousel-caption">
+        <h3>Monitoring Your Systems</h3>
+        <p>Globally 24 x 7!</p>
+      </div>
+    </div>
+
+    <div class="item">
+      <img src="./assets/images/iphoneback.jpg" alt="Chicago">
+      <div class="carousel-caption">
+        <h3>Access Outage Information</h3>
+        <p>Anytime, Anywhere!</p>
+      </div>
+    </div>
+
+    <div class="item" data-toggle="modal" data-target="#signinModal">
+      <img src="./assets/images/gray.jpg" alt="New York">
+      <div class="carousel-caption">
+        <h3>Please Login</h3>
+        <p>To check current status</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
+    <!--begin handlebars / issues-->
+
+    <div class="viewAllIssues"></div>
+
+    <!--end handlebars/ issues-->
+
+    <form id="viewIssues">
+     <div ><button type="submit" style="success" id="showissues">Display All Issues</button></div>
+   </form>
+
+<table class = "actions">
+  <tr>
+    <td>
+      <!--get issues=-->
+       <form id="view-issue"><div><h4 class="issuesHeader">View an Issue</h1></div>
+         <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
+           <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
+           <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
+         </form>
+    </td>
+    <td>
+      <!--delete issues-->
+      <form id="delete-issue"><div><h4 class="issuesHeader">delete an Issue</h1></div>
+        <div><label>Enter issue ID</label>
+          <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
           <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
-
         </form>
-
-        <!--delete issues-->
-        <form id="delete-issue"><div><h1 class="issuesHeader">delete an Issue</h1></div>
-          <div><label>Enter issue ID</label>
-            <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
-            <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
-          </form>
-
-          <!--update issues-->
-          <form id="update-issue"><div><h1 class="issuesHeader">Update an Issue</h1></div>
-            <div><label>Enter issue ID</label>
-              <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
-              <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
-            </form>
-
-      <!-- <form id="view-issue"><div><h1 class="issuesHeader">View an Issue</h1></div>
-        <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
-          <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
-        <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
-      </form> -->
-
+    </td>
+    <td>
+      <!--update issues-->
+      <form id="update-issue"><div><h4 class="issuesHeader">Update an Issue</h1></div>
+        <div><label>Enter issue ID</label>
+          <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
+          <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
+        </form>
+    </td>
+  </tr>
+</table>
 
       <h1>Issues and Outages</h1>
     <!-- <body class="container-fluid"> -->
@@ -104,9 +196,7 @@
       <div ><button type="submit" style="success" id="newissue">Submit</button></div>
     </form>
 
-    <form id="viewIssues">
-     <div ><button type="submit" style="success" id="showissues">Console Log Issues</button></div>
-   </form>
+
 
 
 <p>Add listening event for button id="button-newsubmit".  When submitted, these three fields should push to the api
@@ -137,6 +227,7 @@ as folows:
     <!--begin signin form-->
           <form id="sign-in">
         <fieldset>
+
           <legend></legend>
             <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
             <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password">

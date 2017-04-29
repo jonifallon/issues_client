@@ -6,8 +6,23 @@
 //   width: 600px;
 // }
 body {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.navbar-brand {
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
+}
+
+.carousel {
+  max-width: 100%;
+}
+
+.carousel-outer{
+  width:400px;
+  max-height: 200px !important;
 }
 // td {
 //   vertical-align: top;
@@ -55,7 +70,7 @@ body {
 }
 
 #signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
-#signoutSuccessAnnounce, #deleteSuccessAnnounce {
+#signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce {
   color: #000000;
   font-size: 18px;
   padding-top: 10px;
@@ -64,11 +79,16 @@ body {
 }
 
 #signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
-#signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce {
+#signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce,
+#updateFailureAnnounce, #indexFailureAnnounce {
   color: #000000;
   font-size: 18px;
   padding-top: 10px;
   text-align: center;
+  display: none;
+}
+
+#showissues {
   display: none;
 }
 
@@ -84,6 +104,10 @@ body {
   font-size: 32px;
   padding-top: 10px;
   text-align: left;
+}
+
+.actions {
+  width: 100%;
 }
 
 // .customcreate {
