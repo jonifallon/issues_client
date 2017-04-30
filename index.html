@@ -45,52 +45,7 @@
       </nav>
 
 
-      <!--begin auth buttons-->
-      <!-- <table class="table-for-buttons"> -->
-      <!-- <tr>
-        <td class="table-cells-for-buttons"><button id="signin" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signinModal">
-          Sign in</button></td>
-        <td class="table-cells-for-buttons"><button id="signup" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#signupModal">
-        Sign Up</button></td>
 
-      </tr> -->
-
-      <!-- <tr>
-        <td class="table-cells-for-buttons"><button id="chpw" type="button" class="btn btn-default custom" data-toggle="modal" data-target="#changepwModal">
-        Change Password</button></td>
-        <td class="table-cells-for-buttons"><form id="sign-out">
-          <fieldset>
-            <input type="submit" id="signoff" name="submit" value="Sign out!" class="custom-manual">
-          </fieldset>
-        </form>
-        </td>
-      </tr> -->
-
-      <!-- <tr>
-        <td colspan="2" class="table-cells-for-buttons"><button id="stats" type="button" class="btn btn-default customized" data-toggle="modal" data-target="#statsModal">
-        View issues Completed</button></td>
-      </tr> -->
-
-      <!-- </table> -->
-      <!--end auth buttons-->
-
-
-
-      <!--begin announcements-->
-
-      <div class="row" id='announce'> </div>
-      <div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
-      <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
-      <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
-      <div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
-      <div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
-      <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
-      <div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
-      <div id='deleteFailureAnnounce'>Confirmation:  The issue has been deleted.</div>
-      <div id='deleteSuccessAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
-      <div id='updateFailureAnnounce'>Your issue update was not successful.  Please try again.</div>
-      <div id='updateSuccessAnnounce'>Your issue was successfully updated.</div>
-      <div id='indexFailureAnnounce'>There are no issues to display??</div>
 
       <!--end announcements-->
       <div class="jumbotron" id='jumbo'>
@@ -99,7 +54,7 @@
          <br><br><br>
          <table class='jumbotable'>
           <tr>
-            <td class='tdcenter'><a id='signin' class="btn btn-warning btn-lg center-block" role="button" data-toggle="modal" data-target="#signinModal">Sign In</a></td>
+            <td class='tdcenter'><a id='signin' class="btn btn-success btn-lg center-block" role="button" data-toggle="modal" data-target="#signinModal">Sign In</a></td>
             <td> </tr>
           <!-- <tr>
             <td class='tdcenter'><div class='jumbocomments'>Existing Users</div></td>
@@ -137,57 +92,67 @@
     </div>
     <!--end planned and unplanned-->
 
-        <div class="viewAllIssues"></div>
+        <!-- <div class="viewAllIssues"></div> -->
 
-      <!--
-      <div class="carousel">
+<!--display, view, delete, update, add-->
+<div id="options">
 
-      <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <! Indicators -->
-  <!-- <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    <li data-target="#myCarousel" data-slide-to="1"></li>
-    <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol> -->
-
-  <!-- Wrapper for slides -->
-  <!-- <div class="carousel-inner">
-    <div class="item active">
-      <img src="./assets/images/sunrise.jpg" alt="Chania">
-      <div class="carousel-caption">
-        <h3>Monitoring Your Systems</h3>
-        <p>Globally 24 x 7!</p>
+<div class="col">
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>View All Issues</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a>
       </div>
     </div>
-
-    <div class="item">
-      <img src="./assets/images/iphoneback.jpg" alt="Chicago">
-      <div class="carousel-caption">
-        <h3>Access Outage Information</h3>
-        <p>Anytime, Anywhere!</p>
-      </div>
-    </div>
-
-    <div class="item" data-toggle="modal" data-target="#signinModal">
-      <img src="./assets/images/gray.jpg" alt="New York">
-      <div class="carousel-caption">
-        <h3>Please Login</h3>
-        <p>To check current status</p>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- Left and right controls -->
-  <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-    <span class="sr-only">Previous</span>
-  </a>
-  <a class="right carousel-control" href="#myCarousel" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-    <span class="sr-only">Next</span>
-  </a>
+  </div>
 </div>
-</div>  -->
+
+<div class="col">
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Delete an Issue</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>View or Update an Issue</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col">
+  <div class="col-md-3">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Add a New Issue</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!--end display, view, delete, update, add-->
+
+
     <!--begin handlebars / issues-->
 
     <div class="viewAllIssues"></div>
@@ -242,23 +207,6 @@
       <div ><button type="submit" style="success" id="newissue">Submit</button></div>
     </form>
 
-
-
-
-<p>Add listening event for button id="button-newsubmit".  When submitted, these three fields should push to the api
-as folows:
-<ol>
-  <li>id="text-product" should populate product db column
-  <li>id="text-description" should populate description db column
-  <li>id="text-notes" should populte description db column
-</ol></p>
-
-      <br><br>
-
-
-
-
-
   <!-- signin Modal -->
   <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -266,7 +214,7 @@ as folows:
         <div class="modal-header">
           <h5 class="modal-title" id="signinModalLabel"></h5>
           <h3>Welcome!</h3>
-          <h4>If you are a new user and don't yet have an account, please <a id='signup' class="btn btn-warning btn-xs" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a></h4>
+          <h4>If you are a new user and don't yet have an account, please <a id='signup' class="btn btn-primary btn-xs" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a></h4>
           <h4>If you already have an account, please sign in:</h4>
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -329,29 +277,6 @@ as folows:
 
 <br><br>
 
-<!-- change stats Modal -->
-<div class="modal fade" id="statsModal" tabindex="-1" role="dialog" aria-labelledby="statsModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="statsModalLabel">Welcome!</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-
-<div id='statsInsideModal'>You've completed: <span id='statnum'></span> issues.</div>
-
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    </div>
-  </div>
-</div>
-</div>
-<!--end stats modal-->
-
 
 
 <!-- change password Modal -->
@@ -383,6 +308,22 @@ as folows:
 </div>
 </div>
 <!--end change password modal-->
+
+<!--begin announcements-->
+
+<div class="row" id='announce'> </div>
+<div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
+<div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
+<div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
+<div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
+<div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
+<div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
+<div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
+<div id='deleteFailureAnnounce'>Confirmation:  The issue has been deleted.</div>
+<div id='deleteSuccessAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
+<div id='updateFailureAnnounce'>Your issue update was not successful.  Please try again.</div>
+<div id='updateSuccessAnnounce'>Your issue was successfully updated.</div>
+<div id='indexFailureAnnounce'>There are no issues to display??</div>
 
 
 

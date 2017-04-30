@@ -111,6 +111,7 @@ const addHandlers = () => {
   $('#delete-issue').on('submit', deleteIssue)
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
+  $('.view_all_issues').on('click', onIndex)
   $('#signupModal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()
   })

@@ -32,16 +32,18 @@ const hideItems = function () {
   $('#sign-out').hide()
   $('.plannedUnplanned').hide()
   $('#jumbo').hide()
+  $('#options').hide()
 }
 
 const onIndexSuccess = function (data) {
+  hideItems()
   console.table(data.issues)
   const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
   $('.viewAllIssues').append(showIssuesHtml)
-  console.log('inside the onIndexSuccess in ui.js', data)
-  hideItems()
   $('#chpw').show()
   $('#sign-out').show()
+  $('#options').show()
+  console.log('inside the onIndexSuccess in ui.js', data)
 }
 
 const onIndexFailure = function (data) {
@@ -88,12 +90,14 @@ const signInSuccess = (data) => {
   $('#sign-out').show()
   $('#chpw').show()
   $('#newissue').show()
-  $('#showissues').show()
-
+  $('#options').show()
   store.user = data.user
-  console.table(data.issues)
-  const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
-  $('.viewAllIssues').append(showIssuesHtml)
+  $('#showissues').show()
+  // console.table(data.issues)
+  // onIndexSuccess(data)
+  // const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
+  // $('.viewAllIssues').append(showIssuesHtml)
+  // $('#showissues').show()
 }
 
 const signInFailure = (error) => {
