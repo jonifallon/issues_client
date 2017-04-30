@@ -100,20 +100,24 @@
 <div class="col">
   <div class="col-md-3">
     <div class="thumbnail">
-      <img src="..." alt="...">
+      <!-- <img src="..." alt="..."> -->
       <div class="caption">
         <h3>View All Issues</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a>
+        <form id="viewIssues">
+         <div ><button type="submit" class="btn btn-primary" id="showeveryissue">Display All Issues</button></div>
+       </form>
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> -->
       </div>
     </div>
   </div>
 </div>
 
+<P>NEED TO CREATE ERROR MESSAGES WHEN A USER TRIES TO DELETE AN ISSUE THAT DOESN'T BELONG TO THEM</P>
+
 <div class="col">
   <div class="col-md-3">
     <div class="thumbnail">
-      <img src="..." alt="...">
+      <!-- <img src="..." alt="..."> -->
       <div class="caption">
         <h3>Delete an Issue</h3>
         <p>...</p>
@@ -126,7 +130,7 @@
 <div class="col">
   <div class="col-md-3">
     <div class="thumbnail">
-      <img src="..." alt="...">
+      <!-- <img src="..." alt="..."> -->
       <div class="caption">
         <h3>View or Update an Issue</h3>
         <p>...</p>
@@ -139,7 +143,7 @@
 <div class="col">
   <div class="col-md-3">
     <div class="thumbnail">
-      <img src="..." alt="...">
+      <!-- <img src="..." alt="..."> -->
       <div class="caption">
         <h3>Add a New Issue</h3>
         <p>...</p>
@@ -158,10 +162,6 @@
     <div class="viewAllIssues"></div>
 
     <!--end handlebars/ issues-->
-
-    <form id="viewIssues">
-     <div ><button type="submit" style="success" id="showissues">Display All Issues</button></div>
-   </form>
 
 <table class = "actions">
   <tr>

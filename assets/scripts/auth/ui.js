@@ -27,12 +27,14 @@ const hideItems = function () {
   $('#signoff').hide()
   $('#signin').hide()
   $('#signup').hide()
-  $('#newissue').hide()
-  $('#showissues').hide()
+  // $('#newissue').hide()
   $('#sign-out').hide()
   $('.plannedUnplanned').hide()
   $('#jumbo').hide()
   $('#options').hide()
+  $('#viewoneissue').hide()
+  $('.viewAllIssues').empty()
+  // $('.viewAllIssues').hide()
 }
 
 const onIndexSuccess = function (data) {
@@ -51,16 +53,22 @@ const onIndexFailure = function (data) {
   console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
   $('#indexFailureAnnounce').show()
+  $('#options').show()
 }
-const onSuccess = function (data) {
-  console.log('inside onSuccess ui', data)
+const onSuccess = function (id) {
   hideItems()
+  console.table(id)
+  const showIssuesHtml = showIssuesHandlerbars({ issues: id })
+  $('.viewAllIssues').append(showIssuesHtml)
+  $('#options').show()
+  console.log('inside onSuccess ui', id)
 }
 
 const onError = function (data) {
   hideItems()
   $('#getIssueFailureAnnounce').show()
   console.log('inside onError ui.js', data)
+  $('#options').show()
 }
 
 const signUpSuccess = (data) => {
@@ -92,7 +100,7 @@ const signInSuccess = (data) => {
   $('#newissue').show()
   $('#options').show()
   store.user = data.user
-  $('#showissues').show()
+  // $('#showissues').show()
   // console.table(data.issues)
   // onIndexSuccess(data)
   // const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
@@ -125,6 +133,7 @@ const signOutSuccess = (data) => {
 const signOutFailure = (error) => {
   hideItems()
   $('#signoutFailureAnnounce').show()
+  $('#options').show()
   console.error(error)
 }
 
@@ -133,6 +142,7 @@ const changePasswordSuccess = (data) => {
   $('#pwchangeSuccessAnnounce').show()
   document.getElementById('announce').innerHTML = ''
   console.log('password successfully changed')
+  $('#options').show()
 }
 
 const changePasswordFailure = (error) => {
@@ -140,6 +150,7 @@ const changePasswordFailure = (error) => {
   $('#pwchangeFailureAnnounce').show()
   document.getElementById('announce').innerHTML = ''
   console.error(error)
+  $('#options').show()
 }
 
 const deleteIssueSuccess = (data) => {
@@ -148,6 +159,7 @@ const deleteIssueSuccess = (data) => {
   // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.issue)
   hideItems()
   $('#deleteSuccessAnnounce').show()
+  $('#options').show()
 }
 
 const deleteIssueFailure = (data) => {
@@ -156,15 +168,22 @@ const deleteIssueFailure = (data) => {
   console.log('inside the deleteIssueFailure ui script', store.issue)
   hideItems()
   $('#deleteFailureAnnounce').show()
+  $('#options').show()
 }
 
 const createissueSuccess = (data) => {
   console.log('create issue success ran.  data is:', data)
   store.issue = data.issue
   console.log('you are in the createissueSuccess function on ui.js', store.issue)
+  hideItems()
+  $('#newissue').show()
+  $('#chpw').show()
+  $('#sign-out').show()
+  $('#options').show()
 }
 
 const createissueFailure = (error) => {
+  $('#options').show()
   return error
 }
 
@@ -172,12 +191,14 @@ const updateissueSuccess = (data) => {
   store.issue = data.issue
   console.log('inside updateissueSuccess', data)
   hideItems()
+  $('#options').show()
   $('#updateSuccessAnnounce').show()
 }
 
 const updateissueFailure = (error) => {
   console.log('inside updateissueFailure ui')
   hideItems()
+  $('#options').show()
   $('#updateFailureAnnounce').show()
   return error
 }
