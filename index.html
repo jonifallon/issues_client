@@ -14,7 +14,7 @@
 
     <body>
 
-      <nav class="navbar navbar-inverse">
+      <nav class="navbar navbar-default">
         <div class="container-fluid">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -24,7 +24,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">What's Down?</a>
+            <a class="navbar-brand" href="#">Known Issues</a>
           </div>
 
           <!-- Collect the nav links, forms, and other content for toggling -->
@@ -84,7 +84,6 @@
       <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
       <div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
       <div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
-      <div id='signoutSuccessAnnounce'>You have signed out.<br>Come back soon!</div>
       <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
       <div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
       <div id='deleteFailureAnnounce'>Confirmation:  The issue has been deleted.</div>
@@ -94,18 +93,65 @@
       <div id='indexFailureAnnounce'>There are no issues to display??</div>
 
       <!--end announcements-->
+      <div class="jumbotron" id='jumbo'>
+        <h1 id='jumboh1'>Known Issues and Outages</h1>
+        <h3 id='jumboh3'>Please sign in to view current issues and outages.</h3>
+         <br><br><br>
+         <table class='jumbotable'>
+          <tr>
+            <td class='tdcenter'><a id='signin' class="btn btn-warning btn-lg center-block" role="button" data-toggle="modal" data-target="#signinModal">Sign In</a></td>
+            <td> </tr>
+          <!-- <tr>
+            <td class='tdcenter'><div class='jumbocomments'>Existing Users</div></td>
+            <td> </td>
+            <td class='tdcenter'><div class='jumbocomments'>New Users</div></td>
+          </tr> -->
+         </table>
+      </div>
+
+<!--planned and unplanned-->
+     <div class="plannedUnplanned">
+      <div class="col">
+        <div class="col-sm-6 col-md-6">
+          <div class="thumbnail">
+            <img src="assets/images/stopwatch.jpg" alt="Planned Events">
+            <div class="caption">
+              <h3>Planned Events</h3>
+              <p>There are times when applications will be down for routine maintenance or enhancements.   Sign-in to view any upcoming events.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="col-sm-6 col-md-6">
+          <div class="thumbnail">
+            <img src="assets/images/puzzle.jpg" alt="Unplanned Events">
+            <div class="caption">
+              <h3>Unplanned Issues and Outages</h3>
+              <p>When there is an unexpected issue or outage, sign in to check to see if it has already been reported to the Help Desk.  Information will be updated as status changes.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--end planned and unplanned-->
+
+        <div class="viewAllIssues"></div>
+
+      <!--
       <div class="carousel">
 
       <div id="myCarousel" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
+  <! Indicators -->
+  <!-- <ol class="carousel-indicators">
     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
     <li data-target="#myCarousel" data-slide-to="1"></li>
     <li data-target="#myCarousel" data-slide-to="2"></li>
-  </ol>
+  </ol> -->
 
   <!-- Wrapper for slides -->
-  <div class="carousel-inner">
+  <!-- <div class="carousel-inner">
     <div class="item active">
       <img src="./assets/images/sunrise.jpg" alt="Chania">
       <div class="carousel-caption">
@@ -129,10 +175,10 @@
         <p>To check current status</p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Left and right controls -->
-  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+  <!-- <a class="left carousel-control" href="#myCarousel" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
     <span class="sr-only">Previous</span>
   </a>
@@ -141,7 +187,7 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-</div>
+</div>  -->
     <!--begin handlebars / issues-->
 
     <div class="viewAllIssues"></div>
@@ -218,7 +264,11 @@ as folows:
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="signinModalLabel">Welcome back!<br>  Please sign in to view the Issues log!</h5>
+          <h5 class="modal-title" id="signinModalLabel"></h5>
+          <h3>Welcome!</h3>
+          <h4>If you are a new user and don't yet have an account, please <a id='signup' class="btn btn-warning btn-xs" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a></h4>
+          <h4>If you already have an account, please sign in:</h4>
+
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

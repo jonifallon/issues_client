@@ -30,6 +30,8 @@ const hideItems = function () {
   $('#newissue').hide()
   $('#showissues').hide()
   $('#sign-out').hide()
+  $('.plannedUnplanned').hide()
+  $('#jumbo').hide()
 }
 
 const onIndexSuccess = function (data) {
@@ -63,6 +65,9 @@ const signUpSuccess = (data) => {
   hideItems()
   $('#signin').show()
   $('#signupSuccessAnnounce').show()
+  $('.plannedUnplanned').show()
+  $('#jumbo').show()
+  $('#signup').hide()
   // console.log(data)
 }
 
@@ -71,6 +76,8 @@ const signUpFailure = (error) => {
   $('#signin').show()
   $('#signup').show()
   $('#signupFailureAnnounce').show()
+  $('.plannedUnplanned').show()
+  $('#jumbo').show()
   console.error(error)
 }
 
@@ -92,6 +99,10 @@ const signInSuccess = (data) => {
 const signInFailure = (error) => {
   hideItems()
   $('#signinFailureAnnounce').show()
+  $('#signin').show()
+  $('#signup').show()
+  $('.plannedUnplanned').show()
+  $('#jumbo').show()
   console.error('signin failure ran.  error is:', error)
 }
 
@@ -100,6 +111,8 @@ const signOutSuccess = (data) => {
   $('#signin').show()
   $('#signup').show()
   $('#signoutSuccessAnnounce').show()
+  $('#jumbo').show()
+  $('.plannedUnplanned').show()
   document.getElementById('announce').innerHTML = ''
   console.log('signout success and nothing was returned')
   store.user = null
