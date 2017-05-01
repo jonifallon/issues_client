@@ -31,7 +31,7 @@ const hideItems = function () {
   $('#sign-out').hide()
   $('.plannedUnplanned').hide()
   $('#jumbo').hide()
-  $('#options').hide()
+  $('#selections').hide()
   $('#viewoneissue').hide()
   $('.viewAllIssues').empty()
   // $('.viewAllIssues').hide()
@@ -44,7 +44,7 @@ const onIndexSuccess = function (data) {
   $('.viewAllIssues').append(showIssuesHtml)
   $('#chpw').show()
   $('#sign-out').show()
-  $('#options').show()
+  $('#selections').show()
   console.log('inside the onIndexSuccess in ui.js', data)
 }
 
@@ -53,14 +53,16 @@ const onIndexFailure = function (data) {
   console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
   $('#indexFailureAnnounce').show()
-  $('#options').show()
+  $('#selections').show()
 }
 const onSuccess = function (id) {
   hideItems()
   console.table(id)
   const showIssuesHtml = showIssuesHandlerbars({ issues: id })
   $('.viewAllIssues').append(showIssuesHtml)
-  $('#options').show()
+  $('#selections').show()
+  $('#chpw').show()
+  $('#sign-out').show()
   console.log('inside onSuccess ui', id)
 }
 
@@ -68,7 +70,7 @@ const onError = function (data) {
   hideItems()
   $('#getIssueFailureAnnounce').show()
   console.log('inside onError ui.js', data)
-  $('#options').show()
+  $('#selections').show()
 }
 
 const signUpSuccess = (data) => {
@@ -98,7 +100,7 @@ const signInSuccess = (data) => {
   $('#sign-out').show()
   $('#chpw').show()
   $('#newissue').show()
-  $('#options').show()
+  $('#selections').show()
   store.user = data.user
   // $('#showissues').show()
   // console.table(data.issues)
@@ -133,7 +135,7 @@ const signOutSuccess = (data) => {
 const signOutFailure = (error) => {
   hideItems()
   $('#signoutFailureAnnounce').show()
-  $('#options').show()
+  $('#selections').show()
   console.error(error)
 }
 
@@ -142,7 +144,7 @@ const changePasswordSuccess = (data) => {
   $('#pwchangeSuccessAnnounce').show()
   document.getElementById('announce').innerHTML = ''
   console.log('password successfully changed')
-  $('#options').show()
+  $('#selections').show()
 }
 
 const changePasswordFailure = (error) => {
@@ -150,7 +152,7 @@ const changePasswordFailure = (error) => {
   $('#pwchangeFailureAnnounce').show()
   document.getElementById('announce').innerHTML = ''
   console.error(error)
-  $('#options').show()
+  $('#selections').show()
 }
 
 const deleteIssueSuccess = (data) => {
@@ -159,7 +161,7 @@ const deleteIssueSuccess = (data) => {
   // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.issue)
   hideItems()
   $('#deleteSuccessAnnounce').show()
-  $('#options').show()
+  $('#selections').show()
 }
 
 const deleteIssueFailure = (data) => {
@@ -168,7 +170,7 @@ const deleteIssueFailure = (data) => {
   console.log('inside the deleteIssueFailure ui script', store.issue)
   hideItems()
   $('#deleteFailureAnnounce').show()
-  $('#options').show()
+  $('#selections').show()
 }
 
 const createissueSuccess = (data) => {
@@ -179,11 +181,11 @@ const createissueSuccess = (data) => {
   $('#newissue').show()
   $('#chpw').show()
   $('#sign-out').show()
-  $('#options').show()
+  $('#selections').show()
 }
 
 const createissueFailure = (error) => {
-  $('#options').show()
+  $('#selections').show()
   return error
 }
 
@@ -191,14 +193,14 @@ const updateissueSuccess = (data) => {
   store.issue = data.issue
   console.log('inside updateissueSuccess', data)
   hideItems()
-  $('#options').show()
+  $('#selections').show()
   $('#updateSuccessAnnounce').show()
 }
 
 const updateissueFailure = (error) => {
   console.log('inside updateissueFailure ui')
   hideItems()
-  $('#options').show()
+  $('#selections').show()
   $('#updateFailureAnnounce').show()
   return error
 }

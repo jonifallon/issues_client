@@ -92,56 +92,123 @@
     </div>
     <!--end planned and unplanned-->
 
-        <!-- <div class="viewAllIssues"></div> -->
+    <table class = 'all_results' id='selections'>
+	<tbody>
+		<tr>
+			<td class="tdleft"><form id="viewIssues">
+             <div ><button type="submit" class="btn btn-primary" id="showeveryissue">Display All Issues</button></div>
+           </form>
+      </td>
+			<td class="tdleft"><form id="delete-issue">
+                <!-- <div><h4 class="issuesHeader">delete an Issue</h1></div> -->
+                <div><label>Enter issue ID</label>
+                  <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
+                  <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
+                </form>
+      </td>
+			<td class="tdleft"><form id="view-issue">
+                <!-- <div><h4 class="issuesHeader">View an Issue</h1></div> -->
+                <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
+                  <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
+                  <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">View Issue</button></div>
+                </form>
+      </td>
+      <td class="tdleft"><form id="update-issue"><div><h4 class="issuesHeader">Update an Issue</h1></div>
+                  <div><label>Enter issue ID</label>
+                    <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
+                    <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
+                  </form>
+      </td>
+			<td class="tdleft"><h4>text here <a id='newissue' class="btn btn-primary btn-xs" role="button" data-toggle="modal" data-target="#newissueModal">Create a New Issue</a></h4>
+
+      </td>
+			<td class="tdleft"></td>
+		</tr>
+		<tr>
+			<td class="tdleft" colspan="5"><div class="viewAllIssues"></div></td>
+		</tr>
+	</tbody>
+</table>
+
+
+
 
 <!--display, view, delete, update, add-->
-<div id="options">
 
-<div class="col">
-  <div class="col-md-3">
-    <div class="thumbnail">
+
+<!-- <div class="col">
+  <div class="col-md-2">
+    <div class="thumbnail"> -->
       <!-- <img src="..." alt="..."> -->
-      <div class="caption">
+      <!-- <div class="caption">
         <h3>View All Issues</h3>
         <form id="viewIssues">
          <div ><button type="submit" class="btn btn-primary" id="showeveryissue">Display All Issues</button></div>
-       </form>
+       </form> -->
         <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> -->
-      </div>
+      <!-- </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<P>NEED TO CREATE ERROR MESSAGES WHEN A USER TRIES TO DELETE AN ISSUE THAT DOESN'T BELONG TO THEM</P>
 
-<div class="col">
-  <div class="col-md-3">
-    <div class="thumbnail">
+<!-- <div class="col">
+  <div class="col-md-2">
+    <div class="thumbnail"> -->
       <!-- <img src="..." alt="..."> -->
-      <div class="caption">
+      <!-- <div class="caption">
         <h3>Delete an Issue</h3>
-        <p>...</p>
+        <form id="delete-issue"> -->
+          <!-- <div><h4 class="issuesHeader">delete an Issue</h1></div> -->
+          <!-- <div><label>Enter issue ID</label>
+            <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
+            <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
+          </form>
         <p><a href="#" class="btn btn-primary" role="button">Button</a>
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
-<div class="col">
-  <div class="col-md-3">
-    <div class="thumbnail">
+<!-- <div class="col">
+  <div class="col-md-2">
+    <div class="thumbnail"> -->
       <!-- <img src="..." alt="..."> -->
-      <div class="caption">
-        <h3>View or Update an Issue</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a>
-      </div>
+      <!-- <div class="caption">
+        <h3>View an Issue</h3>
+        <form id="view-issue"> -->
+          <!-- <div><h4 class="issuesHeader">View an Issue</h1></div> -->
+          <!-- <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
+            <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
+            <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">View Issue</button></div>
+          </form> -->
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> -->
+      <!-- </div>
     </div>
   </div>
-</div>
+</div> -->
+
+<!-- <div class="col">
+  <div class="col-md-2">
+    <div class="thumbnail"> -->
+      <!-- <img src="..." alt="..."> -->
+      <!-- <div class="caption">
+        <h3>Update an Issue</h3>
+        <form id="update-issue"> -->
+          <!-- <div><h4 class="issuesHeader">Update an Issue</h1></div> -->
+          <!-- <form id="update-issue"><div><h4 class="issuesHeader">Update an Issue</h1></div>
+            <div><label>Enter issue ID</label>
+              <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
+              <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
+            </form> -->
+        <!-- <p><a href="#" class="btn btn-primary" role="button">Button</a> -->
+      <!-- </div>
+    </div>
+  </div>
+</div> -->
 
 <div class="col">
-  <div class="col-md-3">
+  <div class="col-md-2">
     <div class="thumbnail">
       <!-- <img src="..." alt="..."> -->
       <div class="caption">
@@ -154,47 +221,23 @@
 </div>
 </div>
 
+<P>NEED TO CREATE ERROR MESSAGES WHEN A USER TRIES TO DELETE AN ISSUE THAT DOESN'T BELONG TO THEM</P>
+
 <!--end display, view, delete, update, add-->
 
 
     <!--begin handlebars / issues-->
 
-    <div class="viewAllIssues"></div>
+    <!-- <div class="viewAllIssues"></div> -->
 
     <!--end handlebars/ issues-->
 
-<table class = "actions">
-  <tr>
-    <td>
-      <!--get issues=-->
-       <form id="view-issue"><div><h4 class="issuesHeader">View an Issue</h1></div>
-         <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
-           <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
-           <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
-         </form>
-    </td>
-    <td>
-      <!--delete issues-->
-      <form id="delete-issue"><div><h4 class="issuesHeader">delete an Issue</h1></div>
-        <div><label>Enter issue ID</label>
-          <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
-          <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
-        </form>
-    </td>
-    <td>
-      <!--update issues-->
-      <form id="update-issue"><div><h4 class="issuesHeader">Update an Issue</h1></div>
-        <div><label>Enter issue ID</label>
-          <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
-          <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
-        </form>
-    </td>
-  </tr>
-</table>
 
-      <h1>Issues and Outages</h1>
+
+
+      <!-- <h1>Issues and Outages</h1> -->
     <!-- <body class="container-fluid"> -->
-     <form id="create-issue">
+     <!-- <form id="create-issue">
        <div class="productfield">
          <label class="fb-text-label">Application or Service</label>
          <input type="text" required="false" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
@@ -205,7 +248,7 @@
       <div class="notesfield"><label class="fb-textarea-label">Notes</label><textarea type="textarea" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
 
       <div ><button type="submit" style="success" id="newissue">Submit</button></div>
-    </form>
+    </form> -->
 
   <!-- signin Modal -->
   <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
@@ -308,6 +351,41 @@
 </div>
 </div>
 <!--end change password modal-->
+
+
+<!-- newissue Modal -->
+<div class="modal fade" id="newissueModal" tabindex="-1" role="dialog" aria-labelledby="newissueModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="newissueModalLabel"></h5>
+        <h3>Welcome!</h3>
+        <h4>text here <a id='newissue' class="btn btn-primary btn-xs" role="button" data-toggle="modal" data-target="#newissueModal">Create a New Issue</a></h4>
+        <h4>and here:</h4>
+
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+  <!--begin newissue form-->
+  <form id="create-issue">
+    <div class="productfield">
+      <label class="fb-text-label">Application or Service</label>
+      <input type="text" required="false" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
+
+   <div class="descriptionfield"><label class="fb-textarea-label">Description<span class="fb-required"> *</span><span class="tooltip-element" tooltip="Include any known error messages">?</span></label>
+        <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
+
+   <div class="notesfield"><label class="fb-textarea-label">Notes</label><textarea type="textarea" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
+
+   <div ><button type="submit" style="success" id="newissue">Submit</button></div>
+     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+ </form>
+
+<!--end new issue form-->
+<br><br>
+
 
 <!--begin announcements-->
 

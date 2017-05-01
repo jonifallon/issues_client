@@ -11,6 +11,9 @@ body {
 
 }
 
+// .viewAllIssues {
+//   display: block;
+// }
 // .navbar{
 //     background-image: none;
 //     background-color: #4F90C1;
@@ -102,13 +105,30 @@ body {
   display: block;
 }
 
+#results {
+  vertical-align: top;
+}
+
+.all_results {
+  border: 0px;
+  border-collapse: collapse;
+  vertical-align: top;
+  align: left;
+  width: 100%;
+}
+
 #signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
-#signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce {
+#signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce,
+#selections {
   color: #000000;
   font-size: 18px;
   padding-top: 10px;
   text-align: center;
   display: none;
+}
+
+.tdleft {
+  text-align: left;
 }
 
 #signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
