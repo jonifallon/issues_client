@@ -57,11 +57,11 @@ const onIndex = function () {
 
 const onGetissue = function (event) {
   event.preventDefault()
-  const issue = $('#text-1493247386594').val()
-
+  const issue = $('#viewissuetextbox').val()
   api.showIssue(issue)
       .then(ui.onSuccess)
       .catch(ui.onError)
+  $('#view-issue')[0].reset()
 }
 // UPDATE ISSUES FUNCTION BEING ADDED
 // add a form and button and reference it below
@@ -70,13 +70,24 @@ const onGetissue = function (event) {
 // create confirmation msg in index.html
 // hide and show confirmation messages
 // fix css
+// const deleteIssue = function (event) {
+//   console.log('inside the deleteIssue function events.js', event)
+//   event.preventDefault()
+//   const issue = $('deleteissuetextbox').val()
+//   api.deleteIssue(issue)
+//       .then(ui.deleteIssueSuccess)
+//       .catch(ui.deleteIssueFailure)
+//   $('#delete-issue')[0].reset()
+// }
+
 const deleteIssue = function (event) {
   console.log('inside the deleteIssue function events.js', event)
   event.preventDefault()
-  const issue = $('#text-1493247386594').val()
+  const issue = $('#deleteissuetextbox').val()
   api.deleteIssue(issue)
       .then(ui.deleteIssueSuccess)
       .catch(ui.deleteIssueFailure)
+  $('#delete-issue')[0].reset()
 }
 
 const createissue = function (event) {
@@ -111,7 +122,12 @@ const addHandlers = () => {
   $('#delete-issue').on('submit', deleteIssue)
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
-  $('.view_all_issues').on('click', onIndex)
+  // $('#view-issue').trigger('reset')
+  // $('#view-issue')[0].reset()
+  // $('.view_all_issues').on('click', onIndex)
+  $('#newissueModal').on('hidden.bs.modal', function () {
+    $(this).find('form')[0].reset()
+  })
   $('#signupModal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()
   })

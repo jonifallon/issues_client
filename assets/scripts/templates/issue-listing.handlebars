@@ -3,7 +3,7 @@ https://github.com/ga-wdi-boston/full-stack-project/issues/620 -->
 
 <!-- {{#each issues as |issue|}}
 
-  <ul id="removeme" data-id="{{issue.id}}"> <li>Product: {{issue.product}}</small>
+  <ul id="removeme" data-id="{{issue.id}}"> <li>Title: {{issue.title}}</small>
   <div class="issuelisting">
     {{#if issue.description}}
       {{issue.description}}
@@ -17,23 +17,23 @@ https://github.com/ga-wdi-boston/full-stack-project/issues/620 -->
 
 
 
-{{#each issues as |issue|}}
+<!-- {{#each issues as |issue|}}
 
   <ul data-id="{{issue.id}}">
     <li><data-id="{{issue.id}}">Issue ID: {{issue.id}} Product: {{issue.product}}, Description: {{issue.description}}, Notes: {{issue.notes}}</small></li>
   </ul>
 
-{{/each}}
+{{/each}} -->
 
 
 
 <!-- BEGIN PRODUCT LOOP // -->
-<!-- {{#each issues as |issue|}}
+{{#each issues as |issue|}}
    <tr class="item">
-        <td valign="top" class="textContent"> -->
+        <td valign="top" class="textContent">
             <!-- <img src=""{{img}}" width="50" height="75" class="itemImage"" /> -->
 
-            <!-- <h4 class="itemName">{{issue.product}}</h4>
+            <h4 class="itemName">{{issue.product}}</h4>
             <span class="contentSecondary"><data-id="{{issue.id}}">Issue ID: {{issue.id}}</span><br />
             <span class="contentSecondary">Description: {{issue.description}}</span><br />
             <span class="contentSecondary">Notes: {{issue.notes}}</span><br />
@@ -42,5 +42,5 @@ https://github.com/ga-wdi-boston/full-stack-project/issues/620 -->
             something else goes here
         </td>
     </tr>
-    {{/each}} -->
+    {{/each}}
 <!-- // END PRODUCT LOOP -->
