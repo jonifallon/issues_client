@@ -119,7 +119,8 @@
               <div class="col-sm-10" id='rightSection'>
                   <!-- Body content -->
                   <div class="well well-lg"><div class="viewAllIssues"></div></div>
-
+                  <div id='onGetIssueForUpdateSuccessAnnounce'>Your issue has been updated.</div>
+                  <div id='getIssueForUpdateFailureAnnounce'>Please enter a valid issue ID. You may update only those items which you have created.</div>
                   <div id='createissueSuccessAnnounce'>The issue has been added.  Please select <strong>View All Issues</strong> to view the update.</div>
                   <div id='signinFailureAnnounce'>Your signin was unsuccessful.  Please try again.</div>
                   <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
@@ -132,8 +133,13 @@
                   <div id='deleteFailureAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
                   <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div>
                   <div id='indexFailureAnnounce'>There are no issues to display</div>
-                  <div id='pleaseBegin'>Please begin by selecting an option.  You can view existing issues,
-                    create new issues, delete an issue, or update an issue.</div>
+                  <div id='pleaseBegin'><h1>Welcome!</h1><br><br>Please begin by selecting an option on the left.  You can:
+                                       <ul><li>View current known issues or outages</li>
+                                           <li>Create a new issue</li>
+                                           <li>Delete an issue</li>
+                                           <li>Update an issue</li>
+                                        </ul>
+                                        </div>
 
 
                   <form id="create-issue">
@@ -165,12 +171,12 @@
 
                     <div class="descriptionfield">
                       <label>Description</label>
-                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea>
+                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description2"></textarea>
                    </div>
 
                    <div class="notesfield">
                      <label>Notes</label>
-                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea>
+                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes2"></textarea>
                    </div>
                    <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
                   </form>

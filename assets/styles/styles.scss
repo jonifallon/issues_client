@@ -3,15 +3,30 @@ body {
   margin-right: 30px;
 }
 
-// .navbar-brand {
-//   transform: translateX(-50%);
-//   left: 50%;
-//   position: absolute;
-// }
+h1 {
+  text-align: center;
+  font-size: 45px;
+}
 
-.leftbarheading {
-  color: #001d61;
-  font-size: 18px;
+.actions {
+  width: 100%;
+}
+
+.all_results {
+  align: left;
+  border: 0;
+  border-collapse: collapse;
+  vertical-align: top;
+  width: 100%;
+}
+
+.announcement {
+  font-size: 60px;
+}
+
+[class*="col-"]{
+    margin-bottom: -999px;
+    padding-bottom: 999px;
 }
 
 #jumbo {
@@ -27,7 +42,7 @@ body {
 }
 
 #jumboh3 {
-  color: #fff;
+  color: #001d61;
   text-align: center;
 }
 
@@ -36,14 +51,51 @@ body {
   font-size: 16px;
 }
 
-// .jumbotable {
-//   margin-left: auto;
-//   margin-right: auto;
-// }
+#leftBar {
+  background-color: #E5E7E9;
+  height: 100%;
+  padding-top: 30px;
+}
 
-.tdcenter {
-  text-align: center;
-  padding: 5px 20px;
+.leftbarheading {
+  color: #001d61;
+  font-size: 18px;
+}
+
+#results {
+  vertical-align: top;
+}
+
+#rightSection {
+  background-color: #85C1E9;
+  height: 100%;
+  padding-top: 30px;
+}
+
+.row {
+  overflow: hidden;
+}
+
+#showissues, #options, #create-issue {
+  display: none;
+}
+
+#signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
+#signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce,
+#updateFailureAnnounce, #indexFailureAnnounce, #getIssueForUpdateFailureAnnounce {
+  color: #001d61;
+  display: none;
+  font-size: 36px;
+  padding-top: 10px;
+}
+
+#signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
+#signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce,
+#selections, #createissueSuccessAnnounce, #pleaseBegin, #onGetIssueForUpdateSuccessAnnounce {
+  color: #001d61;
+  display: none;
+  font-size: 36px;
+  padding-top: 10px;
 }
 
 #sign-out, #change-password, #update-issue {
@@ -54,87 +106,16 @@ body {
   display: block;
 }
 
-#results {
-  vertical-align: top;
-}
-
-.row{
-    overflow: hidden;
-}
-
-[class*="col-"]{
-    margin-bottom: -999px;
-    padding-bottom: 999px;
-}
-
-.all_results {
-  border: 0px;
-  border-collapse: collapse;
-  vertical-align: top;
-  align: left;
-  width: 100%;
-}
-
-.well {
-  background-color: #fffff6;
-  display: none;
-}
-
-#leftBar {
-  background-color: #E5E7E9;
-  height: 100%;
-  padding-top: 30px;
-}
-
-#rightSection {
-  background-color: #85C1E9;
-  height: 100%;
-  padding-top: 30px;
-}
-
-.announcement {
-  font-size: 60px;
-}
-
-#signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
-#signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce,
-#selections, #createissueSuccessAnnounce, #pleaseBegin {
-  color: #fff;
-  font-size: 36px;
-  padding-top: 10px;
-  // text-align: center;
-  display: none;
+.tdcenter {
+  padding: 5px 20px;
+  text-align: center;
 }
 
 .tdleft {
   text-align: left;
 }
 
-// .textContent {
-//   padding: 30px;
-// }
-
-#signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
-#signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce,
-#updateFailureAnnounce, #indexFailureAnnounce {
-  color: #fff;
-  font-size: 36px;
-  padding-top: 10px;
-  // text-align: center;
+.well {
+  background-color: #fffff6;
   display: none;
-}
-
-#showissues, #options, #create-issue {
-  display: none;
-}
-
-// #announce {
-//   color: #76448a;
-//   font-size: 32px;
-//   padding-top: 10px;
-//   text-align: left;
-// }
-
-.actions {
-  width: 100%;
 }

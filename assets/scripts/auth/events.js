@@ -2,12 +2,6 @@
 
 const getFormFields = require(`../../../lib/get-form-fields`)
 
-// THINGS I WANT TO DO
-// INSTEAD OF HAVING ALL THE SHOW/HIDE STATEMENTS ON UI.JS, CREATE A FUJNCTION
-// THAT HIDES ALL OF THEM
-// THEN INSERT THAT FUNCTION INTO THE BEGINNING OF EVERY OTHER FUNCTION (EG
-// BUTTON CLICK)  THAT WAY YOU ALWAYS START OFF WITH A CLEAR SLATE
-
 const api = require('./api')
 const ui = require('./ui')
 
@@ -85,27 +79,10 @@ const populateUpdateIssueForm = function (event) {
   const issue = $('#updateissuetextbox').val()
   api.showIssue(issue)
       .then(ui.onGetIssueForUpdateSuccess)
-      // .catch(ui.onGetIssueFailure)
+      .catch(ui.onGetIssueForUpdateFailure)
   $('#update-issue').show()
   console.log('inside populateUpdateIssueForm')
 }
-
-// UPDATE ISSUES FUNCTION BEING ADDED
-// add a form and button and reference it below
-// create api script
-// create success and error UI scripts
-// create confirmation msg in index.html
-// hide and show confirmation messages
-// fix css
-// const deleteIssue = function (event) {
-//   console.log('inside the deleteIssue function events.js', event)
-//   event.preventDefault()
-//   const issue = $('deleteissuetextbox').val()
-//   api.deleteIssue(issue)
-//       .then(ui.deleteIssueSuccess)
-//       .catch(ui.deleteIssueFailure)
-//   $('#delete-issue')[0].reset()
-// }
 
 const deleteIssue = function (event) {
   console.log('inside the deleteIssue function events.js', event)
@@ -125,7 +102,6 @@ const createissue = function (event) {
   .then(ui.createissueSuccess)
   .catch(ui.createissueFailure)
   $('#create-issue')[0].reset()
-  // $('#create-issue')[0].reset()
 }
 
 const onUpdateIssue = function (event) {
@@ -138,9 +114,6 @@ const onUpdateIssue = function (event) {
   .then(ui.updateissueSuccess)
   .catch(ui.updateissueFailure)
 }
-
-// when creating an updateIssue funciton, use similar to createissue where you use the
-// const data = getFormFieds(this)
 
 const hideThings = function () {
   $('#getIssueFailureAnnounce').hide()

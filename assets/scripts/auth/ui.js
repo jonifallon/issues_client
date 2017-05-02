@@ -3,12 +3,6 @@
 const store = require('../store')
 const showIssuesHandlerbars = require('../templates/issue-listing.handlebars')
 
-// THINGS I WANT TO DO
-// INSTEAD OF HAVING ALL THE SHOW/HIDE STATEMENTS ON UI.JS, CREATE A FUJNCTION
-// THAT HIDES ALL OF THEM
-// THEN INSERT THAT FUNCTION INTO THE BEGINNING OF EVERY OTHER FUNCTION (EG
-// BUTTON CLICK)  THAT WAY YOU ALWAYS START OFF WITH A CLEAR SLATE
-
 const hideItems = function () {
   $('#getIssueFailureAnnounce').hide()
   $('#signupSuccessAnnounce').hide()
@@ -23,6 +17,7 @@ const hideItems = function () {
   $('#updateSuccessAnnounce').hide()
   $('#updateFailureAnnounce').hide()
   $('#indexFailureAnnounce').hide()
+  $('#getIssueForUpdateFailureAnnounce').hide()
   $('#change-password').hide()
   $('#update-issue').hide()
   $('#sign-in').hide()
@@ -36,6 +31,10 @@ const hideItems = function () {
   $('.viewAllIssues').empty()
   $('#createissueSuccessAnnounce').hide()
   $('#pleaseBegin').hide()
+  $('#create-issue')[0].reset()
+  $('#updates-issue')[0].reset()
+  $('#onGetIssueForUpdateSuccessAnnounce').hide()
+  $('#getIssueForUpdateFailureAnnounce').hide()
 }
 
 const showItems = function () {
@@ -74,22 +73,19 @@ const onGetIssueSuccess = function (id) {
 }
 
 const onGetIssueForUpdateSuccess = function (data) {
-  // hideItems()
   console.table(data)
-    // calls this function when the selected value changes
   console.log('inside onGetIssueForUpdateSuccess ui.js', data)
-  // $('#text-product').val(data.issue.product)
-  // $("input[name='product']").val(data.issue.product)
   $('#text-product2').val(data.issue.product)
+  $('#textarea-description2').val(data.issue.description)
+  $('#textarea-notes2').val(data.issue.notes)
+}
 
-  // try using .val with jquery to populate like data.issue.description....product, desc, notes
-  // const showIssuesHtml = showIssuesHandlerbars({ issues: id })
-  // $('.viewAllIssues').show()
-  // $('.viewAllIssues').append(showIssuesHtml)
-  // showItems()
-  // $('.well').show()
-  // jquery that will update fields on form from data
-  // console.log('inside onGetIssueSuccess ui', id)
+const onGetIssueForUpdateFailure = function (data) {
+  hideItems()
+  $('#getIssueForUpdateFailureAnnounce').show()
+  console.log('inside onGetIssueForUpdateFailure ui.js', data)
+  showItems()
+  $('#update-issue').hide()
 }
 
 const onGetIssueFailure = function (data) {
@@ -125,13 +121,6 @@ const signInSuccess = (data) => {
   hideItems()
   showItems()
   $('#pleaseBegin').show()
-
-  // $('#showissues').show()
-  // console.table(data.issues)
-  // onIndexSuccess(data)
-  // const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
-  // $('.viewAllIssues').append(showIssuesHtml)
-  // $('#showissues').show()
 }
 
 const signInFailure = (error) => {
@@ -153,7 +142,6 @@ const signOutSuccess = (data) => {
   $('#signoutSuccessAnnounce').show()
   $('#jumbo').show()
   $('.plannedUnplanned').show()
-  // $('button').prop('disabled', false)
 }
 
 const signOutFailure = (error) => {
@@ -166,17 +154,15 @@ const signOutFailure = (error) => {
 const changePasswordSuccess = (data) => {
   hideItems()
   $('#pwchangeSuccessAnnounce').show()
-  document.getElementById('announce').innerHTML = ''
   console.log('password successfully changed')
   showItems()
 }
 
 const changePasswordFailure = (error) => {
   hideItems()
-  $('#pwchangeFailureAnnounce').show()
-  document.getElementById('announce').innerHTML = ''
-  console.error(error)
   showItems()
+  $('#pwchangeFailureAnnounce').show()
+  console.error(error)
 }
 
 const deleteIssueSuccess = (data) => {
@@ -219,6 +205,7 @@ const updateissueSuccess = (data) => {
   hideItems()
   showItems()
   $('#updateSuccessAnnounce').show()
+  // $('#onGetIssueForUpdateSuccessAnnounce').show()
 }
 
 const updateissueFailure = (error) => {
@@ -228,19 +215,6 @@ const updateissueFailure = (error) => {
   $('#updateFailureAnnounce').show()
   return error
 }
-
-// const populateAddIssueFormSuccess = () => {
-//   hideItems()
-//   showItems()
-//   $('#jumbo').show()
-//   $('#create-issue').show()
-// }
-
-// const populateAddIssueFormFailure = (error) => {
-//   hideItems()
-//   showItems()
-//   console.error(error)
-// }
 
 module.exports = {
   signUpSuccess,
@@ -262,7 +236,6 @@ module.exports = {
   deleteIssueFailure,
   onIndexFailure,
   showItems,
-  onGetIssueForUpdateSuccess
-  // populateAddIssueFormSuccess,
-  // populateAddIssueFormFailure
+  onGetIssueForUpdateSuccess,
+  onGetIssueForUpdateFailure
 }
