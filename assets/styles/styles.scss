@@ -9,10 +9,15 @@ body {
 //   position: absolute;
 // }
 
+.leftbarheading {
+  color: #001d61;
+  font-size: 18px;
+}
+
 #jumbo {
   background-image: url('../images/hills.png');
   // margin: 20px;
-  max-width: 1620px;
+  // max-width: 1620px;
 }
 
 #jumboh1 {
@@ -26,26 +31,22 @@ body {
   text-align: center;
 }
 
-#signup {
-  width: 100px;
-}
-
 .jumbocomments {
   color: #fff;
   font-size: 16px;
 }
 
-.jumbotable {
-  margin-left: auto;
-  margin-right: auto;
-}
+// .jumbotable {
+//   margin-left: auto;
+//   margin-right: auto;
+// }
 
 .tdcenter {
   text-align: center;
   padding: 5px 20px;
 }
 
-#sign-out, #change-password {
+#sign-out, #change-password, #update-issue {
   display:none;
 }
 
@@ -82,18 +83,24 @@ body {
 #leftBar {
   background-color: #E5E7E9;
   height: 100%;
+  padding-top: 30px;
 }
 
 #rightSection {
   background-color: #85C1E9;
   height: 100%;
+  padding-top: 30px;
+}
+
+.announcement {
+  font-size: 60px;
 }
 
 #signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
 #signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce,
-#selections, #createissueSuccessAnnounce {
+#selections, #createissueSuccessAnnounce, #pleaseBegin {
   color: #fff;
-  font-size: 18px;
+  font-size: 36px;
   padding-top: 10px;
   // text-align: center;
   display: none;
@@ -111,7 +118,7 @@ body {
 #signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce,
 #updateFailureAnnounce, #indexFailureAnnounce {
   color: #fff;
-  font-size: 18px;
+  font-size: 36px;
   padding-top: 10px;
   // text-align: center;
   display: none;
@@ -121,12 +128,12 @@ body {
   display: none;
 }
 
-#announce {
-  color: #76448a;
-  font-size: 32px;
-  padding-top: 10px;
-  text-align: left;
-}
+// #announce {
+//   color: #76448a;
+//   font-size: 32px;
+//   padding-top: 10px;
+//   text-align: left;
+// }
 
 .actions {
   width: 100%;

@@ -11,6 +11,41 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
+const hideThings = function () {
+  $('#getIssueFailureAnnounce').hide()
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
+  $('#updateSuccessAnnounce').hide()
+  $('#updateFailureAnnounce').hide()
+  $('#indexFailureAnnounce').hide()
+  $('#change-password').hide()
+  $('#update-issue').hide()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#sign-out').hide()
+  $('.plannedUnplanned').hide()
+  $('#jumbo').hide()
+  $('#options').hide()
+  $('#create-issue').hide()
+  $('.well').hide()
+  $('.viewAllIssues').empty()
+  $('#createissueSuccessAnnounce').hide()
+  $('#pleaseBegin').hide()
+}
+
+const showThings = function () {
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#options').show()
+}
+
 const onSignUp = function (event) {
   const data = getFormFields(this)
   // this points to event.target
@@ -66,6 +101,15 @@ const onGetissue = function (event) {
       .catch(ui.onGetIssueFailure)
   $('#view-issue')[0].reset()
 }
+
+const populateAddIssueForm = function (event) {
+  // populate the create-issue form on the index page
+  event.preventDefault()
+  hideThings()
+  showThings()
+  $('#create-issue').show()
+  console.log('inside populateAddIssueForm')
+}
 // UPDATE ISSUES FUNCTION BEING ADDED
 // add a form and button and reference it below
 // create api script
@@ -101,6 +145,7 @@ const createissue = function (event) {
   .then(ui.createissueSuccess)
   .catch(ui.createissueFailure)
   $('#create-issue')[0].reset()
+  // $('#create-issue')[0].reset()
 }
 
 const onUpdateIssue = function (event) {
@@ -122,10 +167,12 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#viewIssues').on('submit', onIndex)
   $('#view-issue').on('submit', onGetissue)
-  $('#add-issue-button').on('submit', createissue)
+  $('#add-issue-button').on('submit', populateAddIssueForm)
   $('#delete-issue').on('submit', deleteIssue)
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
+  $('#create-issue').on('submit', createissue)
+  // $('#create-issue').on('submit'), createissue)
   // $('#newissueModal').on('hidden.bs.modal', function () {
   //   $(this).find('form')[0].reset()
   // })

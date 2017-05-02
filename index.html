@@ -17,65 +17,70 @@
       <div class="col-md-12" >
           <div class="row">
               <div class="col-sm-2" id='leftBar'>
-                  Sidebar content
+                  <!-- Sidebar content -->
                   <form id="sign-up">
-                    <br>
                     <fieldset>
-                       <label>Sign Up</label>
+                       <label class='leftbarheading'>Sign Up</label><br>
                         <input type="text" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
                         <input type="password" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
-                        <input type="password" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password">
+                        <input type="password" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password"><br>
                       <input type="submit" name="submit" value="Sign up!">
+                      <br><br>
                     </fieldset>
                   </form>
-                  <br><br>
+
 
                   <!-- add signin  -->
                   <form id="sign-in">
                   <fieldset>
-                    <label>Sign In</label>
+                    <label class='leftbarheading'>Sign In</label>
                     <br>
                     <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
-                    <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password">
+                    <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password"><br>
                   <input type="submit" name="submit" value="Sign in!">
+                  <br><br>
                   </fieldset>
                   </form>
-                  <br><br>
+
                   <!-- add pwchange -->
                   <form id="change-password">
                     <fieldset>
-                      <label>Change Password</label>
+                      <label class='leftbarheading'>Change Password</label>
                       <br>
                         <input type="password" name="passwords[old]" id="old password" placeholder="Old Password">
                         <input type="password" name="passwords[new]" id="new password" placeholder="New Password">
                       <input type="submit" name="submit" value="Change password!">
+                      <br><br>
                     </fieldset>
                   </form>
-                  <br><br>
+
                   <!-- add sign out -->
                   <form id="sign-out">
-                    <label>Sign Out</label>
+                    <label class='leftbarheading'>Sign Out</label>
                     <br>
                     <button type="submit">Sign Out</button>
+                    <br><br>
                   </form>
-                  <br><br>
+
                   <!--end auth forms-->
                   <div id="options">
                          <form id="viewIssues">
-                           <label>View All Issues</label>
+                           <label class='leftbarheading'>View All Issues</label>
                            <br>
                            <button type="submit">View Issues</button>
+                           <br><br>
                          </form>
-                  <br><br>
+
                          <!--adding view single issue-->
 
                          <form id="view-issue">
-                           <label>View Single Issue</label>
+                           <label class='leftbarheading'>View Single Issue</label>
                            <br>
                              <input type="text" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID to view">
-                           <button type="submit">View Issue</button>
+                           <button type="submit">Submit</button>
+                           <br><br>
                          </form>
-                  <br><br>
+
 
                   <!--add new issue-->
 
@@ -83,23 +88,24 @@
 
 
                          <!--delete issues-->
-<p>need to point this button to the # in right window for add new issue....then that button has a listening event that calls create-issue.</p>
 
                          <form id="add-issue-button">
-                           <label>Add a New Issue</label>
+                           <label class='leftbarheading'>Add a New Issue</label>
                            <br>
-                           <button type="submit">Add Issue</button>
+                              <button type="submit">Add Issue</button>
+                            <br><br>
                          </form>
-                         <br><br>
+
 
 
                          <form id="delete-issue">
-                           <label>Delete an Issue</label>
+                           <label class='leftbarheading'>Delete an Issue</label>
                            <br>
                              <input type="text" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID to delete">
                            <button type="submit">Submit</button>
+                           <br><br>
                          </form>
-                          <br><br>
+
                   </div>
 
 
@@ -110,8 +116,9 @@
 
 
               <div class="col-sm-10" id='rightSection'>
-                  Body content
+                  <!-- Body content -->
                   <div class="well well-lg"><div class="viewAllIssues"></div></div>
+
                   <div id='createissueSuccessAnnounce'>The issue has been added.  Please select <strong>View All Issues</strong> to view the update.</div>
                   <div id='signinFailureAnnounce'>Your signin was unsuccessful.  Please try again.</div>
                   <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
@@ -124,15 +131,33 @@
                   <div id='deleteFailureAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
                   <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div>
                   <div id='indexFailureAnnounce'>There are no issues to display</div>
-                  <div class="jumbotron" id='jumbo'>
-                    <h1 id='jumboh1'>Known Issues and Outages</h1>
-                    <h3 id='jumboh3'>Please sign in to continue.</h3>
-                  </div>
+                  <div id='pleaseBegin'>Please begin by selecting an option.  You can view existing issues,
+                    create new issues, delete an issue, or update an issue.</div>
 
 
-                  <!--create issue-->
                   <form id="create-issue">
-                      <h3>Add a New Issue</h3>
+                    <h3>Add a New Issue</h3>
+                    <div class="productfield">
+                      <label>Application or Service</label>
+                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false">
+                    </div>
+                    <div class="descriptionfield">
+                      <label>Description</label>
+                      <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea>
+                    </div>
+
+                    <div class="notesfield">
+                     <label>Notes</label>
+                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea>
+                    </div>
+                    <div><button type="submit" style="success" id="newissue">Submit</button>
+                    </div>
+                  </form>
+
+
+                  <form id="update-issue">
+                      <h3>Update an Issue</h3>
+
                     <div class="productfield">
                       <label>Application or Service</label>
                       <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
@@ -143,8 +168,53 @@
                    <div class="notesfield">
                      <label>Notes</label>
                      <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
-                   <div><button type="submit" style="success" id="newissue">Submit</button></div>
+                   <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
                   </form>
+
+
+                  <div class="jumbotron" id='jumbo'>
+                    <h1 id='jumboh1'>Known Issues and Outages</h1>
+                    <h3 id='jumboh3'>Please sign in to continue.</h3>
+
+
+
+
+                    <!--update an issue-->
+
+
+
+
+
+
+                    <!--create issue-->
+
+
+
+
+
+
+                      <!-- <form id="create-issue">
+                        <h3>Add a New Issue</h3>
+                        <div class="productfield">
+                          <label>Application or Service</label>
+                          <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false">
+                        </div>
+                        <div class="descriptionfield">
+                          <label>Description</label>
+                          <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea>
+                        </div>
+
+                        <div class="notesfield">
+                         <label>Notes</label>
+                         <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea>
+                        </div>
+                        <div><button type="submit" style="success" id="newissue">Submit</button>
+                        </div>
+                      </form> -->
+
+
+
+
 
             <!--planned and unplanned-->
                  <!-- <div class="plannedUnplanned">
@@ -186,12 +256,12 @@
 
 
 
-    <ul>Outstanding things to fix</ul>
+    <!-- <ul>Outstanding things to fix</ul>
     <li>Hide add, delete, update, view (one, many) functions until after signin AND line them up nicely with form results.
     <li>write read-me files
-    <li>publish to heroku
+    <li>publish to heroku -->
 
-
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 
     <!--end planned and unplanned-->
@@ -218,26 +288,9 @@
 </form>
 </div> -->
 
-<div class="row" id='announce'> </div>
 
-<!--delete an issue-->
-<div id="updateissue">
-<form id="update-issue">
-    <h3>Update an Issue</h3>
 
-  <div class="productfield">
-    <label>Application or Service</label>
-    <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
-  <div class="descriptionfield">
-    <label>Description</label>
-  <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
 
- <div class="notesfield">
-   <label>Notes</label>
-   <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
- <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
-</form>
-</div>
 
 <!-- <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div> -->
 <!-- <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div> -->

@@ -77,14 +77,15 @@ const deleteIssue = (id) => {
   })
 }
 
-const updateIssue = (id) => {
-  console.log('data is', id)
+const updateIssue = (id, data) => {
+  console.log('data is', id, data)
   return $.ajax({
     url: config.apiOrigin + '/issues/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data
   })
 }
 
