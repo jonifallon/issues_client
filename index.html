@@ -48,7 +48,7 @@
                       <label class='leftbarheading'>Change Password</label>
                       <br>
                         <input type="password" name="passwords[old]" id="old password" placeholder="Old Password">
-                        <input type="password" name="passwords[new]" id="new password" placeholder="New Password">
+                        <input type="password" name="passwords[new]" id="new password" placeholder="New Password"><br>
                       <input type="submit" name="submit" value="Change password!">
                       <br><br>
                     </fieldset>
@@ -76,18 +76,11 @@
                          <form id="view-issue">
                            <label class='leftbarheading'>View Single Issue</label>
                            <br>
-                             <input type="text" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID to view">
+                             <input type="text" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form>
 
-
-                  <!--add new issue-->
-
-
-
-
-                         <!--delete issues-->
 
                          <form id="add-issue-button">
                            <label class='leftbarheading'>Add a New Issue</label>
@@ -96,12 +89,20 @@
                             <br><br>
                          </form>
 
+                         <form id="updates-issue">
+                           <label class='leftbarheading'>Update an Issue</label>
+                           <br>
+                             <input type="text" name="issue[id]" class="form-control" id="updateissuetextbox" placeholder="Enter Issue ID">
+                           <button type="submit">Submit</button>
+                           <br><br>
+                         </form>
+
 
 
                          <form id="delete-issue">
                            <label class='leftbarheading'>Delete an Issue</label>
                            <br>
-                             <input type="text" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID to delete">
+                             <input type="text" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form>
@@ -157,17 +158,20 @@
 
                   <form id="update-issue">
                       <h3>Update an Issue</h3>
-
                     <div class="productfield">
                       <label>Application or Service</label>
-                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
+                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false">
+                    </div>
+
                     <div class="descriptionfield">
                       <label>Description</label>
-                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
+                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea>
+                   </div>
 
                    <div class="notesfield">
                      <label>Notes</label>
-                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
+                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea>
+                   </div>
                    <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
                   </form>
 
@@ -177,127 +181,7 @@
                     <h3 id='jumboh3'>Please sign in to continue.</h3>
 
 
-
-
-                    <!--update an issue-->
-
-
-
-
-
-
-                    <!--create issue-->
-
-
-
-
-
-
-                      <!-- <form id="create-issue">
-                        <h3>Add a New Issue</h3>
-                        <div class="productfield">
-                          <label>Application or Service</label>
-                          <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false">
-                        </div>
-                        <div class="descriptionfield">
-                          <label>Description</label>
-                          <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea>
-                        </div>
-
-                        <div class="notesfield">
-                         <label>Notes</label>
-                         <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea>
-                        </div>
-                        <div><button type="submit" style="success" id="newissue">Submit</button>
-                        </div>
-                      </form> -->
-
-
-
-
-
-            <!--planned and unplanned-->
-                 <!-- <div class="plannedUnplanned">
-                  <div class="col">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="thumbnail">
-                        <img src="assets/images/stopwatch.jpg" alt="Planned Events">
-                        <div class="caption">
-                          <h3>Planned Events</h3>
-                          <p>There are times when applications will be down for routine maintenance or enhancements.   Sign-in to view any upcoming events.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="col">
-                    <div class="col-sm-6 col-md-6">
-                      <div class="thumbnail">
-                        <img src="assets/images/puzzle.jpg" alt="Unplanned Events">
-                        <div class="caption">
-                          <h3>Unplanned Issues and Outages</h3>
-                          <p>When there is an unexpected issue or outage, sign in to check to see if it has already been reported to the Help Desk.  Information will be updated as status changes.</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-          </div>
-      </div> -->
-<!--add signup-->
-
-
-
-
-
-
-
-
-
-    <!-- <ul>Outstanding things to fix</ul>
-    <li>Hide add, delete, update, view (one, many) functions until after signin AND line them up nicely with form results.
-    <li>write read-me files
-    <li>publish to heroku -->
-
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-
-    <!--end planned and unplanned-->
-<!-- <div class="viewAllIssues"></div> -->
-        <!-- <div class="viewAllIssues"></div> -->
-
-<!--display, view, delete, update, add-->
-
-<!--add new issue-->
-<!-- <div id="addissue">
-<form id="create-issue">
-    <h3>Add a New Issue</h3>
-  <div class="productfield">
-    <label>Application or Service</label>
-    <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
-  <div class="descriptionfield">
-    <label>Description</label>
-  <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
-
- <div class="notesfield">
-   <label>Notes</label>
-   <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
- <div><button type="submit" style="success" id="newissue">Submit</button></div>
-</form>
-</div> -->
-
-
-
-
-
-<!-- <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div> -->
-<!-- <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div> -->
-
-
-
-
 
 
     </body>

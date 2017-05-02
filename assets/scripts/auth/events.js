@@ -11,41 +11,6 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 
-const hideThings = function () {
-  $('#getIssueFailureAnnounce').hide()
-  $('#signupSuccessAnnounce').hide()
-  $('#signupFailureAnnounce').hide()
-  $('#signinFailureAnnounce').hide()
-  $('#pwchangeSuccessAnnounce').hide()
-  $('#pwchangeFailureAnnounce').hide()
-  $('#signoutSuccessAnnounce').hide()
-  $('#signoutFailureAnnounce').hide()
-  $('#deleteSuccessAnnounce').hide()
-  $('#deleteFailureAnnounce').hide()
-  $('#updateSuccessAnnounce').hide()
-  $('#updateFailureAnnounce').hide()
-  $('#indexFailureAnnounce').hide()
-  $('#change-password').hide()
-  $('#update-issue').hide()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
-  $('#sign-out').hide()
-  $('.plannedUnplanned').hide()
-  $('#jumbo').hide()
-  $('#options').hide()
-  $('#create-issue').hide()
-  $('.well').hide()
-  $('.viewAllIssues').empty()
-  $('#createissueSuccessAnnounce').hide()
-  $('#pleaseBegin').hide()
-}
-
-const showThings = function () {
-  $('#change-password').show()
-  $('#sign-out').show()
-  $('#options').show()
-}
-
 const onSignUp = function (event) {
   const data = getFormFields(this)
   // this points to event.target
@@ -110,6 +75,21 @@ const populateAddIssueForm = function (event) {
   $('#create-issue').show()
   console.log('inside populateAddIssueForm')
 }
+
+const populateUpdateIssueForm = function (event) {
+  // populate the create-issue form on the index page
+  event.preventDefault()
+  hideThings()
+  showThings()
+  // captures the issue ID input by the user
+  const issue = $('#updateissuetextbox').val()
+  api.showIssue(issue)
+      .then(ui.onGetIssueForUpdateSuccess)
+      // .catch(ui.onGetIssueFailure)
+  $('#update-issue').show()
+  console.log('inside populateUpdateIssueForm')
+}
+
 // UPDATE ISSUES FUNCTION BEING ADDED
 // add a form and button and reference it below
 // create api script
@@ -160,6 +140,41 @@ const onUpdateIssue = function (event) {
 // when creating an updateIssue funciton, use similar to createissue where you use the
 // const data = getFormFieds(this)
 
+const hideThings = function () {
+  $('#getIssueFailureAnnounce').hide()
+  $('#signupSuccessAnnounce').hide()
+  $('#signupFailureAnnounce').hide()
+  $('#signinFailureAnnounce').hide()
+  $('#pwchangeSuccessAnnounce').hide()
+  $('#pwchangeFailureAnnounce').hide()
+  $('#signoutSuccessAnnounce').hide()
+  $('#signoutFailureAnnounce').hide()
+  $('#deleteSuccessAnnounce').hide()
+  $('#deleteFailureAnnounce').hide()
+  $('#updateSuccessAnnounce').hide()
+  $('#updateFailureAnnounce').hide()
+  $('#indexFailureAnnounce').hide()
+  $('#change-password').hide()
+  $('#update-issue').hide()
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#sign-out').hide()
+  $('.plannedUnplanned').hide()
+  $('#jumbo').hide()
+  $('#options').hide()
+  $('#create-issue').hide()
+  $('.well').hide()
+  $('.viewAllIssues').empty()
+  $('#createissueSuccessAnnounce').hide()
+  $('#pleaseBegin').hide()
+}
+
+const showThings = function () {
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#options').show()
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -168,6 +183,7 @@ const addHandlers = () => {
   $('#viewIssues').on('submit', onIndex)
   $('#view-issue').on('submit', onGetissue)
   $('#add-issue-button').on('submit', populateAddIssueForm)
+  $('#updates-issue').on('submit', populateUpdateIssueForm)
   $('#delete-issue').on('submit', deleteIssue)
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')

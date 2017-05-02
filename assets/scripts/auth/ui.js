@@ -73,6 +73,25 @@ const onGetIssueSuccess = function (id) {
   console.log('inside onGetIssueSuccess ui', id)
 }
 
+const onGetIssueForUpdateSuccess = function (data) {
+  // hideItems()
+  console.table(data)
+    // calls this function when the selected value changes
+  console.log('inside onGetIssueForUpdateSuccess ui.js', data)
+  // $('#text-product').val(data.issue.product)
+  // $("input[name='product']").val(data.issue.product)
+  $('#text-product').val(data.issue.product)
+
+  // try using .val with jquery to populate like data.issue.description....product, desc, notes
+  // const showIssuesHtml = showIssuesHandlerbars({ issues: id })
+  // $('.viewAllIssues').show()
+  // $('.viewAllIssues').append(showIssuesHtml)
+  // showItems()
+  // $('.well').show()
+  // jquery that will update fields on form from data
+  // console.log('inside onGetIssueSuccess ui', id)
+}
+
 const onGetIssueFailure = function (data) {
   hideItems()
   $('#getIssueFailureAnnounce').show()
@@ -106,6 +125,7 @@ const signInSuccess = (data) => {
   hideItems()
   showItems()
   $('#pleaseBegin').show()
+
   // $('#showissues').show()
   // console.table(data.issues)
   // onIndexSuccess(data)
@@ -241,7 +261,8 @@ module.exports = {
   deleteIssueSuccess,
   deleteIssueFailure,
   onIndexFailure,
-  showItems
+  showItems,
+  onGetIssueForUpdateSuccess
   // populateAddIssueFormSuccess,
   // populateAddIssueFormFailure
 }
