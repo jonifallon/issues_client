@@ -99,12 +99,6 @@ const showIssue = (id) => {
   })
 }
 
-// let newHTML = ''
-// data.forEach(function(issue){
-//   newHTML += '<li>' + issue.id + ' ' + issue.product + ' ' + issue.description + ' ' + issue.notes + ' ' + 'spaceforeditbutton</li>'
-// })
-// $('#issues').html(newHTML)
-
 module.exports = {
   signUp,
   signIn,

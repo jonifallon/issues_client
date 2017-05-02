@@ -14,394 +14,207 @@
 
     <body>
 
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <!-- Brand and toggle get grouped for better mobile display -->
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Known Issues</a>
+      <div class="col-md-12" >
+          <div class="row">
+              <div class="col-sm-2" id='leftBar'>
+                  Sidebar content
+                  <form id="sign-up">
+                    <br>
+                    <fieldset>
+                       <label>Sign Up</label>
+                        <input type="text" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
+                        <input type="password" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
+                        <input type="password" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password">
+                      <input type="submit" name="submit" value="Sign up!">
+                    </fieldset>
+                  </form>
+                  <br><br>
+
+                  <!-- add signin  -->
+                  <form id="sign-in">
+                  <fieldset>
+                    <label>Sign In</label>
+                    <br>
+                    <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
+                    <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password">
+                  <input type="submit" name="submit" value="Sign in!">
+                  </fieldset>
+                  </form>
+                  <br><br>
+                  <!-- add pwchange -->
+                  <form id="change-password">
+                    <fieldset>
+                      <label>Change Password</label>
+                      <br>
+                        <input type="password" name="passwords[old]" id="old password" placeholder="Old Password">
+                        <input type="password" name="passwords[new]" id="new password" placeholder="New Password">
+                      <input type="submit" name="submit" value="Change password!">
+                    </fieldset>
+                  </form>
+                  <br><br>
+                  <!-- add sign out -->
+                  <form id="sign-out">
+                    <label>Sign Out</label>
+                    <br>
+                    <button type="submit">Sign Out</button>
+                  </form>
+                  <br><br>
+                  <!--end auth forms-->
+                  <div id="options">
+                         <form id="viewIssues">
+                           <label>View All Issues</label>
+                           <br>
+                           <button type="submit">View Issues</button>
+                         </form>
+                  <br><br>
+                         <!--adding view single issue-->
+
+                         <form id="view-issue">
+                           <label>View Single Issue</label>
+                           <br>
+                             <input type="text" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID to view">
+                           <button type="submit">View Issue</button>
+                         </form>
+                  <br><br>
+                         <!--delete issues-->
+
+                         <form id="delete-issue">
+                           <label>Delete an Issue</label>
+                           <br>
+                             <input type="text" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID to delete">
+                           <button type="submit">Submit</button>
+                         </form>
+                          <br><br>
+                  </div>
+
+
+              </div>
+
+
+
+
+
+              <div class="col-sm-10" id='rightSection'>
+                  Body content
+                  <div class="well well-lg"><div class="viewAllIssues"></div></div>
+                  <div id='createissueSuccessAnnounce'>The issue has been added.  Please select <strong>View All Issues</strong> to view the update.</div>
+                  <div id='signinFailureAnnounce'>Your signin was unsuccessful.  Please try again.</div>
+                  <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
+                  <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
+                  <div id='updateFailureAnnounce'>Your issue update was not successful.  Please try again.</div>
+                  <div id='updateSuccessAnnounce'>Your issue was successfully updated.</div>
+                  <div id="signupSuccessAnnounce">You successfully signed up!  Please sign in with your new account.</div>
+                  <div id='signupFailureAnnounce'>You did not successfully sign up.  Please try again</div>
+                  <div id='deleteSuccessAnnounce'>Confirmation:  The issue has been deleted.</div>
+                  <div id='deleteFailureAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
+                  <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div>
+                  <div id='indexFailureAnnounce'>There are no issues to display</div>
+                  <div class="jumbotron" id='jumbo'>
+                    <h1 id='jumboh1'>Known Issues and Outages</h1>
+                    <h3 id='jumboh3'>Please sign in to continue.</h3>
+                  </div>
+
+            <!--planned and unplanned-->
+                 <div class="plannedUnplanned">
+                  <div class="col">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="thumbnail">
+                        <img src="assets/images/stopwatch.jpg" alt="Planned Events">
+                        <div class="caption">
+                          <h3>Planned Events</h3>
+                          <p>There are times when applications will be down for routine maintenance or enhancements.   Sign-in to view any upcoming events.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col">
+                    <div class="col-sm-6 col-md-6">
+                      <div class="thumbnail">
+                        <img src="assets/images/puzzle.jpg" alt="Unplanned Events">
+                        <div class="caption">
+                          <h3>Unplanned Issues and Outages</h3>
+                          <p>When there is an unexpected issue or outage, sign in to check to see if it has already been reported to the Help Desk.  Information will be updated as status changes.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
           </div>
-
-          <!-- Collect the nav links, forms, and other content for toggling -->
-          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Manage Account<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li id="signin" data-toggle="modal" data-target="#signinModal"><a href="#">Sign In</a></li>
-                              <li id="signup" data-toggle="modal" data-target="#signupModal"><a href="#">Sign Up (new users)</a></li>
-                              <li id="chpw" data-toggle="modal" data-target="#changepwModal"><a href="#">Change Password</a></li>
-                              <li id="sign-out"><a href="#">Sign Out</a></li>
-                </ul>
-              </li>
-            </ul>
-          </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
-      </nav>
-
-
-
-
-      <!--end announcements-->
-      <div class="jumbotron" id='jumbo'>
-        <h1 id='jumboh1'>Known Issues and Outages</h1>
-        <h3 id='jumboh3'>Please sign in to view current issues and outages.</h3>
-         <br><br><br>
-         <table class='jumbotable'>
-          <tr>
-            <td class='tdcenter'><a id='signin' class="btn btn-success btn-lg center-block" role="button" data-toggle="modal" data-target="#signinModal">Sign In</a></td>
-            <td> </tr>
-          <!-- <tr>
-            <td class='tdcenter'><div class='jumbocomments'>Existing Users</div></td>
-            <td> </td>
-            <td class='tdcenter'><div class='jumbocomments'>New Users</div></td>
-          </tr> -->
-         </table>
       </div>
+<!--add signup-->
 
-<!--planned and unplanned-->
-     <div class="plannedUnplanned">
-      <div class="col">
-        <div class="col-sm-6 col-md-6">
-          <div class="thumbnail">
-            <img src="assets/images/stopwatch.jpg" alt="Planned Events">
-            <div class="caption">
-              <h3>Planned Events</h3>
-              <p>There are times when applications will be down for routine maintenance or enhancements.   Sign-in to view any upcoming events.</p>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <div class="col">
-        <div class="col-sm-6 col-md-6">
-          <div class="thumbnail">
-            <img src="assets/images/puzzle.jpg" alt="Unplanned Events">
-            <div class="caption">
-              <h3>Unplanned Issues and Outages</h3>
-              <p>When there is an unexpected issue or outage, sign in to check to see if it has already been reported to the Help Desk.  Information will be updated as status changes.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
+
+
+
+
+
+
+    <ul>Outstanding things to fix</ul>
+    <li>Can't delete any items (even your own)
+    <li>Hide add, delete, update, view (one, many) functions until after signin AND line them up nicely with form results.
+    <li>write read-me files
+    <li>publish to heroku
+
+
+
+
     <!--end planned and unplanned-->
-<div class="viewAllIssues"></div>
+<!-- <div class="viewAllIssues"></div> -->
         <!-- <div class="viewAllIssues"></div> -->
 
 <!--display, view, delete, update, add-->
-<div id="options">
 
-       <form id="viewIssues" class="navbar-form navbar-left" role="textbox">
-         <!-- <div class="form-group"> -->
-           <div class="caption">
-             <h3>View All Issues</h3>
-         </div>
-         <button type="submit" class="btn btn-primary">Submit</button>
-       </form>
-<br>
-       <!--adding view single issue-->
-
-       <form id="view-issue" class="navbar-form navbar-left" role="textbox">
-         <div class="form-group">
-           <div class="caption">
-             <h3>View an Issue</h3>
-           <input type="text" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID to view">
-         </div>
-         <button type="submit" class="btn btn-primary">Submit</button>
-       </form>
-<br>
-       <!--delete issues-->
-<p>Fix this so that user can only delete their own items</p>
-       <form id="delete-issue" class="navbar-form navbar-left" role="textbox">
-         <div class="form-group">
-           <div class="caption">
-             <h3>Delete an Issue</h3>
-           <input type="text" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID to delete">
-         </div>
-         <button type="submit" class="btn btn-primary">Submit</button>
-       </form>
-
-<br>
-
-
-       <!-- <form id="delete-issue"><div><h4 class="issuesHeader">delete an Issue</h1></div>
-         <div><label>Enter issue ID</label>
-           <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
-           <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
-         </form>
-     </td>
-     <td> -->
-
-
-</div>
-
-
-
-
-
-
-
-<!-- <div class="col">
-  <div class="col-md-3">
-    <div class="thumbnail"> -->
-      <!-- <img src="..." alt="..."> -->
-      <!-- <div class="caption">
-        <h3>Delete an Issue</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
-
-
-<!-- <div class="col">
-  <div class="col-md-3">
-    <div class="thumbnail"> -->
-      <!-- <img src="..." alt="..."> -->
-      <!-- <div class="caption">
-        <h3>View or Update an Issue</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
-
-<!-- <div class="col">
-  <div class="col-md-3">
-    <div class="thumbnail"> -->
-      <!-- <img src="..." alt="..."> -->
-      <!-- <div class="caption">
-        <h3>Add a New Issue</h3>
-        <p>...</p>
-        <p><a href="#" class="btn btn-primary" role="button">Button</a>
-      </div>
-    </div>
-  </div>
-</div>
-</div> -->
-
-
-
-
-
-<!--end display, view, delete, update, add-->
-
-
-    <!--begin handlebars / issues-->
-
-
-
-    <!--end handlebars/ issues-->
-
-<!-- <table class = "actions">
-  <tr>
-    <td> -->
-
-
-
-
-
-
-      <!--get issues-->
-       <!-- <form id="view-issue"><div><h4 class="issuesHeader">View an Issue</h1></div>
-         <div class="fb-text form-group field-text-1493247386594"><label>Enter issue ID</label>
-           <input type="text" placeholder="Enter issue ID" class="form-control" name="text-1493247386594" id="text-1493247386594"></div>
-           <div class="fb-button form-group field-button-1493247426079"><button type="submit" class="btn btn-success" name="button-1493247426079" style="success" id="button-1493247426079">Submit</button></div>
-         </form>
-    </td>
-    <td> -->
-
-
-
-
-
-
-      <!--delete issues-->
-      <!-- <form id="delete-issue"><div><h4 class="issuesHeader">delete an Issue</h1></div>
-        <div><label>Enter issue ID</label>
-          <input type="text" placeholder="Enter issue ID" class="form-control" id="delete-issue"></div>
-          <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-delete">Submit to delete</button></div>
-        </form>
-    </td>
-    <td> -->
-
-
-
-
-
-
-      <!--update issues-->
-      <!-- <form id="update-issue"><div><h4 class="issuesHeader">Update an Issue</h1></div>
-        <div><label>Enter issue ID</label>
-          <input type="text" placeholder="Enter issue ID" class="form-control" id="updateissue"></div>
-          <div class="fb-button"><button type="submit" name="button-1493247426079" id="button-update">Submit to update</button></div>
-        </form>
-    </td>
-  </tr>
-</table> -->
-
-
-    <!-- <body class="container-fluid"> -->
-     <!-- <form id="create-issue">
-       <div class="productfield">
-         <label class="fb-text-label">Application or Service</label>
-         <input type="text" required="false" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
-
-      <div class="descriptionfield"><label class="fb-textarea-label">Description<span class="fb-required"> *</span><span class="tooltip-element" tooltip="Include any known error messages">?</span></label>
-           <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
-
-      <div class="notesfield"><label class="fb-textarea-label">Notes</label><textarea type="textarea" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
-
-      <div ><button type="submit" style="success" id="newissue">Submit</button></div>
-    </form> -->
-
-
-
-
-
-  <!-- signin Modal -->
-  <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="signinModalLabel"></h5>
-          <h3>Welcome!</h3>
-          <h4>If you are a new user and don't yet have an account, please <a id='signup' class="btn btn-primary btn-xs" role="button" data-toggle="modal" data-target="#signupModal">Sign Up</a></h4>
-          <h4>If you already have an account, please sign in:</h4>
-
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-    <!--begin signin form-->
-          <form id="sign-in">
-        <fieldset>
-
-          <legend></legend>
-            <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
-            <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password">
-          <input type="submit" name="submit" value="Sign in!">
-        </fieldset>
-        </form>
-        <!--end signin form-->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--end signin modal-->
-
-<br><br>
-
-<!-- signup Modal -->
-<div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="signupModalLabel">Welcome!<br>  Please sign up to view the issues log!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-  <!--begin signup form-->
-  <form id="sign-up">
-    <fieldset>
-      <legend></legend>
-        <input type="text" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
-        <input type="password" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
-        <input type="password" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password">
-      <input type="submit" name="submit" value="Sign up!">
-    </fieldset>
-  </form>
-      <!--end signup form-->
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!--end signup modal-->
-
-<br><br>
-
-
-
-<!-- change password Modal -->
-<div class="modal fade" id="changepwModal" tabindex="-1" role="dialog" aria-labelledby="changepwModalLabel" aria-hidden="true">
-<div class="modal-dialog" role="document">
-  <div class="modal-content">
-    <div class="modal-header">
-      <h5 class="modal-title" id="changepwModalLabel">Welcome!<br>  Please change your password below!</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="modal-body">
-<!--begin change password form-->
-<form id="change-password">
-  <fieldset>
-    <legend></legend>
-      <input type="password" name="passwords[old]" id="old password" placeholder="old password">
-      <input type="password" name="passwords[new]" id="new password" placeholder="new password">
-    <input type="submit" name="submit" value="Change password!">
-  </fieldset>
+<!--add new issue-->
+<div id="addissue">
+<form id="create-issue">
+    <h3>Add a New Issue</h3>
+  <div class="productfield">
+    <label>Application or Service</label>
+    <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
+  <div class="descriptionfield">
+    <label>Description</label>
+  <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
+
+ <div class="notesfield">
+   <label>Notes</label>
+   <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
+ <div><button type="submit" style="success" id="newissue">Submit</button></div>
 </form>
-    <!--end change password form-->
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    </div>
-  </div>
 </div>
-</div>
-<!--end change password modal-->
-
-<!--begin announcements-->
 
 <div class="row" id='announce'> </div>
-<div id='signinFailureAnnounce'>Your signin was unsuccessful.<br>Please try again.</div>
-<div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
-<div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
-<div id="signupSuccessAnnounce">You successfully signed up!<br>Please sign in with your new account.</div>
-<div id='signupFailureAnnounce'>You did not successfully sign up.<br>Please try again</div>
-<div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div>
-<div id='getIssueFailureAnnounce'>Please enter a valid issue ID.</div>
-<div id='deleteFailureAnnounce'>Confirmation:  The issue has been deleted.</div>
-<div id='deleteSuccessAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
-<div id='updateFailureAnnounce'>Your issue update was not successful.  Please try again.</div>
-<div id='updateSuccessAnnounce'>Your issue was successfully updated.</div>
-<div id='indexFailureAnnounce'>There are no issues to display??</div>
+
+<!--delete an issue-->
+<div id="updateissue">
+<form id="update-issue">
+    <h3>Update an Issue</h3>
+
+  <div class="productfield">
+    <label>Application or Service</label>
+    <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
+  <div class="descriptionfield">
+    <label>Description</label>
+  <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
+
+ <div class="notesfield">
+   <label>Notes</label>
+   <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
+ <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
+</form>
+</div>
+
+<!-- <div id='signoutFailureAnnounce'>You did not successfully sign out.<br>Please try again.</div> -->
+<!-- <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div> -->
+
+
+
 
 
 
     </body>
 </html>
-
-<!-- <form id="view-issue">
-  View an Individual Issue:<br>
-  <input type="text" name="viewissueid" value="">
-  <input type="submit" value="Submit">
-</form> -->

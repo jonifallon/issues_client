@@ -18,6 +18,7 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
+  $('#sign-up')[0].reset()
 }
 
 const onSignIn = function (event) {
@@ -28,6 +29,7 @@ const onSignIn = function (event) {
   api.signIn(data)
   .then(ui.signInSuccess)
   .catch(ui.signInFailure)
+  $('#sign-in')[0].reset()
 }
 
 const onSignOut = function (event) {
@@ -46,6 +48,7 @@ const onChangePassword = function (event) {
   api.changePassword(data)
   .then(ui.changePasswordSuccess)
   .catch(ui.changePasswordFailure)
+  $('#change-password')[0].reset()
 }
 
 const onIndex = function () {
@@ -59,8 +62,8 @@ const onGetissue = function (event) {
   event.preventDefault()
   const issue = $('#viewissuetextbox').val()
   api.showIssue(issue)
-      .then(ui.onSuccess)
-      .catch(ui.onError)
+      .then(ui.onGetIssueSuccess)
+      .catch(ui.onGetIssueFailure)
   $('#view-issue')[0].reset()
 }
 // UPDATE ISSUES FUNCTION BEING ADDED
@@ -97,6 +100,7 @@ const createissue = function (event) {
   api.createissue(data)
   .then(ui.createissueSuccess)
   .catch(ui.createissueFailure)
+  $('#create-issue')[0].reset()
 }
 
 const onUpdateIssue = function (event) {
@@ -114,7 +118,7 @@ const onUpdateIssue = function (event) {
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('click', onSignOut)
+  $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#viewIssues').on('submit', onIndex)
   $('#view-issue').on('submit', onGetissue)
@@ -122,9 +126,6 @@ const addHandlers = () => {
   $('#delete-issue').on('submit', deleteIssue)
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
-  // $('#view-issue').trigger('reset')
-  // $('#view-issue')[0].reset()
-  // $('.view_all_issues').on('click', onIndex)
   $('#newissueModal').on('hidden.bs.modal', function () {
     $(this).find('form')[0].reset()
   })

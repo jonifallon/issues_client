@@ -1,29 +1,13 @@
-// h1 {
-//   color: #000000;
-//   margin: 0 auto;
-//   padding: 20px;
-//   text-align: left;
-//   width: 600px;
-// }
 body {
   margin-left: 30px;
   margin-right: 30px;
-
 }
 
-// .viewAllIssues {
-//   display: block;
+// .navbar-brand {
+//   transform: translateX(-50%);
+//   left: 50%;
+//   position: absolute;
 // }
-// .navbar{
-//     background-image: none;
-//     background-color: #4F90C1;
-// }
-
-.navbar-brand {
-  transform: translateX(-50%);
-  left: 50%;
-  position: absolute;
-}
 
 #jumbo {
   background-image: url('../images/earth.jpg');
@@ -60,46 +44,10 @@ body {
   text-align: center;
   padding: 5px 20px;
 }
-// td {
-//   vertical-align: top;
-// }
-//
-// .center {
-//   margin-left: 0 auto;
-//   margin-right: 0 auto;
-// }
-//
-// .center-block {
-//   display: table;
-//   margin: auto;
-// }
-//
-// .table-for-buttons {
-//   margin-left: auto;
-//   margin-right: auto;
-//   width: 300px;
-// }
-//
-// .table-cells-for-buttons {
-//   padding: 5px 7px;
-// }
-//
-// .custom {
-//   width: 140px;
-// }
-//
-// .panel {
-//   border-color: #000;
-//   font-size: 75px;
-//   height: 100px;
-//   margin: auto;
-//   text-align: center;
-//   width: 100px;
-// }
 
-// #newissue, #chpw, #signoff, #stats {
-//   display:none;
-// }
+#sign-out, #change-password {
+  display:none;
+}
 
 #signup, #signin {
   display: block;
@@ -107,6 +55,15 @@ body {
 
 #results {
   vertical-align: top;
+}
+
+.row{
+    overflow: hidden;
+}
+
+[class*="col-"]{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
 }
 
 .all_results {
@@ -117,13 +74,28 @@ body {
   width: 100%;
 }
 
+.well {
+  background-color: #fffff6;
+  display: none;
+}
+
+#leftBar {
+  background-color: #A2D5C6;
+  height: 100%;
+}
+
+#rightSection {
+  background-color: #4B65A2;
+  height: 100%;
+}
+
 #signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
 #signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce,
-#selections {
-  color: #000000;
+#selections, #createissueSuccessAnnounce {
+  color: #fff;
   font-size: 18px;
   padding-top: 10px;
-  text-align: center;
+  // text-align: center;
   display: none;
 }
 
@@ -131,26 +103,23 @@ body {
   text-align: left;
 }
 
+// .textContent {
+//   padding: 30px;
+// }
+
 #signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
 #signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce,
 #updateFailureAnnounce, #indexFailureAnnounce {
-  color: #000000;
+  color: #fff;
   font-size: 18px;
   padding-top: 10px;
-  text-align: center;
+  // text-align: center;
   display: none;
 }
 
-#showissues {
+#showissues, #options {
   display: none;
 }
-
-// .ticBoard {
-//   display: none;
-//   margin-left: auto;
-//   margin-right: auto;
-//   width: auto;
-// }
 
 #announce {
   color: #76448a;
@@ -162,24 +131,3 @@ body {
 .actions {
   width: 100%;
 }
-
-// .customcreate {
-//   // background-color: #cb99ff;
-//   color: #000;
-//   font-size: 16px;
-//   height: 50px;
-//   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-//   width: 300px;
-// }
-//
-// .custom-manual {
-//   background-color: #fff;
-//   border-radius: 3px;
-//   border-style: none;
-//   height: 32px;
-//   width: 140px;
-// }
-//
-// .customized {
-//   width: 300px;
-// }
