@@ -12,19 +12,15 @@ _________________________________
 
 Providing users with an easy to read, up-to-date listing of known issues can save time and reduce calls to a company's Help Desk.  Users can check back to get updates during an extended outage.
 
-_________________________________
-ERD
-_________________________________
+--------------------------------
+HOW THE PORTAL WORKS
+________________________________
 
-The ERD for the scope of Project II is fairly straightforward; two tables with a one-to-many relationship.
-
-ADMINSTRATORS            ISSUES
-PK ID                    PK ID
-email					           Product
-						             Issue Description
-						             Notes
-						             FK Administrators ID
-
+Administrators can:
+1) Create new issues
+2) Read all issues created by any Administrator
+3) Update any issue
+4) Delete any issue that has been resolved
 
 --------------------------------
 FUTURE ENHANCEMENTS
@@ -35,11 +31,7 @@ The potential for adding additonal features exists.  A few thoughts on adding on
 - Adding geo-location information for users who click the "This is happening to me, too" button.  Track from where users are selecting that button and display with "pins" on a map.  That would give a visual representation of where issues are impacing users from a geographical perspective.  This could potentially become helpful when troubleshooting issues.
 
 --------------------------------
-HOW THE PORTAL WORKS
+ADDITIONAL INFO
 ________________________________
 
-Administrators can:
-1) Create new issues
-2) Read all issues created by any Administrator
-3) Update any issue
-4) Delete any issue that has been resolved
+The link to my repo for the API is https://github.com/jonifallon/issues_api
