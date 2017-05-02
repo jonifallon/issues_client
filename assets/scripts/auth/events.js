@@ -131,8 +131,10 @@ const createissue = function (event) {
 const onUpdateIssue = function (event) {
   event.preventDefault()
   console.log('inside the updateIssue function in events!')
-  const issue = $('#updateissue').val()
-  api.updateIssue(issue)
+  const id = $('#updateissuetextbox').val()
+  const data = getFormFields(this)
+  console.log('id is ', id)
+  api.updateIssue(id, data)
   .then(ui.updateissueSuccess)
   .catch(ui.updateissueFailure)
 }

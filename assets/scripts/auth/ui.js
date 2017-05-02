@@ -80,7 +80,7 @@ const onGetIssueForUpdateSuccess = function (data) {
   console.log('inside onGetIssueForUpdateSuccess ui.js', data)
   // $('#text-product').val(data.issue.product)
   // $("input[name='product']").val(data.issue.product)
-  $('#text-product').val(data.issue.product)
+  $('#text-product2').val(data.issue.product)
 
   // try using .val with jquery to populate like data.issue.description....product, desc, notes
   // const showIssuesHtml = showIssuesHandlerbars({ issues: id })
