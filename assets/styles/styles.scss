@@ -10,7 +10,7 @@ body {
 // }
 
 #jumbo {
-  background-image: url('../images/earth.jpg');
+  background-image: url('../images/hills.png');
   // margin: 20px;
   max-width: 1620px;
 }
@@ -62,8 +62,8 @@ body {
 }
 
 [class*="col-"]{
-    margin-bottom: -99999px;
-    padding-bottom: 99999px;
+    margin-bottom: -999px;
+    padding-bottom: 999px;
 }
 
 .all_results {
@@ -80,12 +80,12 @@ body {
 }
 
 #leftBar {
-  background-color: #A2D5C6;
+  background-color: #E5E7E9;
   height: 100%;
 }
 
 #rightSection {
-  background-color: #4B65A2;
+  background-color: #85C1E9;
   height: 100%;
 }
 
@@ -117,7 +117,7 @@ body {
   display: none;
 }
 
-#showissues, #options {
+#showissues, #options, #create-issue {
   display: none;
 }
 

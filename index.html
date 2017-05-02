@@ -76,7 +76,22 @@
                            <button type="submit">View Issue</button>
                          </form>
                   <br><br>
+
+                  <!--add new issue-->
+
+
+
+
                          <!--delete issues-->
+<p>need to point this button to the # in right window for add new issue....then that button has a listening event that calls create-issue.</p>
+
+                         <form id="add-issue-button">
+                           <label>Add a New Issue</label>
+                           <br>
+                           <button type="submit">Add Issue</button>
+                         </form>
+                         <br><br>
+
 
                          <form id="delete-issue">
                            <label>Delete an Issue</label>
@@ -114,8 +129,25 @@
                     <h3 id='jumboh3'>Please sign in to continue.</h3>
                   </div>
 
+
+                  <!--create issue-->
+                  <form id="create-issue">
+                      <h3>Add a New Issue</h3>
+                    <div class="productfield">
+                      <label>Application or Service</label>
+                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false"></div>
+                    <div class="descriptionfield">
+                      <label>Description</label>
+                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea></div>
+
+                   <div class="notesfield">
+                     <label>Notes</label>
+                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
+                   <div><button type="submit" style="success" id="newissue">Submit</button></div>
+                  </form>
+
             <!--planned and unplanned-->
-                 <div class="plannedUnplanned">
+                 <!-- <div class="plannedUnplanned">
                   <div class="col">
                     <div class="col-sm-6 col-md-6">
                       <div class="thumbnail">
@@ -143,7 +175,7 @@
 
               </div>
           </div>
-      </div>
+      </div> -->
 <!--add signup-->
 
 
@@ -155,7 +187,6 @@
 
 
     <ul>Outstanding things to fix</ul>
-    <li>Can't delete any items (even your own)
     <li>Hide add, delete, update, view (one, many) functions until after signin AND line them up nicely with form results.
     <li>write read-me files
     <li>publish to heroku
@@ -170,7 +201,7 @@
 <!--display, view, delete, update, add-->
 
 <!--add new issue-->
-<div id="addissue">
+<!-- <div id="addissue">
 <form id="create-issue">
     <h3>Add a New Issue</h3>
   <div class="productfield">
@@ -185,7 +216,7 @@
    <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea></div>
  <div><button type="submit" style="success" id="newissue">Submit</button></div>
 </form>
-</div>
+</div> -->
 
 <div class="row" id='announce'> </div>
 

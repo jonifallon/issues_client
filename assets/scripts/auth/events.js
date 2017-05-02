@@ -122,22 +122,22 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#viewIssues').on('submit', onIndex)
   $('#view-issue').on('submit', onGetissue)
-  $('#create-issue').on('submit', createissue)
+  $('#add-issue-button').on('submit', createissue)
   $('#delete-issue').on('submit', deleteIssue)
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
-  $('#newissueModal').on('hidden.bs.modal', function () {
-    $(this).find('form')[0].reset()
-  })
-  $('#signupModal').on('hidden.bs.modal', function () {
-    $(this).find('form')[0].reset()
-  })
-  $('#changepwModal').on('hidden.bs.modal', function () {
-    $(this).find('form')[0].reset()
-  })
-  $('#signinModal').on('hidden.bs.modal', function () {
-    $(this).find('form')[0].reset()
-  })
+  // $('#newissueModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
+  // $('#signupModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
+  // $('#changepwModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
+  // $('#signinModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
 }
 
 module.exports = {
