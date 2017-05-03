@@ -95,8 +95,6 @@ const deleteIssue = function (event) {
 }
 
 const createissue = function (event) {
-  hideThings()
-  showThings()
   console.log('inside the createissue function on events.js', event)
   event.preventDefault()
   const data = getFormFields(this)
@@ -131,7 +129,6 @@ const hideThings = function () {
   $('#updateSuccessAnnounce').hide()
   $('#updateFailureAnnounce').hide()
   $('#indexFailureAnnounce').hide()
-  $('#getIssueForUpdateFailureAnnounce').hide()
   $('#change-password').hide()
   $('#update-issue').hide()
   $('#sign-in').hide()
@@ -145,9 +142,6 @@ const hideThings = function () {
   $('.viewAllIssues').empty()
   $('#createissueSuccessAnnounce').hide()
   $('#pleaseBegin').hide()
-  $('#create-issue')[0].reset()
-  $('#updates-issue')[0].reset()
-  $('#onGetIssueForUpdateSuccessAnnounce').hide()
 }
 
 const showThings = function () {
@@ -169,6 +163,19 @@ const addHandlers = () => {
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
   $('#create-issue').on('submit', createissue)
+  // $('#create-issue').on('submit'), createissue)
+  // $('#newissueModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
+  // $('#signupModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
+  // $('#changepwModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
+  // $('#signinModal').on('hidden.bs.modal', function () {
+  //   $(this).find('form')[0].reset()
+  // })
 }
 
 module.exports = {
