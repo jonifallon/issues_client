@@ -17,7 +17,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  console.log('signin ran')
+  // console.log('signin ran')
 
   const data = getFormFields(this)
   api.signIn(data)
@@ -28,7 +28,7 @@ const onSignIn = function (event) {
 
 const onSignOut = function (event) {
   event.preventDefault()
-  console.log('signout ran')
+  // console.log('signout ran')
 
   api.signOut()
   .then(ui.signOutSuccess)
@@ -37,7 +37,7 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-  console.log('change password ran!')
+  // console.log('change password ran!')
   const data = getFormFields(this)
   api.changePassword(data)
   .then(ui.changePasswordSuccess)
@@ -67,7 +67,7 @@ const populateAddIssueForm = function (event) {
   hideThings()
   showThings()
   $('#create-issue').show()
-  console.log('inside populateAddIssueForm')
+  // console.log('inside populateAddIssueForm')
 }
 
 const populateUpdateIssueForm = function (event) {
@@ -81,11 +81,11 @@ const populateUpdateIssueForm = function (event) {
       .then(ui.onGetIssueForUpdateSuccess)
       .catch(ui.onGetIssueForUpdateFailure)
   $('#update-issue').show()
-  console.log('inside populateUpdateIssueForm')
+  // console.log('inside populateUpdateIssueForm')
 }
 
 const deleteIssue = function (event) {
-  console.log('inside the deleteIssue function events.js', event)
+  // console.log('inside the deleteIssue function events.js', event)
   event.preventDefault()
   const issue = $('#deleteissuetextbox').val()
   api.deleteIssue(issue)
@@ -95,7 +95,7 @@ const deleteIssue = function (event) {
 }
 
 const createissue = function (event) {
-  console.log('inside the createissue function on events.js', event)
+  // console.log('inside the createissue function on events.js', event)
   event.preventDefault()
   const data = getFormFields(this)
   api.createissue(data)
@@ -106,10 +106,10 @@ const createissue = function (event) {
 
 const onUpdateIssue = function (event) {
   event.preventDefault()
-  console.log('inside the updateIssue function in events!')
+  // console.log('inside the updateIssue function in events!')
   const id = $('#updateissuetextbox').val()
   const data = getFormFields(this)
-  console.log('id is ', id)
+  // console.log('id is ', id)
   api.updateIssue(id, data)
   .then(ui.updateissueSuccess)
   .catch(ui.updateissueFailure)
@@ -163,19 +163,6 @@ const addHandlers = () => {
   $('#update-issue').on('submit', onUpdateIssue)
   $('#sign-up').trigger('reset')
   $('#create-issue').on('submit', createissue)
-  // $('#create-issue').on('submit'), createissue)
-  // $('#newissueModal').on('hidden.bs.modal', function () {
-  //   $(this).find('form')[0].reset()
-  // })
-  // $('#signupModal').on('hidden.bs.modal', function () {
-  //   $(this).find('form')[0].reset()
-  // })
-  // $('#changepwModal').on('hidden.bs.modal', function () {
-  //   $(this).find('form')[0].reset()
-  // })
-  // $('#signinModal').on('hidden.bs.modal', function () {
-  //   $(this).find('form')[0].reset()
-  // })
 }
 
 module.exports = {

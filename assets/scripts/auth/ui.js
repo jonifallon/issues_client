@@ -44,36 +44,36 @@ const showItems = function () {
 
 const onIndexSuccess = function (data) {
   hideItems()
-  console.table(data.issues)
+  // console.table(data.issues)
   const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
   showItems()
   $('.well').show()
   $('.viewAllIssues').show()
   $('.viewAllIssues').append(showIssuesHtml)
-  console.log('inside the onIndexSuccess in ui.js', data)
+  // console.log('inside the onIndexSuccess in ui.js', data)
 }
 
 const onIndexFailure = function (data) {
   // look through data returned from server
-  console.log('inside the onIndexFailure in ui.js', data)
+  // console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
   $('#indexFailureAnnounce').show()
   showItems()
 }
 const onGetIssueSuccess = function (id) {
   hideItems()
-  console.table(id)
+  // console.table(id)
   const showIssuesHtml = showIssuesHandlerbars({ issues: id })
   $('.viewAllIssues').show()
   $('.viewAllIssues').append(showIssuesHtml)
   showItems()
   $('.well').show()
-  console.log('inside onGetIssueSuccess ui', id)
+  // console.log('inside onGetIssueSuccess ui', id)
 }
 
 const onGetIssueForUpdateSuccess = function (data) {
-  console.table(data)
-  console.log('inside onGetIssueForUpdateSuccess ui.js', data)
+  // console.table(data)
+  // console.log('inside onGetIssueForUpdateSuccess ui.js', data)
   $('#text-product2').val(data.issue.product)
   $('#textarea-description2').val(data.issue.description)
   $('#textarea-notes2').val(data.issue.notes)
@@ -82,7 +82,7 @@ const onGetIssueForUpdateSuccess = function (data) {
 const onGetIssueForUpdateFailure = function (data) {
   hideItems()
   $('#getIssueForUpdateFailureAnnounce').show()
-  console.log('inside onGetIssueForUpdateFailure ui.js', data)
+  // console.log('inside onGetIssueForUpdateFailure ui.js', data)
   showItems()
   $('#update-issue').hide()
 }
@@ -90,7 +90,7 @@ const onGetIssueForUpdateFailure = function (data) {
 const onGetIssueFailure = function (data) {
   hideItems()
   $('#getIssueFailureAnnounce').show()
-  console.log('inside onGetIssueFailure ui.js', data)
+  // console.log('inside onGetIssueFailure ui.js', data)
   showItems()
 }
 
@@ -114,7 +114,7 @@ const signUpFailure = (error) => {
 }
 
 const signInSuccess = (data) => {
-  console.log('signin success ran.  data is:', data)
+  // console.log('signin success ran.  data is:', data)
   // $('.viewAllIssues').show()
   store.user = data.user
   hideItems()
@@ -133,7 +133,7 @@ const signInFailure = (error) => {
 }
 
 const signOutSuccess = (data) => {
-  console.log('signout success and nothing was returned')
+  // console.log('signout success and nothing was returned')
   store.user = null
   hideItems()
   $('#sign-in').show()
@@ -153,7 +153,7 @@ const signOutFailure = (error) => {
 const changePasswordSuccess = (data) => {
   hideItems()
   $('#pwchangeSuccessAnnounce').show()
-  console.log('password successfully changed')
+  // console.log('password successfully changed')
   showItems()
 }
 
@@ -165,7 +165,7 @@ const changePasswordFailure = (error) => {
 }
 
 const deleteIssueSuccess = (data) => {
-  console.log('inside the deleteIssueSuccess ui script.  data is:', data)
+  // console.log('inside the deleteIssueSuccess ui script.  data is:', data)
   // store.issue = data.issue
   // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.issue)
   hideItems()
@@ -176,7 +176,7 @@ const deleteIssueSuccess = (data) => {
 const deleteIssueFailure = (data) => {
   // console.log('deleteIssue failed.  data is:', data)
   // store.issue = data.issue
-  console.log('inside the deleteIssueFailure ui script', store.issue)
+  // console.log('inside the deleteIssueFailure ui script', store.issue)
   hideItems()
   showItems()
   $('#deleteFailureAnnounce').show()
@@ -184,9 +184,9 @@ const deleteIssueFailure = (data) => {
 }
 
 const createissueSuccess = (data) => {
-  console.log('create issue success ran.  data is:', data)
+  // console.log('create issue success ran.  data is:', data)
   store.issue = data.issue
-  console.log('you are in the createissueSuccess function on ui.js', store.issue)
+  // console.log('you are in the createissueSuccess function on ui.js', store.issue)
   hideItems()
   $('#createissueSuccessAnnounce').show()
   showItems()
@@ -200,7 +200,7 @@ const createissueFailure = (error) => {
 
 const updateissueSuccess = (data) => {
   store.issue = data.issue
-  console.log('inside updateissueSuccess', data)
+  // console.log('inside updateissueSuccess', data)
   hideItems()
   showItems()
   $('#updateSuccessAnnounce').show()
@@ -208,7 +208,7 @@ const updateissueSuccess = (data) => {
 }
 
 const updateissueFailure = (error) => {
-  console.log('inside updateissueFailure ui')
+  // console.log('inside updateissueFailure ui')
   hideItems()
   showItems()
   $('#updateFailureAnnounce').show()
