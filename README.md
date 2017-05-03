@@ -12,6 +12,18 @@ _________________________________
 
 Providing users with an easy to read, up-to-date listing of known issues can save time and reduce calls to a company's Help Desk.  Users can check back to get updates during an extended outage.
 
+_________________________________
+USER STORIES
+_________________________________
+
+1. As an administrator, I want to be able to signin.
+2. As an administrator, I want to be able to create issues.
+3. As an administrator, I want to be able to update issues that I created.
+4. As an administrator, I want to be able to delete issues that I created.
+5. As an administrator, I want to be able to view a complete list of all issues, regardless of creator.
+6. As an administrator, I want to be able to update change my password.
+7. As an administrator, I want to be able to sign out.
+
 --------------------------------
 HOW THE PORTAL WORKS
 ________________________________
@@ -34,4 +46,5 @@ The potential for adding additonal features exists.  A few thoughts on adding on
 ADDITIONAL INFO
 ________________________________
 
+Wireframe image:  http://imgur.com/a/jIwJR
 The link to my repo for the API is https://github.com/jonifallon/issues_api
