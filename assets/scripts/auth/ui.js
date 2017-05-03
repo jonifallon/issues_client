@@ -34,7 +34,6 @@ const hideItems = function () {
   $('#create-issue')[0].reset()
   $('#updates-issue')[0].reset()
   $('#onGetIssueForUpdateSuccessAnnounce').hide()
-  $('#getIssueForUpdateFailureAnnounce').hide()
 }
 
 const showItems = function () {

@@ -21,9 +21,9 @@
                   <form id="sign-up">
                     <fieldset>
                        <label class='leftbarheading'>Sign Up</label><br>
-                        <input type="text" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
-                        <input type="password" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
-                        <input type="password" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password"><br>
+                        <input type="text" required="true" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
+                        <input type="password" required="true" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
+                        <input type="password" required="true" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password"><br>
                       <input type="submit" name="submit" value="Sign up!">
                       <br><br>
                     </fieldset>
@@ -35,9 +35,9 @@
                   <fieldset>
                     <label class='leftbarheading'>Sign In</label>
                     <br>
-                    <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
-                    <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password"><br>
-                  <input type="submit" name="submit" value="Sign in!">
+                    <input type="text" required="true" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
+                    <input type="password" required="true" name="credentials[password]" id="sign-in password" placeholder="Enter Password"><br>
+                  <input type="submit" required="true" name="submit" value="Sign in!">
                   <br><br>
                   </fieldset>
                   </form>
@@ -47,8 +47,8 @@
                     <fieldset>
                       <label class='leftbarheading'>Change Password</label>
                       <br>
-                        <input type="password" name="passwords[old]" id="old password" placeholder="Old Password">
-                        <input type="password" name="passwords[new]" id="new password" placeholder="New Password"><br>
+                        <input type="password" required="true" name="passwords[old]" id="old password" placeholder="Old Password">
+                        <input type="password" required="true" name="passwords[new]" id="new password" placeholder="New Password"><br>
                       <input type="submit" name="submit" value="Change password!">
                       <br><br>
                     </fieldset>
@@ -76,7 +76,7 @@
                          <form id="view-issue">
                            <label class='leftbarheading'>View Single Issue</label>
                            <br>
-                             <input type="text" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID">
+                             <input type="text" required="true" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form>
@@ -92,7 +92,7 @@
                          <form id="updates-issue">
                            <label class='leftbarheading'>Update an Issue</label>
                            <br>
-                             <input type="text" name="issue[id]" class="form-control" id="updateissuetextbox" placeholder="Enter Issue ID">
+                             <input type="text" required="true" name="issue[id]" class="form-control" id="updateissuetextbox" placeholder="Enter Issue ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form>
@@ -102,7 +102,7 @@
                          <form id="delete-issue">
                            <label class='leftbarheading'>Delete an Issue</label>
                            <br>
-                             <input type="text" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID">
+                             <input type="text" required="true" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form>
