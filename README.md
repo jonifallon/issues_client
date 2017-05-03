@@ -47,4 +47,9 @@ ADDITIONAL INFO
 ________________________________
 
 Wireframe image:  http://imgur.com/a/jIwJR
-The link to my repo for the API is https://github.com/jonifallon/issues_api
+
+URLs:
+https://jonifallon.github.io/issues_client/
+https://shrouded-beach-65904.herokuapp.com/
+https://github.com/jonifallon/issues_api
+https://github.com/jonifallon/issues_client
