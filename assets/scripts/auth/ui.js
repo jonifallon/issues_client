@@ -2,6 +2,8 @@
 
 const store = require('../store')
 const showIssuesHandlerbars = require('../templates/issue-listing.handlebars')
+const showMyIssuesHandlerbars = require('../templates/issue-listing_individual.handlebars')
+const api = require('./api')
 
 const hideItems = function () {
   $('#getIssueFailureAnnounce').hide()
@@ -53,7 +55,45 @@ const onIndexSuccess = function (data) {
   // console.log('inside the onIndexSuccess in ui.js', data)
 }
 
+const onMyIndexSuccess = function (data) {
+  hideItems()
+  // console.table(data.issues)
+  const showIssuesHtml = showMyIssuesHandlerbars({ issues: data.issues })
+  showItems()
+  $('.well').show()
+  $('.viewAllIssues').show()
+  $('.viewAllIssues').append(showIssuesHtml)
+  $('.delete_myIssue').on('click', function (event) {
+    const issue = $(event.target).data('id')
+    api.deleteIssue(issue)
+        .then(deleteIssueSuccess)
+        .catch(deleteIssueFailure)
+  })
+  $('.update-myIssue').on('click', function (event) {
+    const issue = $(event.target).data('id')
+    event.preventDefault()
+    hideItems()
+    showItems()
+    // captures the issue ID input by the user
+    // const issue = $('#updateissuetextbox').val()
+    api.showIssue(issue)
+        .then(onGetIssueForUpdateSuccess)
+        .catch(onGetIssueForUpdateFailure)
+    $('#update-issue').show()
+  })
+  // $('.update_myIssue').
+  // console.log('inside the onIndexSuccess in ui.js', data)
+}
+
 const onIndexFailure = function (data) {
+  // look through data returned from server
+  // console.log('inside the onIndexFailure in ui.js', data)
+  hideItems()
+  $('#indexFailureAnnounce').show()
+  showItems()
+}
+
+const onMyIndexFailure = function (data) {
   // look through data returned from server
   // console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
@@ -74,6 +114,8 @@ const onGetIssueSuccess = function (id) {
 const onGetIssueForUpdateSuccess = function (data) {
   // console.table(data)
   // console.log('inside onGetIssueForUpdateSuccess ui.js', data)
+  // $(event.target).data('id')
+  $('#update-issue').attr('data-id', data.issue.id)
   $('#text-product2').val(data.issue.product)
   $('#textarea-description2').val(data.issue.description)
   $('#textarea-notes2').val(data.issue.notes)
@@ -119,6 +161,9 @@ const signInSuccess = (data) => {
   store.user = data.user
   hideItems()
   showItems()
+  api.index()
+  .then(onIndexSuccess)
+  .catch(onIndexFailure)
   $('#pleaseBegin').show()
 }
 
@@ -236,5 +281,7 @@ module.exports = {
   onIndexFailure,
   showItems,
   onGetIssueForUpdateSuccess,
-  onGetIssueForUpdateFailure
+  onGetIssueForUpdateFailure,
+  onMyIndexSuccess,
+  onMyIndexFailure
 }

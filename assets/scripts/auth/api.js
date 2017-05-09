@@ -15,6 +15,18 @@ const index = function () {
   })
 }
 
+const myIndex = function () {
+  // console.log('api index running')
+  return $.ajax({
+    url: config.apiOrigin + '/myIssues',
+    // url: config.apiOrigin + '/issues?over=true',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const signUp = (data) => {
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
@@ -109,6 +121,7 @@ module.exports = {
   createissue,
   updateIssue,
   showIssue,
-  deleteIssue
+  deleteIssue,
+  myIndex
 
 }

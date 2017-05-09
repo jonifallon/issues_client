@@ -52,6 +52,13 @@ const onIndex = function () {
   .catch(ui.onIndexFailure)
 }
 
+const onMyIndex = function () {
+  event.preventDefault()
+  api.myIndex()
+  .then(ui.onMyIndexSuccess)
+  .catch(ui.onMyIndexFailure)
+}
+
 const onGetissue = function (event) {
   event.preventDefault()
   const issue = $('#viewissuetextbox').val()
@@ -76,7 +83,8 @@ const populateUpdateIssueForm = function (event) {
   hideThings()
   showThings()
   // captures the issue ID input by the user
-  const issue = $('#updateissuetextbox').val()
+  // const issue = $('#updateissuetextbox').val()
+  const issue = $(event.target).data('id')
   api.showIssue(issue)
       .then(ui.onGetIssueForUpdateSuccess)
       .catch(ui.onGetIssueForUpdateFailure)
@@ -106,8 +114,9 @@ const createissue = function (event) {
 
 const onUpdateIssue = function (event) {
   event.preventDefault()
-  // console.log('inside the updateIssue function in events!')
-  const id = $('#updateissuetextbox').val()
+  console.log('inside the updateIssue function in events!')
+  // const id = $('#updateissuetextbox').val()
+  const id = $(event.target).data('id')
   const data = getFormFields(this)
   // console.log('id is ', id)
   api.updateIssue(id, data)
@@ -156,6 +165,7 @@ const addHandlers = () => {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#viewIssues').on('submit', onIndex)
+  $('#viewMyIssues').on('submit', onMyIndex)
   $('#view-issue').on('submit', onGetissue)
   $('#add-issue-button').on('submit', populateAddIssueForm)
   $('#updates-issue').on('submit', populateUpdateIssueForm)
