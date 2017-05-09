@@ -26,16 +26,18 @@ https://github.com/ga-wdi-boston/full-stack-project/issues/620 -->
 {{/each}} -->
 
 
-
+<h1 id="issues_list">Current Issues and Outages</h1>
+<br><br>
 <!-- BEGIN PRODUCT LOOP // -->
+{{#if issues}}
 {{#each issues as |issue|}}
    <tr class="item">
         <td valign="top" class="textContent">
             <!-- <img src=""{{img}}" width="50" height="75" class="itemImage"" /> -->
             <h4 class="itemName">{{issue.product}}</h4>
-            <span class="contentSecondary"><data-id="{{issue.id}}">Issue ID: {{issue.id}}</span><br />
-            <span class="contentSecondary">Description: {{issue.description}}</span><br />
-            <span class="contentSecondary">Notes: {{issue.notes}}</span><br />
+            <span class="contentSecondary"><b>Description:</b> {{issue.description}}</span><br />
+            <span class="contentSecondary"><b>Notes:</b> {{issue.notes}}</span><br />
+            <span class="contentSecondary"><data-id="{{issue.id}}">ID: {{issue.id}}</span><br />
         </td>
 <br>
         <!-- <td valign="top" class="textContent alignRight priceWidth">
@@ -44,4 +46,10 @@ https://github.com/ga-wdi-boston/full-stack-project/issues/620 -->
     </tr>
     <tr><td> </td></tr>
     {{/each}}
+    {{else}}
+    <div><h3>There are no issues or outages to display at this time.  If you need to report an issue, please contact the Help Desk.</h3></div>
+    {{/if}}
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
 <!-- // END PRODUCT LOOP -->

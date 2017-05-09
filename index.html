@@ -65,22 +65,15 @@
                   <!--end auth forms-->
                   <div id="options">
                          <form id="viewIssues">
-                           <label class='leftbarheading'>View All Issues</label>
+                           <label class='leftbarheading'>Current Issues</label>
                            <br>
-                           <button type="submit">View Issues</button>
+                           <button type="submit">View All</button>
                            <br><br>
                          </form>
 
-                         <!--individual index-->
 
-                         <form id="viewMyIssues">
-                           <label class='leftbarheading'>View My Issues</label>
-                           <br>
-                           <button type="submit">View Issues</button>
-                           <br><br>
-                         </form>
 
-                         <!--adding view single issue-->
+                         <!-- adding view single issue-->
 
                          <!-- <form id="view-issue">
                            <label class='leftbarheading'>View Single Issue</label>
@@ -99,14 +92,21 @@
                          </form>
 
                          <form id="updates-issue">
-                           <label class='leftbarheading'>Update an Issue</label>
-                           <br>
+                           <!-- <label class='leftbarheading'>Update an Issue</label> -->
+                           <!-- <br>
                              <input type="text" required="true" name="issue[id]" class="form-control" id="updateissuetextbox" placeholder="Enter Issue ID">
                            <button type="submit">Submit</button>
-                           <br><br>
+                           <br><br> -->
                          </form>
 
+                         <!--individual index-->
 
+                         <form id="viewMyIssues">
+                           <label class='leftbarheading'>My Issues</label>
+                           <br>
+                           <button type="submit">View or Edit</button>
+                           <br><br>
+                         </form>
 
                          <!-- <form id="delete-issue">
                            <label class='leftbarheading'>Delete an Issue</label>
@@ -118,8 +118,11 @@
 
                   </div>
 
+                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
               </div>
+
+
 
 
 
@@ -129,8 +132,8 @@
                   <!-- Body content -->
                   <div class="well well-lg"><div class="viewAllIssues"></div></div>
                   <div id='onGetIssueForUpdateSuccessAnnounce'>Your issue has been updated.</div>
-                  <div id='getIssueForUpdateFailureAnnounce'>Please enter a valid issue ID. You may update only those items which you have created.</div>
-                  <div id='createissueSuccessAnnounce'>The issue has been added.  Please select <strong>View All Issues</strong> to view the update.</div>
+                  <div id='getIssueForUpdateFailureAnnounce'>Your issue was not updated.  Please try again.</div>
+                  <div id='createissueSuccessAnnounce'>The issue has been added.  Please select <strong>Current Issues</strong> to view the update.</div>
                   <div id='signinFailureAnnounce'>Your signin was unsuccessful.  Please try again.</div>
                   <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
                   <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
@@ -139,16 +142,10 @@
                   <div id="signupSuccessAnnounce">You successfully signed up!  Please sign in with your new account.</div>
                   <div id='signupFailureAnnounce'>You did not successfully sign up.  Please try again</div>
                   <div id='deleteSuccessAnnounce'>Confirmation:  The issue has been deleted.</div>
-                  <div id='deleteFailureAnnounce'>Please enter a valid issue ID. You may delete only those items which you have created.</div>
-                  <div id='getIssueFailureAnnounce'>Please enter a valid ID for an issue created by you.</div>
-                  <div id='indexFailureAnnounce'>There are no issues to display</div>
-                  <div id='pleaseBegin'><h1>Welcome!</h1><br><br>Please begin by selecting an option on the left.  You can:
-                                       <ul><li>View current known issues or outages</li>
-                                           <li>Create a new issue</li>
-                                           <li>Delete an issue</li>
-                                           <li>Update an issue</li>
-                                        </ul>
-                                        </div>
+                  <div id='deleteFailureAnnounce'>The issue did not successfully delete.  Please try again.</div>
+                  <div id='getIssueFailureAnnounce'>We are unable to display the issue.  Please try again.</div>
+                  <div id='indexFailureAnnounce'>There are no issues to display at this time.</div>
+                  <div id='pleaseBegin'><h1>Welcome!</h1><br><br>Please begin by selecting an option on the left.</div>
 
 
                   <form id="create-issue">
@@ -171,12 +168,12 @@
                   </form>
 
 
-                  <!-- <form id="update-issue">
+                  <form id="update-issue">
                       <h3>Update an Issue</h3>
                     <div class="productfield">
                       <label>Application or Service</label>
                       <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product2">
-                    </div> -->
+                    </div>
 
                     <div class="descriptionfield">
                       <label>Description</label>
@@ -188,7 +185,7 @@
                      <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes2"></textarea>
                    </div>
                    <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
-                  <!-- </form> -->
+                  </form>
 
 
                   <div class="jumbotron" id='jumbo'>

@@ -114,7 +114,7 @@ const createissue = function (event) {
 
 const onUpdateIssue = function (event) {
   event.preventDefault()
-  console.log('inside the updateIssue function in events!')
+  // console.log('inside the updateIssue function in events!')
   // const id = $('#updateissuetextbox').val()
   const id = $(event.target).data('id')
   const data = getFormFields(this)
