@@ -58,25 +58,26 @@ const onIndexSuccess = function (data) {
 const onMyIndexSuccess = function (data) {
   hideItems()
   // console.table(data.issues)
+  // console.log('inside on my index success', data)
   const showIssuesHtml = showMyIssuesHandlerbars({ issues: data.issues })
   showItems()
   $('.well').show()
   $('.viewAllIssues').show()
   $('.viewAllIssues').append(showIssuesHtml)
   $('.delete_myIssue').on('click', function (event) {
-    const issue = $(event.target).data('id')
-    api.deleteIssue(issue)
+    const issueDelete = $(event.target).data('id')
+    api.deleteIssue(issueDelete)
         .then(deleteIssueSuccess)
         .catch(deleteIssueFailure)
   })
   $('.update-myIssue').on('click', function (event) {
-    const issue = $(event.target).data('id')
+    const issueUpdate = $(event.target).data('id')
     event.preventDefault()
     hideItems()
     showItems()
     // captures the issue ID input by the user
     // const issue = $('#updateissuetextbox').val()
-    api.showIssue(issue)
+    api.showIssue(issueUpdate)
         .then(onGetIssueForUpdateSuccess)
         .catch(onGetIssueForUpdateFailure)
     $('#update-issue').show()
@@ -100,25 +101,31 @@ const onMyIndexFailure = function (data) {
   $('#indexFailureAnnounce').show()
   showItems()
 }
-const onGetIssueSuccess = function (id) {
-  hideItems()
-  // console.table(id)
-  const showIssuesHtml = showIssuesHandlerbars({ issues: id })
-  $('.viewAllIssues').show()
-  $('.viewAllIssues').append(showIssuesHtml)
-  showItems()
-  $('.well').show()
-  // console.log('inside onGetIssueSuccess ui', id)
-}
+// const onGetIssueSuccess = function (id) {
+//   hideItems()
+//   // console.table(id)
+//   const showIssuesHtml = showIssuesHandlerbars({ issues: id })
+//   $('.viewAllIssues').show()
+//   $('.viewAllIssues').append(showIssuesHtml)
+//   showItems()
+//   $('.well').show()
+//   // console.log('inside onGetIssueSuccess ui', id)
+// }
 
 const onGetIssueForUpdateSuccess = function (data) {
   // console.table(data)
+  // this next console log shows right data, but it's passing wrong data to
   // console.log('inside onGetIssueForUpdateSuccess ui.js', data)
   // $(event.target).data('id')
   $('#update-issue').attr('data-id', data.issue.id)
+  // console.log('data-id', data.issue.id)
   $('#text-product2').val(data.issue.product)
+  // console.log('product ', data.issue.product)
   $('#textarea-description2').val(data.issue.description)
+  // console.log('description ', data.issue.description)
   $('#textarea-notes2').val(data.issue.notes)
+  // console.log('notes ', data.issue.notes)
+  store.data = data
 }
 
 const onGetIssueForUpdateFailure = function (data) {
@@ -129,12 +136,12 @@ const onGetIssueForUpdateFailure = function (data) {
   $('#update-issue').hide()
 }
 
-const onGetIssueFailure = function (data) {
-  hideItems()
-  $('#getIssueFailureAnnounce').show()
-  // console.log('inside onGetIssueFailure ui.js', data)
-  showItems()
-}
+// const onGetIssueFailure = function (data) {
+//   hideItems()
+//   $('#getIssueFailureAnnounce').show()
+//   // console.log('inside onGetIssueFailure ui.js', data)
+//   showItems()
+// }
 
 const signUpSuccess = (data) => {
   hideItems()
@@ -245,6 +252,7 @@ const createissueFailure = (error) => {
 
 const updateissueSuccess = (data) => {
   store.issue = data.issue
+  $('#update-issue')[0].reset()
   // console.log('inside updateissueSuccess', data)
   hideItems()
   showItems()
@@ -274,8 +282,8 @@ module.exports = {
   updateissueFailure,
   updateissueSuccess,
   onIndexSuccess,
-  onGetIssueSuccess,
-  onGetIssueFailure,
+  // onGetIssueSuccess,
+  // onGetIssueFailure,
   deleteIssueSuccess,
   deleteIssueFailure,
   onIndexFailure,

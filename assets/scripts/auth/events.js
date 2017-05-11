@@ -4,6 +4,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 
 const api = require('./api')
 const ui = require('./ui')
+const store = require('../store')
 
 const onSignUp = function (event) {
   const data = getFormFields(this)
@@ -59,14 +60,14 @@ const onMyIndex = function () {
   .catch(ui.onMyIndexFailure)
 }
 
-const onGetissue = function (event) {
-  event.preventDefault()
-  const issue = $('#viewissuetextbox').val()
-  api.showIssue(issue)
-      .then(ui.onGetIssueSuccess)
-      .catch(ui.onGetIssueFailure)
-  $('#view-issue')[0].reset()
-}
+// const onGetissue = function (event) {
+//   event.preventDefault()
+//   const issue = $('#viewissuetextbox').val()
+//   api.showIssue(issue)
+//       .then(ui.onGetIssueSuccess)
+//       .catch(ui.onGetIssueFailure)
+//   $('#view-issue')[0].reset()
+// }
 
 const populateAddIssueForm = function (event) {
   // populate the create-issue form on the index page
@@ -89,7 +90,7 @@ const populateUpdateIssueForm = function (event) {
       .then(ui.onGetIssueForUpdateSuccess)
       .catch(ui.onGetIssueForUpdateFailure)
   $('#update-issue').show()
-  // console.log('inside populateUpdateIssueForm')
+  // console.log('inside populateUpdateIssueForm', issue)
 }
 
 const deleteIssue = function (event) {
@@ -114,11 +115,12 @@ const createissue = function (event) {
 
 const onUpdateIssue = function (event) {
   event.preventDefault()
-  // console.log('inside the updateIssue function in events!')
+  // console.log('inside the updateIssue function in events, and events is', event)
   // const id = $('#updateissuetextbox').val()
-  const id = $(event.target).data('id')
+  // const id = $(event.target).data('id')
+  const id = store.data.issue.id
+  // console.log('id from the store is ', id)
   const data = getFormFields(this)
-  // console.log('id is ', id)
   api.updateIssue(id, data)
   .then(ui.updateissueSuccess)
   .catch(ui.updateissueFailure)
@@ -166,7 +168,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#viewIssues').on('submit', onIndex)
   $('#viewMyIssues').on('submit', onMyIndex)
-  $('#view-issue').on('submit', onGetissue)
+  // $('#view-issue').on('submit', onGetissue)
   $('#add-issue-button').on('submit', populateAddIssueForm)
   $('#updates-issue').on('submit', populateUpdateIssueForm)
   $('#delete-issue').on('submit', deleteIssue)

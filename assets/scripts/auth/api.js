@@ -90,7 +90,7 @@ const deleteIssue = (id) => {
 }
 
 const updateIssue = (id, data) => {
-  // console.log('data is', id, data)
+  // console.log('inside update issue in api.js data is', id, data)
   return $.ajax({
     url: config.apiOrigin + '/issues/' + id,
     method: 'PATCH',
