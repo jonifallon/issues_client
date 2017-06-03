@@ -4,7 +4,7 @@ _________________________________
 SYNOPSIS
 _________________________________
 
-The Issues & Outages log is a portal which displays current issues in the IT environment which may impact a user's ability to perform tasks in affected applications.
+Pets is a portal which displays current issues in the IT environment which may impact a user's ability to perform tasks in affected applications.
 
 _________________________________
 MOTIVATION

@@ -1,12 +1,12 @@
 'use strict'
 
 const store = require('../store')
-const showIssuesHandlerbars = require('../templates/issue-listing.handlebars')
-const showMyIssuesHandlerbars = require('../templates/issue-listing_individual.handlebars')
+const showPetsHandlerbars = require('../templates/pet-listing.handlebars')
+const showMyPetsHandlerbars = require('../templates/pet-listing_individual.handlebars')
 const api = require('./api')
 
 const hideItems = function () {
-  $('#getIssueFailureAnnounce').hide()
+  $('#getPetFailureAnnounce').hide()
   $('#signupSuccessAnnounce').hide()
   $('#signupFailureAnnounce').hide()
   $('#signinFailureAnnounce').hide()
@@ -19,23 +19,23 @@ const hideItems = function () {
   $('#updateSuccessAnnounce').hide()
   $('#updateFailureAnnounce').hide()
   $('#indexFailureAnnounce').hide()
-  $('#getIssueForUpdateFailureAnnounce').hide()
+  $('#getPetForUpdateFailureAnnounce').hide()
   $('#change-password').hide()
-  $('#update-issue').hide()
+  $('#update-pet').hide()
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').hide()
   $('.plannedUnplanned').hide()
   $('#jumbo').hide()
   $('#options').hide()
-  $('#create-issue').hide()
+  $('#create-pet').hide()
   $('.well').hide()
-  $('.viewAllIssues').empty()
-  $('#createissueSuccessAnnounce').hide()
+  $('.viewAllPets').empty()
+  $('#createpetSuccessAnnounce').hide()
   $('#pleaseBegin').hide()
-  $('#create-issue')[0].reset()
-  $('#updates-issue')[0].reset()
-  $('#onGetIssueForUpdateSuccessAnnounce').hide()
+  $('#create-pet')[0].reset()
+  $('#updates-pet')[0].reset()
+  $('#onGetPetForUpdateSuccessAnnounce').hide()
 }
 
 const showItems = function () {
@@ -46,43 +46,43 @@ const showItems = function () {
 
 const onIndexSuccess = function (data) {
   hideItems()
-  // console.table(data.issues)
-  const showIssuesHtml = showIssuesHandlerbars({ issues: data.issues })
+  // console.table(data.pets)
+  const showPetsHtml = showPetsHandlerbars({ pets: data.pets })
   showItems()
   $('.well').show()
-  $('.viewAllIssues').show()
-  $('.viewAllIssues').append(showIssuesHtml)
+  $('.viewAllPets').show()
+  $('.viewAllPets').append(showPetsHtml)
   // console.log('inside the onIndexSuccess in ui.js', data)
 }
 
 const onMyIndexSuccess = function (data) {
   hideItems()
-  // console.table(data.issues)
+  // console.table(data.pets)
   // console.log('inside on my index success', data)
-  const showIssuesHtml = showMyIssuesHandlerbars({ issues: data.issues })
+  const showPetsHtml = showMyPetsHandlerbars({ pets: data.pets })
   showItems()
   $('.well').show()
-  $('.viewAllIssues').show()
-  $('.viewAllIssues').append(showIssuesHtml)
-  $('.delete_myIssue').on('click', function (event) {
-    const issueDelete = $(event.target).data('id')
-    api.deleteIssue(issueDelete)
-        .then(deleteIssueSuccess)
-        .catch(deleteIssueFailure)
+  $('.viewAllPets').show()
+  $('.viewAllPets').append(showPetsHtml)
+  $('.delete_myPet').on('click', function (event) {
+    const petDelete = $(event.target).data('id')
+    api.deletePet(petDelete)
+        .then(deletePetSuccess)
+        .catch(deletePetFailure)
   })
-  $('.update-myIssue').on('click', function (event) {
-    const issueUpdate = $(event.target).data('id')
+  $('.update-myPet').on('click', function (event) {
+    const petUpdate = $(event.target).data('id')
     event.preventDefault()
     hideItems()
     showItems()
-    // captures the issue ID input by the user
-    // const issue = $('#updateissuetextbox').val()
-    api.showIssue(issueUpdate)
-        .then(onGetIssueForUpdateSuccess)
-        .catch(onGetIssueForUpdateFailure)
-    $('#update-issue').show()
+    // captures the pet ID input by the user
+    // const pet = $('#updatepettextbox').val()
+    api.showPet(petUpdate)
+        .then(onGetPetForUpdateSuccess)
+        .catch(onGetPetForUpdateFailure)
+    $('#update-pet').show()
   })
-  // $('.update_myIssue').
+  // $('.update_myPet').
   // console.log('inside the onIndexSuccess in ui.js', data)
 }
 
@@ -101,45 +101,45 @@ const onMyIndexFailure = function (data) {
   $('#indexFailureAnnounce').show()
   showItems()
 }
-// const onGetIssueSuccess = function (id) {
+// const onGetPetSuccess = function (id) {
 //   hideItems()
 //   // console.table(id)
-//   const showIssuesHtml = showIssuesHandlerbars({ issues: id })
-//   $('.viewAllIssues').show()
-//   $('.viewAllIssues').append(showIssuesHtml)
+//   const showPetsHtml = showPetsHandlerbars({ pets: id })
+//   $('.viewAllPets').show()
+//   $('.viewAllPets').append(showPetsHtml)
 //   showItems()
 //   $('.well').show()
-//   // console.log('inside onGetIssueSuccess ui', id)
+//   // console.log('inside onGetPetSuccess ui', id)
 // }
 
-const onGetIssueForUpdateSuccess = function (data) {
+const onGetPetForUpdateSuccess = function (data) {
   // console.table(data)
   // this next console log shows right data, but it's passing wrong data to
-  // console.log('inside onGetIssueForUpdateSuccess ui.js', data)
+  // console.log('inside onGetPetForUpdateSuccess ui.js', data)
   // $(event.target).data('id')
-  $('#update-issue').attr('data-id', data.issue.id)
-  // console.log('data-id', data.issue.id)
-  $('#text-product2').val(data.issue.product)
-  // console.log('product ', data.issue.product)
-  $('#textarea-description2').val(data.issue.description)
-  // console.log('description ', data.issue.description)
-  $('#textarea-notes2').val(data.issue.notes)
-  // console.log('notes ', data.issue.notes)
+  $('#update-pet').attr('data-id', data.pet.id)
+  // console.log('data-id', data.pet.id)
+  $('#text-product2').val(data.pet.product)
+  // console.log('product ', data.pet.product)
+  $('#textarea-description2').val(data.pet.description)
+  // console.log('description ', data.pet.description)
+  $('#textarea-notes2').val(data.pet.notes)
+  // console.log('notes ', data.pet.notes)
   store.data = data
 }
 
-const onGetIssueForUpdateFailure = function (data) {
+const onGetPetForUpdateFailure = function (data) {
   hideItems()
-  $('#getIssueForUpdateFailureAnnounce').show()
-  // console.log('inside onGetIssueForUpdateFailure ui.js', data)
+  $('#getPetForUpdateFailureAnnounce').show()
+  // console.log('inside onGetPetForUpdateFailure ui.js', data)
   showItems()
-  $('#update-issue').hide()
+  $('#update-pet').hide()
 }
 
-// const onGetIssueFailure = function (data) {
+// const onGetPetFailure = function (data) {
 //   hideItems()
-//   $('#getIssueFailureAnnounce').show()
-//   // console.log('inside onGetIssueFailure ui.js', data)
+//   $('#getPetFailureAnnounce').show()
+//   // console.log('inside onGetPetFailure ui.js', data)
 //   showItems()
 // }
 
@@ -164,7 +164,7 @@ const signUpFailure = (error) => {
 
 const signInSuccess = (data) => {
   // console.log('signin success ran.  data is:', data)
-  // $('.viewAllIssues').show()
+  // $('.viewAllPets').show()
   store.user = data.user
   hideItems()
   showItems()
@@ -216,52 +216,52 @@ const changePasswordFailure = (error) => {
   console.error(error)
 }
 
-const deleteIssueSuccess = (data) => {
-  // console.log('inside the deleteIssueSuccess ui script.  data is:', data)
-  // store.issue = data.issue
-  // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.issue)
+const deletePetSuccess = (data) => {
+  // console.log('inside the deletePetSuccess ui script.  data is:', data)
+  // store.pet = data.pet
+  // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.pet)
   hideItems()
   $('#deleteSuccessAnnounce').show()
   showItems()
 }
 
-const deleteIssueFailure = (data) => {
-  // console.log('deleteIssue failed.  data is:', data)
-  // store.issue = data.issue
-  // console.log('inside the deleteIssueFailure ui script', store.issue)
+const deletePetFailure = (data) => {
+  // console.log('deletePet failed.  data is:', data)
+  // store.pet = data.pet
+  // console.log('inside the deletePetFailure ui script', store.pet)
   hideItems()
   showItems()
   $('#deleteFailureAnnounce').show()
   $('#options').show()
 }
 
-const createissueSuccess = (data) => {
-  // console.log('create issue success ran.  data is:', data)
-  store.issue = data.issue
-  // console.log('you are in the createissueSuccess function on ui.js', store.issue)
+const createpetSuccess = (data) => {
+  // console.log('create pet success ran.  data is:', data)
+  store.pet = data.pet
+  // console.log('you are in the createpetSuccess function on ui.js', store.pet)
   hideItems()
-  $('#createissueSuccessAnnounce').show()
+  $('#createpetSuccessAnnounce').show()
   showItems()
 }
 
-const createissueFailure = (error) => {
+const createpetFailure = (error) => {
   hideItems()
   showItems()
   return error
 }
 
-const updateissueSuccess = (data) => {
-  store.issue = data.issue
-  $('#update-issue')[0].reset()
-  // console.log('inside updateissueSuccess', data)
+const updatepetSuccess = (data) => {
+  store.pet = data.pet
+  $('#update-pet')[0].reset()
+  // console.log('inside updatepetSuccess', data)
   hideItems()
   showItems()
   $('#updateSuccessAnnounce').show()
-  // $('#onGetIssueForUpdateSuccessAnnounce').show()
+  // $('#onGetPetForUpdateSuccessAnnounce').show()
 }
 
-const updateissueFailure = (error) => {
-  // console.log('inside updateissueFailure ui')
+const updatepetFailure = (error) => {
+  // console.log('inside updatepetFailure ui')
   hideItems()
   showItems()
   $('#updateFailureAnnounce').show()
@@ -277,19 +277,19 @@ module.exports = {
   signOutSuccess,
   changePasswordFailure,
   changePasswordSuccess,
-  createissueFailure,
-  createissueSuccess,
-  updateissueFailure,
-  updateissueSuccess,
+  createpetFailure,
+  createpetSuccess,
+  updatepetFailure,
+  updatepetSuccess,
   onIndexSuccess,
-  // onGetIssueSuccess,
-  // onGetIssueFailure,
-  deleteIssueSuccess,
-  deleteIssueFailure,
+  // onGetPetSuccess,
+  // onGetPetFailure,
+  deletePetSuccess,
+  deletePetFailure,
   onIndexFailure,
   showItems,
-  onGetIssueForUpdateSuccess,
-  onGetIssueForUpdateFailure,
+  onGetPetForUpdateSuccess,
+  onGetPetForUpdateFailure,
   onMyIndexSuccess,
   onMyIndexFailure
 }

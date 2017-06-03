@@ -38,7 +38,7 @@ h1 {
   color: #001d61;
 }
 
-#issues_list {
+#pets_list {
   font-size: 36px;
   text-align: center;
 }
@@ -90,13 +90,13 @@ h1 {
   overflow: hidden;
 }
 
-#showissues, #options, #create-issue {
+#showpets, #options, #create-pet {
   display: none;
 }
 
 #signinFailureAnnounce, #pwchangeFailureAnnounce, #signupFailureAnnounce,
-#signoutFailureAnnounce, #getIssueFailureAnnounce, #deleteFailureAnnounce,
-#updateFailureAnnounce, #indexFailureAnnounce, #getIssueForUpdateFailureAnnounce {
+#signoutFailureAnnounce, #getPetFailureAnnounce, #deleteFailureAnnounce,
+#updateFailureAnnounce, #indexFailureAnnounce, #getPetForUpdateFailureAnnounce {
   color: #001d61;
   display: none;
   font-size: 36px;
@@ -105,14 +105,14 @@ h1 {
 
 #signinSuccessAnnounce, #pwchangeSuccessAnnounce, #signupSuccessAnnounce,
 #signoutSuccessAnnounce, #deleteSuccessAnnounce, #updateSuccessAnnounce,
-#selections, #createissueSuccessAnnounce, #pleaseBegin, #onGetIssueForUpdateSuccessAnnounce {
+#selections, #createpetSuccessAnnounce, #pleaseBegin, #onGetPetForUpdateSuccessAnnounce {
   color: #001d61;
   display: none;
   font-size: 36px;
   padding-top: 10px;
 }
 
-#sign-out, #change-password, #update-issue {
+#sign-out, #change-password, #update-pet {
   display:none;
 }
 

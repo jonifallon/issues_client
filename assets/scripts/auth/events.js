@@ -60,74 +60,74 @@ const onMyIndex = function () {
   .catch(ui.onMyIndexFailure)
 }
 
-// const onGetissue = function (event) {
+// const onGetpet = function (event) {
 //   event.preventDefault()
-//   const issue = $('#viewissuetextbox').val()
-//   api.showIssue(issue)
-//       .then(ui.onGetIssueSuccess)
-//       .catch(ui.onGetIssueFailure)
-//   $('#view-issue')[0].reset()
+//   const pet = $('#viewpettextbox').val()
+//   api.showPet(pet)
+//       .then(ui.onGetPetSuccess)
+//       .catch(ui.onGetPetFailure)
+//   $('#view-pet')[0].reset()
 // }
 
-const populateAddIssueForm = function (event) {
-  // populate the create-issue form on the index page
+const populateAddPetForm = function (event) {
+  // populate the create-pet form on the index page
   event.preventDefault()
   hideThings()
   showThings()
-  $('#create-issue').show()
-  // console.log('inside populateAddIssueForm')
+  $('#create-pet').show()
+  // console.log('inside populateAddPetForm')
 }
 
-const populateUpdateIssueForm = function (event) {
-  // populate the create-issue form on the index page
+const populateUpdatePetForm = function (event) {
+  // populate the create-pet form on the index page
   event.preventDefault()
   hideThings()
   showThings()
-  // captures the issue ID input by the user
-  // const issue = $('#updateissuetextbox').val()
-  const issue = $(event.target).data('id')
-  api.showIssue(issue)
-      .then(ui.onGetIssueForUpdateSuccess)
-      .catch(ui.onGetIssueForUpdateFailure)
-  $('#update-issue').show()
-  // console.log('inside populateUpdateIssueForm', issue)
+  // captures the pet ID input by the user
+  // const pet = $('#updatepettextbox').val()
+  const pet = $(event.target).data('id')
+  api.showPet(pet)
+      .then(ui.onGetPetForUpdateSuccess)
+      .catch(ui.onGetPetForUpdateFailure)
+  $('#update-pet').show()
+  // console.log('inside populateUpdatePetForm', pet)
 }
 
-const deleteIssue = function (event) {
-  // console.log('inside the deleteIssue function events.js', event)
+const deletePet = function (event) {
+  // console.log('inside the deletePet function events.js', event)
   event.preventDefault()
-  const issue = $('#deleteissuetextbox').val()
-  api.deleteIssue(issue)
-      .then(ui.deleteIssueSuccess)
-      .catch(ui.deleteIssueFailure)
-  $('#delete-issue')[0].reset()
+  const pet = $('#deletepettextbox').val()
+  api.deletePet(pet)
+      .then(ui.deletePetSuccess)
+      .catch(ui.deletePetFailure)
+  $('#delete-pet')[0].reset()
 }
 
-const createissue = function (event) {
-  // console.log('inside the createissue function on events.js', event)
+const createpet = function (event) {
+  // console.log('inside the createpet function on events.js', event)
   event.preventDefault()
   const data = getFormFields(this)
-  api.createissue(data)
-  .then(ui.createissueSuccess)
-  .catch(ui.createissueFailure)
-  $('#create-issue')[0].reset()
+  api.createpet(data)
+  .then(ui.createpetSuccess)
+  .catch(ui.createpetFailure)
+  $('#create-pet')[0].reset()
 }
 
-const onUpdateIssue = function (event) {
+const onUpdatePet = function (event) {
   event.preventDefault()
-  // console.log('inside the updateIssue function in events, and events is', event)
-  // const id = $('#updateissuetextbox').val()
+  // console.log('inside the updatePet function in events, and events is', event)
+  // const id = $('#updatepettextbox').val()
   // const id = $(event.target).data('id')
-  const id = store.data.issue.id
+  const id = store.data.pet.id
   // console.log('id from the store is ', id)
   const data = getFormFields(this)
-  api.updateIssue(id, data)
-  .then(ui.updateissueSuccess)
-  .catch(ui.updateissueFailure)
+  api.updatePet(id, data)
+  .then(ui.updatepetSuccess)
+  .catch(ui.updatepetFailure)
 }
 
 const hideThings = function () {
-  $('#getIssueFailureAnnounce').hide()
+  $('#getPetFailureAnnounce').hide()
   $('#signupSuccessAnnounce').hide()
   $('#signupFailureAnnounce').hide()
   $('#signinFailureAnnounce').hide()
@@ -141,17 +141,17 @@ const hideThings = function () {
   $('#updateFailureAnnounce').hide()
   $('#indexFailureAnnounce').hide()
   $('#change-password').hide()
-  $('#update-issue').hide()
+  $('#update-pet').hide()
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').hide()
   $('.plannedUnplanned').hide()
   $('#jumbo').hide()
   $('#options').hide()
-  $('#create-issue').hide()
+  $('#create-pet').hide()
   $('.well').hide()
-  $('.viewAllIssues').empty()
-  $('#createissueSuccessAnnounce').hide()
+  $('.viewAllPets').empty()
+  $('#createpetSuccessAnnounce').hide()
   $('#pleaseBegin').hide()
 }
 
@@ -166,15 +166,15 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('#viewIssues').on('submit', onIndex)
-  $('#viewMyIssues').on('submit', onMyIndex)
-  // $('#view-issue').on('submit', onGetissue)
-  $('#add-issue-button').on('submit', populateAddIssueForm)
-  $('#updates-issue').on('submit', populateUpdateIssueForm)
-  $('#delete-issue').on('submit', deleteIssue)
-  $('#update-issue').on('submit', onUpdateIssue)
+  $('#viewPets').on('submit', onIndex)
+  $('#viewMyPets').on('submit', onMyIndex)
+  // $('#view-pet').on('submit', onGetpet)
+  $('#add-pet-button').on('submit', populateAddPetForm)
+  $('#updates-pet').on('submit', populateUpdatePetForm)
+  $('#delete-pet').on('submit', deletePet)
+  $('#update-pet').on('submit', onUpdatePet)
   $('#sign-up').trigger('reset')
-  $('#create-issue').on('submit', createissue)
+  $('#create-pet').on('submit', createpet)
 }
 
 module.exports = {

@@ -6,8 +6,8 @@ const store = require('../store')
 const index = function () {
   // console.log('api index running')
   return $.ajax({
-    url: config.apiOrigin + '/issues',
-    // url: config.apiOrigin + '/issues?over=true',
+    url: config.apiOrigin + '/pets',
+    // url: config.apiOrigin + '/pets?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -18,8 +18,8 @@ const index = function () {
 const myIndex = function () {
   // console.log('api index running')
   return $.ajax({
-    url: config.apiOrigin + '/myIssues',
-    // url: config.apiOrigin + '/issues?over=true',
+    url: config.apiOrigin + '/myPets',
+    // url: config.apiOrigin + '/pets?over=true',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -66,10 +66,10 @@ const changePassword = (data) => {
   })
 }
 
-const createissue = (data) => {
-  // console.log('inside createissue function api.js', data)
+const createpet = (data) => {
+  // console.log('inside createpet function api.js', data)
   return $.ajax({
-    url: config.apiOrigin + '/issues',
+    url: config.apiOrigin + '/pets',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -78,10 +78,10 @@ const createissue = (data) => {
   })
 }
 
-const deleteIssue = (id) => {
-  // console.log('inside delete issue function api.js', id)
+const deletePet = (id) => {
+  // console.log('inside delete pet function api.js', id)
   return $.ajax({
-    url: config.apiOrigin + '/issues/' + id,
+    url: config.apiOrigin + '/pets/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -89,10 +89,10 @@ const deleteIssue = (id) => {
   })
 }
 
-const updateIssue = (id, data) => {
-  // console.log('inside update issue in api.js data is', id, data)
+const updatePet = (id, data) => {
+  // console.log('inside update pet in api.js data is', id, data)
   return $.ajax({
-    url: config.apiOrigin + '/issues/' + id,
+    url: config.apiOrigin + '/pets/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -101,10 +101,10 @@ const updateIssue = (id, data) => {
   })
 }
 
-const showIssue = (id) => {
-  // console.log('inside the showIssue function', id)
+const showPet = (id) => {
+  // console.log('inside the showPet function', id)
   return $.ajax({
-    url: config.apiOrigin + '/issues/' + id,
+    url: config.apiOrigin + '/pets/' + id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -118,10 +118,10 @@ module.exports = {
   signOut,
   changePassword,
   index,
-  createissue,
-  updateIssue,
-  showIssue,
-  deleteIssue,
+  createpet,
+  updatePet,
+  showPet,
+  deletePet,
   myIndex
 
 }

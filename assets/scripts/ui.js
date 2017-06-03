@@ -36,13 +36,13 @@
 //   console.error(error)
 // }
 //
-// const createissueFailure = (error) => {
+// const createpetFailure = (error) => {
 //   console.error(error)
 // }
 //
-// const createissueSuccess = (data) => {
-//   console.log('create issue success ran.  data is:', data)
-//   store.issue = data.issue
+// const createpetSuccess = (data) => {
+//   console.log('create pet success ran.  data is:', data)
+//   store.pet = data.pet
 // }
 //
 // module.exports = {
@@ -54,6 +54,6 @@
 //   signOutSuccess,
 //   changePasswordFailure,
 //   changePasswordSuccess,
-//   createissueFailure,
-//   createissueSuccess
+//   createpetFailure,
+//   createpetSuccess
 // }

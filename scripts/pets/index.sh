@@ -1,7 +1,7 @@
-curl --include --request GET "http://localhost:4741/issues" \
+curl --include --request GET "http://localhost:4741/pets" \
   --header "Content-Type: application/json" \
   --data '{
-  "issues": [
+  "pets": [
     {
       "id": 1,
       "cells": ["o","x","o","x","o","x","o","x","o"],

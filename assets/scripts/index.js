@@ -2,10 +2,10 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const issue = require('./issue')
+const pet = require('./pet')
 
 $(() => {
-  setAPIOrigin(location, config, issue)
+  setAPIOrigin(location, config, pet)
 })
 
 require('./example')

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Issues and Outages</title>
+      <title>Docu-Pets</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -64,8 +64,8 @@
 
                   <!--end auth forms-->
                   <div id="options">
-                         <form id="viewIssues">
-                           <label class='leftbarheading'>Current Issues</label>
+                         <form id="viewPets">
+                           <label class='leftbarheading'>Current Pets</label>
                            <br>
                            <button type="submit">View All</button>
                            <br><br>
@@ -73,45 +73,45 @@
 
 
 
-                         <!-- adding view single issue-->
+                         <!-- adding view single pet-->
 
-                         <!-- <form id="view-issue">
-                           <label class='leftbarheading'>View Single Issue</label>
+                         <!-- <form id="view-pet">
+                           <label class='leftbarheading'>View Single Pet</label>
                            <br>
-                             <input type="text" required="true" class="form-control" id="viewissuetextbox" placeholder="Enter Issue ID">
+                             <input type="text" required="true" class="form-control" id="viewpettextbox" placeholder="Enter Pet ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form> -->
 
 
-                         <form id="add-issue-button">
-                           <label class='leftbarheading'>Add a New Issue</label>
+                         <form id="add-pet-button">
+                           <label class='leftbarheading'>Add a New Pet</label>
                            <br>
-                              <button type="submit">Add Issue</button>
+                              <button type="submit">Add Pet</button>
                             <br><br>
                          </form>
 
-                         <form id="updates-issue">
-                           <!-- <label class='leftbarheading'>Update an Issue</label> -->
+                         <form id="updates-pet">
+                           <!-- <label class='leftbarheading'>Update an Pet</label> -->
                            <!-- <br>
-                             <input type="text" required="true" name="issue[id]" class="form-control" id="updateissuetextbox" placeholder="Enter Issue ID">
+                             <input type="text" required="true" name="pet[id]" class="form-control" id="updatepettextbox" placeholder="Enter Pet ID">
                            <button type="submit">Submit</button>
                            <br><br> -->
                          </form>
 
                          <!--individual index-->
 
-                         <form id="viewMyIssues">
-                           <label class='leftbarheading'>My Issues</label>
+                         <form id="viewMyPets">
+                           <label class='leftbarheading'>My Pets</label>
                            <br>
                            <button type="submit">View or Edit</button>
                            <br><br>
                          </form>
 
-                         <!-- <form id="delete-issue">
-                           <label class='leftbarheading'>Delete an Issue</label>
+                         <!-- <form id="delete-pet">
+                           <label class='leftbarheading'>Delete an Pet</label>
                            <br>
-                             <input type="text" required="true" class="form-control" id="deleteissuetextbox" placeholder="Enter Issue ID">
+                             <input type="text" required="true" class="form-control" id="deletepettextbox" placeholder="Enter Pet ID">
                            <button type="submit">Submit</button>
                            <br><br>
                          </form> -->
@@ -130,66 +130,66 @@
 
               <div class="col-sm-10" id='rightSection'>
                   <!-- Body content -->
-                  <div class="well well-lg"><div class="viewAllIssues"></div></div>
-                  <div id='onGetIssueForUpdateSuccessAnnounce'>Your issue has been updated.</div>
-                  <div id='getIssueForUpdateFailureAnnounce'>Your issue was not updated.  Please try again.</div>
-                  <div id='createissueSuccessAnnounce'>The issue has been added.  Please select <strong>Current Issues</strong> to view the update.</div>
+                  <div class="well well-lg"><div class="viewAllPets"></div></div>
+                  <div id='onGetPetForUpdateSuccessAnnounce'>Your pet has been updated.</div>
+                  <div id='getPetForUpdateFailureAnnounce'>Your pet was not updated.  Please try again.</div>
+                  <div id='createpetSuccessAnnounce'>The pet has been added.  Please select <strong>Current Pets</strong> to view the update.</div>
                   <div id='signinFailureAnnounce'>Your signin was unsuccessful.  Please try again.</div>
                   <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
                   <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
-                  <div id='updateFailureAnnounce'>Your issue update was not successful.  Please try again.</div>
-                  <div id='updateSuccessAnnounce'>Your issue was successfully updated.</div>
+                  <div id='updateFailureAnnounce'>Your pet update was not successful.  Please try again.</div>
+                  <div id='updateSuccessAnnounce'>Your pet was successfully updated.</div>
                   <div id="signupSuccessAnnounce">You successfully signed up!  Please sign in with your new account.</div>
                   <div id='signupFailureAnnounce'>You did not successfully sign up.  Please try again</div>
-                  <div id='deleteSuccessAnnounce'>Confirmation:  The issue has been deleted.</div>
-                  <div id='deleteFailureAnnounce'>The issue did not successfully delete.  Please try again.</div>
-                  <div id='getIssueFailureAnnounce'>We are unable to display the issue.  Please try again.</div>
-                  <div id='indexFailureAnnounce'>There are no issues to display at this time.</div>
+                  <div id='deleteSuccessAnnounce'>Confirmation:  The pet has been deleted.</div>
+                  <div id='deleteFailureAnnounce'>The pet did not successfully delete.  Please try again.</div>
+                  <div id='getPetFailureAnnounce'>We are unable to display the pet.  Please try again.</div>
+                  <div id='indexFailureAnnounce'>There are no pets to display at this time.</div>
                   <div id='pleaseBegin'><h1>Welcome!</h1><br><br>Please begin by selecting an option on the left.</div>
 
 
-                  <form id="create-issue">
-                    <h3>Add a New Issue</h3>
+                  <form id="create-pet">
+                    <h3>Add a New Pet</h3>
                     <div class="productfield">
                       <label>Application or Service</label>
-                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product" aria-required="false">
+                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="pet[product]" id="text-product" aria-required="false">
                     </div>
                     <div class="descriptionfield">
                       <label>Description</label>
-                      <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description" aria-required="true"></textarea>
+                      <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="pet[description]" id="textarea-description" aria-required="true"></textarea>
                     </div>
 
                     <div class="notesfield">
                      <label>Notes</label>
-                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes"></textarea>
+                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="pet[notes]" id="textarea-notes"></textarea>
                     </div>
-                    <div><button type="submit" style="success" id="newissue">Submit</button>
+                    <div><button type="submit" style="success" id="newpet">Submit</button>
                     </div>
                   </form>
 
 
-                  <form id="update-issue">
-                      <h3>Update an Issue</h3>
+                  <form id="update-pet">
+                      <h3>Update an Pet</h3>
                     <div class="productfield">
                       <label>Application or Service</label>
-                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="issue[product]" id="text-product2">
+                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="pet[product]" id="text-product2">
                     </div>
 
                     <div class="descriptionfield">
                       <label>Description</label>
-                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="issue[description]" id="textarea-description2"></textarea>
+                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="pet[description]" id="textarea-description2"></textarea>
                    </div>
 
                    <div class="notesfield">
                      <label>Notes</label>
-                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="issue[notes]" id="textarea-notes2"></textarea>
+                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="pet[notes]" id="textarea-notes2"></textarea>
                    </div>
-                   <div><button type="submit" style="success" id="updatedissuesubmit">Submit</button></div>
+                   <div><button type="submit" style="success" id="updatedpetsubmit">Submit</button></div>
                   </form>
 
 
                   <div class="jumbotron" id='jumbo'>
-                    <h1 id='jumboh1'>Known Issues and Outages</h1>
+                    <h1 id='jumboh1'>Known Pets</h1>
                     <h3 id='jumboh3'>Please sign in to continue.</h3>
 
 

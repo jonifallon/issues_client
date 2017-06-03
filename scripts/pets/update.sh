@@ -1,9 +1,9 @@
-curl --include --request GET "http://localhost:4741/issues" \
+curl --include --request GET "http://localhost:4741/pets" \
   --header "Content-Type: application/json" \
   --data '{
-  "issue": {
+  "pet": {
     "id": 1,
-    "issue": ["","","","","","","","",""],
+    "pet": ["","","","","","","","",""],
     "over":false,
     "player_x": {
       "id": 1,
