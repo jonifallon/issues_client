@@ -6,14 +6,6 @@ const showMyPetsHandlerbars = require('../templates/pet-listing_individual.handl
 const api = require('./api')
 
 const hideItems = function () {
-  $('#getPetFailureAnnounce').hide()
-  $('#signupSuccessAnnounce').hide()
-  $('#signupFailureAnnounce').hide()
-  $('#signinFailureAnnounce').hide()
-  $('#pwchangeSuccessAnnounce').hide()
-  $('#pwchangeFailureAnnounce').hide()
-  $('#signoutSuccessAnnounce').hide()
-  $('#signoutFailureAnnounce').hide()
   $('#deleteSuccessAnnounce').hide()
   $('#deleteFailureAnnounce').hide()
   $('#updateSuccessAnnounce').hide()
@@ -22,17 +14,11 @@ const hideItems = function () {
   $('#getPetForUpdateFailureAnnounce').hide()
   $('#change-password').hide()
   $('#update-pet').hide()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
-  $('#sign-out').hide()
-  $('.plannedUnplanned').hide()
-  $('#jumbo').hide()
   $('#options').hide()
   $('#create-pet').hide()
   $('.well').hide()
   $('.viewAllPets').empty()
   $('#createpetSuccessAnnounce').hide()
-  $('#pleaseBegin').hide()
   $('#create-pet')[0].reset()
   $('#updates-pet')[0].reset()
   $('#onGetPetForUpdateSuccessAnnounce').hide()
@@ -40,7 +26,6 @@ const hideItems = function () {
 
 const showItems = function () {
   $('#change-password').show()
-  $('#sign-out').show()
   $('#options').show()
 }
 
@@ -54,6 +39,16 @@ const onIndexSuccess = function (data) {
   $('.viewAllPets').append(showPetsHtml)
   // console.log('inside the onIndexSuccess in ui.js', data)
 }
+
+// const getBlogpostsSuccess = (data) => {
+//   if (data.blogposts.length < 1) {
+//     $('.blogpost-content').append('<h1>No Blogs</h1>')
+//   } else {
+//     const showBlogpostsHtml = showBlogpostsTemplate({ blogposts: data.blogposts })
+//     $('.blogpost-content').append(showBlogpostsHtml)
+//     // console.log('inside getBlogpostsSuccess ', data)
+//   }
+// }
 
 const onMyIndexSuccess = function (data) {
   hideItems()
@@ -101,16 +96,6 @@ const onMyIndexFailure = function (data) {
   $('#indexFailureAnnounce').show()
   showItems()
 }
-// const onGetPetSuccess = function (id) {
-//   hideItems()
-//   // console.table(id)
-//   const showPetsHtml = showPetsHandlerbars({ pets: id })
-//   $('.viewAllPets').show()
-//   $('.viewAllPets').append(showPetsHtml)
-//   showItems()
-//   $('.well').show()
-//   // console.log('inside onGetPetSuccess ui', id)
-// }
 
 const onGetPetForUpdateSuccess = function (data) {
   // console.table(data)
@@ -136,75 +121,57 @@ const onGetPetForUpdateFailure = function (data) {
   $('#update-pet').hide()
 }
 
-// const onGetPetFailure = function (data) {
-//   hideItems()
-//   $('#getPetFailureAnnounce').show()
-//   // console.log('inside onGetPetFailure ui.js', data)
-//   showItems()
-// }
-
 const signUpSuccess = (data) => {
   hideItems()
-  $('#sign-in').show()
-  $('#signupSuccessAnnounce').show()
-  $('.plannedUnplanned').show()
-  $('#jumbo').show()
   // console.log(data)
 }
 
 const signUpFailure = (error) => {
   hideItems()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#signupFailureAnnounce').show()
-  $('.plannedUnplanned').show()
-  $('#jumbo').show()
   console.error(error)
 }
 
 const signInSuccess = (data) => {
   // console.log('signin success ran.  data is:', data)
-  // $('.viewAllPets').show()
   store.user = data.user
+  $('#greeting').hide()
+  $('.signin-menu-item').hide()
+  $('.signup-menu-item').hide()
+  $('.change-password-menu-item').show()
+  $('.signout-menu-item').show()
+  $('.viewAddPetButtons').show()
+  $('#signin-modal').modal('hide')
   hideItems()
   showItems()
-  api.index()
-  .then(onIndexSuccess)
-  .catch(onIndexFailure)
-  $('#pleaseBegin').show()
+  api.myIndex()
+  .then(onMyIndexSuccess)
+  .catch(onMyIndexFailure)
 }
 
 const signInFailure = (error) => {
   hideItems()
-  $('#signinFailureAnnounce').show()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('.plannedUnplanned').show()
-  $('#jumbo').show()
   console.error('signin failure ran.  error is:', error)
 }
 
 const signOutSuccess = (data) => {
   // console.log('signout success and nothing was returned')
   store.user = null
+  $('#greeting').show()
+  $('.signin-menu-item').show()
+  $('.signup-menu-item').show()
+  $('.change-password-menu-item').hide()
+  $('.signout-menu-item').hide()
   hideItems()
-  $('#sign-in').show()
-  $('#sign-up').show()
-  $('#signoutSuccessAnnounce').show()
-  $('#jumbo').show()
-  $('.plannedUnplanned').show()
 }
 
 const signOutFailure = (error) => {
   hideItems()
-  $('#signoutFailureAnnounce').show()
   showItems()
   console.error(error)
 }
 
 const changePasswordSuccess = (data) => {
   hideItems()
-  $('#pwchangeSuccessAnnounce').show()
   // console.log('password successfully changed')
   showItems()
 }
@@ -212,7 +179,6 @@ const changePasswordSuccess = (data) => {
 const changePasswordFailure = (error) => {
   hideItems()
   showItems()
-  $('#pwchangeFailureAnnounce').show()
   console.error(error)
 }
 
@@ -223,6 +189,7 @@ const deletePetSuccess = (data) => {
   hideItems()
   $('#deleteSuccessAnnounce').show()
   showItems()
+  // api.MyIndex()
 }
 
 const deletePetFailure = (data) => {
@@ -252,11 +219,14 @@ const createpetFailure = (error) => {
 
 const updatepetSuccess = (data) => {
   store.pet = data.pet
+  store.user = data.user
   $('#update-pet')[0].reset()
+  $('#viewAddPetButtons').show()
+  // api.myIndex()
+  // .then(onMyIndexSuccess)
+  // .catch(onMyIndexFailure)
   // console.log('inside updatepetSuccess', data)
-  hideItems()
-  showItems()
-  $('#updateSuccessAnnounce').show()
+  // $('#updateSuccessAnnounce').show()
   // $('#onGetPetForUpdateSuccessAnnounce').show()
 }
 
@@ -282,8 +252,6 @@ module.exports = {
   updatepetFailure,
   updatepetSuccess,
   onIndexSuccess,
-  // onGetPetSuccess,
-  // onGetPetFailure,
   deletePetSuccess,
   deletePetFailure,
   onIndexFailure,

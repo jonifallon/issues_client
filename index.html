@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Docu-Pets</title>
+      <title>Docu-Paws</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
@@ -14,138 +14,222 @@
 
     <body>
 
+      <!--begin nav bar-->
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      <a class="navbar-brand" href="#"><i class="fa fa-paw"></i></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="#about-modal" data-toggle="modal" data-target="#about-modal">About Docu-Paws</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li class="signup-menu-item"><a href="#signup-modal" data-toggle="modal" data-target="#signup-modal">Sign Up</a></li>
+            <li class="signin-menu-item"><a href="#signin-modal" data-toggle="modal" data-target="#signin-modal">Sign In</a></li>
+            <li class="change-password-menu-item"><a href="#changepassword-modal" data-toggle="modal" data-target="#changepassword-modal">Change Password</a></li>
+            <li class="signout-menu-item"><a href="#">Sign Out</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+  </div>
+  <!-- /.container-fluid -->
+</nav>
+
+<!--end nav bar-->
+
+<!--begin about modal-->
+
+  <div class="modal fade" id="about-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Welcome to Docu-Paws!</h4>
+        </div>
+        <div class="modal-body">
+          <p>Explain what this is.</p>
+          <br><br>
+          <!-- <center><a href="#signin-modal" data-toggle="modal" data-target="#signin-modal"><button type="button" id="getStartedWithinAboutModal-button" class="btn btn-success btn-lg">Get Started</button></a>
+          <center> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!--end about modal-->
+
+
+
+  <!--begin signup modal-->
+
+  <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title-signup">Sign Up</h4>
+        </div>
+        <div class="modal-body">
+          <!--  Start of auth error handling-->
+          <div class='alert alert-danger' id='signup-error' role='alert'>
+            <strong>Sorry!</strong> Please try again and ensure both passwords match exactly.
+          </div>
+          <!--begin signup form-->
+          <form id="signup-form">
+            <fieldset>
+              <legend>Please enter an email address and password.</legend>
+              <input type="text" name="credentials[email]" id="signup-email" placeholder="Enter Email">
+              <input type="password" name="credentials[password]" id="signup-password" placeholder="Enter Password">
+              <input type="password" name="credentials[password_confirmation]" id="signup-passwordconfirm" placeholder="Confirm password">
+              <input type="submit" name="submit" value="Sign up!">
+            </fieldset>
+          </form>
+          <!--end signup form-->
+        </div>
+        <div class="modal-footer">
+          <button id="signup-close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!--end signup modal-->
+
+
+  <!--begin signin modal-->
+
+  <div class="modal fade" id="signin-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title-signin">Sign In</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger" id='signin-error' role="alert">
+            <strong>Sorry!</strong> You did not successfully sign in.  Please try again.
+          </div>
+          <!--begin signin form-->
+          <form id="signin-form">
+            <fieldset>
+              <legend>Please enter your login credentials below.</legend>
+
+              <input type="text" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
+              <input type="password" name="credentials[password]" id="sign-in password" placeholder="Enter Password">
+              <input type="submit" name="submit" value="Sign in!">
+              <br><br><br>
+              <p>Don't yet have an account? Please <button id="signupWithinSigninModal-button" type="button" class="btn btn-default" data-dismiss="modal">Sign Up</button></p>
+            </fieldset>
+          </form>
+          <!--end signin form-->
+        </div>
+        <div class="modal-footer">
+          <button id="signin-close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!--end signin modal-->
+
+
+  <!--begin changepassword modal-->
+
+  <div class="modal fade" id="changepassword-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Change Password</h4>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-danger alert-dismissible" id='changepw-error' role="alert">
+            <strong>Sorry!</strong> Change password failed. Please try again.
+          </div>
+          <!--begin changepassword form-->
+          <form id="changepassword-form">
+            <fieldset>
+              <legend></legend>
+              <input type="password" name="passwords[old]" id="old password" placeholder="old password">
+              <input type="password" name="passwords[new]" id="new password" placeholder="new password">
+              <input type="submit" name="submit" value="Change password!">
+            </fieldset>
+          </form>
+          <!--end changepassword form-->
+        </div>
+        <div class="modal-footer">
+          <button id="changepassword-close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <!--end changepassword modal-->
+
+
       <div class="col-md-12" >
           <div class="row">
-              <div class="col-sm-2" id='leftBar'>
-                  <!-- Sidebar content -->
-                  <form id="sign-up">
-                    <fieldset>
-                       <label class='leftbarheading'>Sign Up</label><br>
-                        <input type="text" required="true" name="credentials[email]" id="sign-upemail" placeholder="Enter Email">
-                        <input type="password" required="true" name="credentials[password]" id="sign-uppassword" placeholder="Enter Password">
-                        <input type="password" required="true" name="credentials[password_confirmation]" id="sign-uppasswordconfirm" placeholder="Confirm password"><br>
-                      <input type="submit" name="submit" value="Sign up!">
-                      <br><br>
-                    </fieldset>
-                  </form>
 
-
-                  <!-- add signin  -->
-                  <form id="sign-in">
-                  <fieldset>
-                    <label class='leftbarheading'>Sign In</label>
-                    <br>
-                    <input type="text" required="true" name="credentials[email]" id="sign-in email" placeholder="Enter Email">
-                    <input type="password" required="true" name="credentials[password]" id="sign-in password" placeholder="Enter Password"><br>
-                  <input type="submit" required="true" name="submit" value="Sign in!">
-                  <br><br>
-                  </fieldset>
-                  </form>
-
-                  <!-- add pwchange -->
-                  <form id="change-password">
-                    <fieldset>
-                      <label class='leftbarheading'>Change Password</label>
-                      <br>
-                        <input type="password" required="true" name="passwords[old]" id="old password" placeholder="Old Password">
-                        <input type="password" required="true"name="passwords[new]" id="new password" placeholder="New Password"><br>
-                      <input type="submit" name="submit" value="Change password!">
-                      <br><br>
-                    </fieldset>
-                  </form>
-
-                  <!-- add sign out -->
-                  <form id="sign-out">
-                    <label class='leftbarheading'>Sign Out</label>
-                    <br>
-                    <button type="submit">Sign Out</button>
-                    <br><br>
-                  </form>
-
-                  <!--end auth forms-->
-                  <div id="options">
-                         <form id="viewPets">
-                           <label class='leftbarheading'>Current Pets</label>
-                           <br>
-                           <button type="submit">View All</button>
-                           <br><br>
-                         </form>
-
-
-
-                         <!-- adding view single pet-->
-
-                         <!-- <form id="view-pet">
-                           <label class='leftbarheading'>View Single Pet</label>
-                           <br>
-                             <input type="text" required="true" class="form-control" id="viewpettextbox" placeholder="Enter Pet ID">
-                           <button type="submit">Submit</button>
-                           <br><br>
-                         </form> -->
-
-
-                         <form id="add-pet-button">
-                           <label class='leftbarheading'>Add a New Pet</label>
-                           <br>
-                              <button type="submit">Add Pet</button>
-                            <br><br>
-                         </form>
-
-                         <form id="updates-pet">
-                           <!-- <label class='leftbarheading'>Update an Pet</label> -->
-                           <!-- <br>
-                             <input type="text" required="true" name="pet[id]" class="form-control" id="updatepettextbox" placeholder="Enter Pet ID">
-                           <button type="submit">Submit</button>
-                           <br><br> -->
-                         </form>
-
-                         <!--individual index-->
-
-                         <form id="viewMyPets">
-                           <label class='leftbarheading'>My Pets</label>
-                           <br>
-                           <button type="submit">View or Edit</button>
-                           <br><br>
-                         </form>
-
-                         <!-- <form id="delete-pet">
-                           <label class='leftbarheading'>Delete an Pet</label>
-                           <br>
-                             <input type="text" required="true" class="form-control" id="deletepettextbox" placeholder="Enter Pet ID">
-                           <button type="submit">Submit</button>
-                           <br><br>
-                         </form> -->
-
-                  </div>
-
-                  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-              </div>
-
-
-
-
-
-
-
-              <div class="col-sm-10" id='rightSection'>
-                  <!-- Body content -->
                   <div class="well well-lg"><div class="viewAllPets"></div></div>
+                  <div class='viewAddPetButtons'>
+                      <!-- Body content -->
+
+                      <form id="add-pet-button">
+                        <label class='leftbarheading'>Add a New Pet</label>
+                        <br>
+                           <button type="submit">Add Pet</button>
+                         <br><br>
+                      </form>
+
+                      <form id="updates-pet">
+                      </form>
+
+                      <!--individual index-->
+
+                      <form id="viewMyPets">
+                        <label class='leftbarheading'>My Pets</label>
+                        <br>
+                        <button type="submit">View or Edit</button>
+                        <br><br>
+                      </form>
+                    </div>
+
                   <div id='onGetPetForUpdateSuccessAnnounce'>Your pet has been updated.</div>
                   <div id='getPetForUpdateFailureAnnounce'>Your pet was not updated.  Please try again.</div>
-                  <div id='createpetSuccessAnnounce'>The pet has been added.  Please select <strong>Current Pets</strong> to view the update.</div>
-                  <div id='signinFailureAnnounce'>Your signin was unsuccessful.  Please try again.</div>
-                  <div id="pwchangeSuccessAnnounce">You successfully changed your password.</div>
-                  <div id='pwchangeFailureAnnounce'>Your password change was unsuccessful.<br>Please try again.</div>
+                  <div id='createpetSuccessAnnounce'>The pet has been added.  Please select <strong>All Pets</strong> to view the update.</div>
                   <div id='updateFailureAnnounce'>Your pet update was not successful.  Please try again.</div>
                   <div id='updateSuccessAnnounce'>Your pet was successfully updated.</div>
-                  <div id="signupSuccessAnnounce">You successfully signed up!  Please sign in with your new account.</div>
-                  <div id='signupFailureAnnounce'>You did not successfully sign up.  Please try again</div>
                   <div id='deleteSuccessAnnounce'>Confirmation:  The pet has been deleted.</div>
                   <div id='deleteFailureAnnounce'>The pet did not successfully delete.  Please try again.</div>
-                  <div id='getPetFailureAnnounce'>We are unable to display the pet.  Please try again.</div>
                   <div id='indexFailureAnnounce'>There are no pets to display at this time.</div>
-                  <div id='pleaseBegin'><h1>Welcome!</h1><br><br>Please begin by selecting an option on the left.</div>
+
 
 
                   <form id="create-pet">
@@ -187,14 +271,10 @@
                    <div><button type="submit" style="success" id="updatedpetsubmit">Submit</button></div>
                   </form>
 
-
-                  <div class="jumbotron" id='jumbo'>
-                    <h1 id='jumboh1'>Known Pets</h1>
-                    <h3 id='jumboh3'>Please sign in to continue.</h3>
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
+                  <div id="greeting">
+                    <h1 id="welcome">Welcome to Docu-Paws</h1>
+                    <h3 id="welcometext">Please login to begin</h3>
+                  </div>
 
     </body>
 </html>

@@ -1,61 +1,28 @@
-<!-- Use this if/when I want to add a delete button beside any list item
-https://github.com/ga-wdi-boston/full-stack-project/pets/620 -->
 
-<!-- {{#each pets as |pet|}}
-
-  <ul id="removeme" data-id="{{pet.id}}"> <li>Title: {{pet.title}}</small>
-  <div class="petlisting">
-    {{#if pet.description}}
-      {{pet.description}}
-    {{else}}
-      No description.
-    {{/if}}
-    <br><button class="remove">Remove</button>
-  </div>
-</ul>
-{{/each}} -->
-
-
-
-<!-- {{#each pets as |pet|}}
-
-  <ul data-id="{{pet.id}}">
-    <li><data-id="{{pet.id}}">Pet ID: {{pet.id}} Product: {{pet.product}}, Description: {{pet.description}}, Notes: {{pet.notes}}</small></li>
-  </ul>
-
-{{/each}} -->
-
-
-<!-- BEGIN PRODUCT LOOP // -->
-
-<h1 id="pets_list">Current Pets and Outages</h1>
+<h1 id="pets_list">Just My Pets</h1>
 <br><br><br>
 
 {{#if pets}}
 
 {{#each pets as |pet|}}
    <tr class="item">
-        <td valign="top" class="textContent">
-            <!-- <img src=""{{img}}" width="50" height="75" class="itemImage"" /> -->
-            <h4 class="itemName">{{this.product}}</h4>
-            <span class="contentSecondary"><b>Description:</b> {{this.description}}</span><br />
-            <span class="contentSecondary"><b>Notes:</b> {{this.notes}}</span><br />
-            <span class="contentSecondary"><data-id="{{this.id}}">Pet ID: {{this.id}}</span><br />
-            <div>
-          <br>
-<p><button class="delete_myPet" name="button" data-id="{{this.id}}">Delete</button>
-   <button class="update-myPet" name="button" data-id="{{this.id}}">Update</button></p>
-</div>
-</td>
-<br>
-    </tr>
-    <tr><td> </td></tr>
+     <td valign="top" class="textContent">
+       <!-- <img src=""{{img}}" width="50" height="75" class="itemImage"" /> -->
+       <h4 class="itemName">{{this.product}}</h4>
+       <span class="contentSecondary"><b>Description:</b> {{this.description}}</span><br />
+       <span class="contentSecondary"><b>Notes:</b> {{this.notes}}</span><br />
+       <span class="contentSecondary"><data-id="{{this.id}}">Pet ID: {{this.id}}</span><br />
+       <div>
+         <br>
+         <p><button class="btn btn-warning delete_myPet" name="button" data-id="{{this.id}}">Delete</button>
+         <button class="btn btn-success update-myPet" name="button" data-id="{{this.id}}">Update</button></p>
+      </div>
+    </td>
+    <br>
+  </tr>
+  <tr><td> </td></tr>
 
     {{/each}}
     {{else}}
     <div><h3>You have no pets to display at this time.  You may create an pet by selecting the <b>Add a New Pet</b> button.</h3></div>
     {{/if}}
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<!-- // END PRODUCT LOOP -->

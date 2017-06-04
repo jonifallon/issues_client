@@ -13,7 +13,7 @@ const onSignUp = function (event) {
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
-  $('#sign-up')[0].reset()
+  $('#signup-form').trigger('reset')
 }
 
 const onSignIn = function (event) {
@@ -24,7 +24,7 @@ const onSignIn = function (event) {
   api.signIn(data)
   .then(ui.signInSuccess)
   .catch(ui.signInFailure)
-  $('#sign-in')[0].reset()
+  $('#signin-form').trigger('reset')
 }
 
 const onSignOut = function (event) {
@@ -60,20 +60,11 @@ const onMyIndex = function () {
   .catch(ui.onMyIndexFailure)
 }
 
-// const onGetpet = function (event) {
-//   event.preventDefault()
-//   const pet = $('#viewpettextbox').val()
-//   api.showPet(pet)
-//       .then(ui.onGetPetSuccess)
-//       .catch(ui.onGetPetFailure)
-//   $('#view-pet')[0].reset()
-// }
-
 const populateAddPetForm = function (event) {
   // populate the create-pet form on the index page
   event.preventDefault()
-  hideThings()
-  showThings()
+  // hideThings()
+  // showThings()
   $('#create-pet').show()
   // console.log('inside populateAddPetForm')
 }
@@ -81,8 +72,8 @@ const populateAddPetForm = function (event) {
 const populateUpdatePetForm = function (event) {
   // populate the create-pet form on the index page
   event.preventDefault()
-  hideThings()
-  showThings()
+  // hideThings()
+  // showThings()
   // captures the pet ID input by the user
   // const pet = $('#updatepettextbox').val()
   const pet = $(event.target).data('id')
@@ -94,13 +85,22 @@ const populateUpdatePetForm = function (event) {
 }
 
 const deletePet = function (event) {
-  // console.log('inside the deletePet function events.js', event)
   event.preventDefault()
-  const pet = $('#deletepettextbox').val()
-  api.deletePet(pet)
-      .then(ui.deletePetSuccess)
-      .catch(ui.deletePetFailure)
-  $('#delete-pet')[0].reset()
+  const id = $(this).attr('data-id')
+  api.deletePet(id)
+    .then(ui.deletePetSuccess)
+    // .then(() => {
+    //   $('.one-blogpost[data-id=' + id + ']').parent().hide('blind')
+    //   $('blockquote[data-id=' + id + ']').hide('blind')
+    // })
+    .then(() => {
+      const numOfPets = $('.pet-content').children().length
+      console.log(numOfPets)
+      if (numOfPets < 2) {
+        $('.pet-content').append('<h1>No Pets</h1>')
+      }
+    })
+    .catch(ui.deletePetFailure)
 }
 
 const createpet = function (event) {
@@ -116,7 +116,6 @@ const createpet = function (event) {
 const onUpdatePet = function (event) {
   event.preventDefault()
   // console.log('inside the updatePet function in events, and events is', event)
-  // const id = $('#updatepettextbox').val()
   // const id = $(event.target).data('id')
   const id = store.data.pet.id
   // console.log('id from the store is ', id)
@@ -126,57 +125,20 @@ const onUpdatePet = function (event) {
   .catch(ui.updatepetFailure)
 }
 
-const hideThings = function () {
-  $('#getPetFailureAnnounce').hide()
-  $('#signupSuccessAnnounce').hide()
-  $('#signupFailureAnnounce').hide()
-  $('#signinFailureAnnounce').hide()
-  $('#pwchangeSuccessAnnounce').hide()
-  $('#pwchangeFailureAnnounce').hide()
-  $('#signoutSuccessAnnounce').hide()
-  $('#signoutFailureAnnounce').hide()
-  $('#deleteSuccessAnnounce').hide()
-  $('#deleteFailureAnnounce').hide()
-  $('#updateSuccessAnnounce').hide()
-  $('#updateFailureAnnounce').hide()
-  $('#indexFailureAnnounce').hide()
-  $('#change-password').hide()
-  $('#update-pet').hide()
-  $('#sign-in').hide()
-  $('#sign-up').hide()
-  $('#sign-out').hide()
-  $('.plannedUnplanned').hide()
-  $('#jumbo').hide()
-  $('#options').hide()
-  $('#create-pet').hide()
-  $('.well').hide()
-  $('.viewAllPets').empty()
-  $('#createpetSuccessAnnounce').hide()
-  $('#pleaseBegin').hide()
-}
-
-const showThings = function () {
-  $('#change-password').show()
-  $('#sign-out').show()
-  $('#options').show()
-}
-
 const addHandlers = () => {
-  $('#sign-up').on('submit', onSignUp)
-  $('#sign-in').on('submit', onSignIn)
-  $('#sign-out').on('submit', onSignOut)
-  $('#change-password').on('submit', onChangePassword)
-  $('#viewPets').on('submit', onIndex)
+  $('#signup-form').on('submit', onSignUp)
+  $('#signin-form').on('submit', onSignIn)
+  $('#changepassword-form').on('submit', onChangePassword)
+  $('.signout-menu-item').on('click', onSignOut)
   $('#viewMyPets').on('submit', onMyIndex)
-  // $('#view-pet').on('submit', onGetpet)
   $('#add-pet-button').on('submit', populateAddPetForm)
   $('#updates-pet').on('submit', populateUpdatePetForm)
   $('#delete-pet').on('submit', deletePet)
   $('#update-pet').on('submit', onUpdatePet)
-  $('#sign-up').trigger('reset')
   $('#create-pet').on('submit', createpet)
 }
 
 module.exports = {
   addHandlers
+  // emailCurrentPage
 }
