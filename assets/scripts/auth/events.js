@@ -61,10 +61,8 @@ const onMyIndex = function () {
 }
 
 const populateAddPetForm = function (event) {
-  // populate the create-pet form on the index page
   event.preventDefault()
-  // hideThings()
-  // showThings()
+  $('#well').hide()
   $('#create-pet').show()
   // console.log('inside populateAddPetForm')
 }
@@ -72,8 +70,6 @@ const populateAddPetForm = function (event) {
 const populateUpdatePetForm = function (event) {
   // populate the create-pet form on the index page
   event.preventDefault()
-  // hideThings()
-  // showThings()
   // captures the pet ID input by the user
   // const pet = $('#updatepettextbox').val()
   const pet = $(event.target).data('id')

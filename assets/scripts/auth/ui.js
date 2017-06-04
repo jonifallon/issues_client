@@ -29,16 +29,16 @@ const showItems = function () {
   $('#options').show()
 }
 
-const onIndexSuccess = function (data) {
-  hideItems()
-  // console.table(data.pets)
-  const showPetsHtml = showPetsHandlerbars({ pets: data.pets })
-  showItems()
-  $('.well').show()
-  $('.viewAllPets').show()
-  $('.viewAllPets').append(showPetsHtml)
-  // console.log('inside the onIndexSuccess in ui.js', data)
-}
+// const onIndexSuccess = function (data) {
+//   hideItems()
+//   // console.table(data.pets)
+//   const showPetsHtml = showPetsHandlerbars({ pets: data.pets })
+//   showItems()
+//   $('.well').show()
+//   $('.viewAllPets').show()
+//   $('.viewAllPets').append(showPetsHtml)
+//   // console.log('inside the onIndexSuccess in ui.js', data)
+// }
 
 // const getBlogpostsSuccess = (data) => {
 //   if (data.blogposts.length < 1) {
@@ -206,9 +206,13 @@ const createpetSuccess = (data) => {
   // console.log('create pet success ran.  data is:', data)
   store.pet = data.pet
   // console.log('you are in the createpetSuccess function on ui.js', store.pet)
-  hideItems()
-  $('#createpetSuccessAnnounce').show()
-  showItems()
+  // hideItems()
+  // $('#createpetSuccessAnnounce').show()
+  // showItems()
+  // add this to display myPets automatically
+  api.myIndex()
+  .then(onMyIndexSuccess)
+  .catch(onMyIndexFailure)
 }
 
 const createpetFailure = (error) => {
@@ -251,7 +255,6 @@ module.exports = {
   createpetSuccess,
   updatepetFailure,
   updatepetSuccess,
-  onIndexSuccess,
   deletePetSuccess,
   deletePetFailure,
   onIndexFailure,

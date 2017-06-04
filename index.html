@@ -197,9 +197,54 @@
       <div class="col-md-12" >
           <div class="row">
 
-                  <div class="well well-lg"><div class="viewAllPets"></div></div>
-                  <div class='viewAddPetButtons'>
-                      <!-- Body content -->
+                  <div class="well well-lg">
+
+                    <div class='viewAddPetButtons'>
+
+                        <form id="add-pet-button">
+                          <label class='leftbarheading'>Add a New Pet</label>
+                          <br>
+                             <button type="submit">Add Pet</button>
+                           <br><br>
+                        </form>
+
+                        <form id="updates-pet">
+                        </form>
+
+                        <form id="viewMyPets">
+                          <label class='leftbarheading'>My Pets</label>
+                          <br>
+                          <button type="submit">View or Edit</button>
+                          <br><br>
+                        </form>
+                      </div>
+
+                    <form id="create-pet">
+                      <h3>Add a New Pet</h3>
+                      <div class="productfield">
+                        <label>Application or Service</label>
+                        <input type="text" required="true" placeholder="Insert product name" class="form-control" name="pet[product]" id="text-product" aria-required="false">
+                      </div>
+                      <div class="descriptionfield">
+                        <label>Description</label>
+                        <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="pet[description]" id="textarea-description" aria-required="true"></textarea>
+                      </div>
+
+                      <div class="notesfield">
+                       <label>Notes</label>
+                       <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="pet[notes]" id="textarea-notes"></textarea>
+                      </div>
+                      <div><button type="submit" style="success" id="newpet">Submit</button>
+                      </div>
+                    </form>
+
+
+
+                    <div class="viewAllPets"></div>
+
+                  </div>
+
+                  <!-- <div class='viewAddPetButtons'>
 
                       <form id="add-pet-button">
                         <label class='leftbarheading'>Add a New Pet</label>
@@ -211,15 +256,13 @@
                       <form id="updates-pet">
                       </form>
 
-                      <!--individual index-->
-
                       <form id="viewMyPets">
                         <label class='leftbarheading'>My Pets</label>
                         <br>
                         <button type="submit">View or Edit</button>
                         <br><br>
                       </form>
-                    </div>
+                    </div> -->
 
                   <div id='onGetPetForUpdateSuccessAnnounce'>Your pet has been updated.</div>
                   <div id='getPetForUpdateFailureAnnounce'>Your pet was not updated.  Please try again.</div>
@@ -232,7 +275,7 @@
 
 
 
-                  <form id="create-pet">
+                  <!-- <form id="create-pet">
                     <h3>Add a New Pet</h3>
                     <div class="productfield">
                       <label>Application or Service</label>
@@ -249,7 +292,7 @@
                     </div>
                     <div><button type="submit" style="success" id="newpet">Submit</button>
                     </div>
-                  </form>
+                  </form> -->
 
 
                   <form id="update-pet">
