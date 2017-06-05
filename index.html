@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -16,7 +17,7 @@
 
       <!--begin nav bar-->
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -59,10 +60,13 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 class="modal-title">Welcome to Docu-Paws!</h4>
+          <h4 class="modal-title"><i class="fa fa-paw"></i>  Welcome to Docu-Paws!</h4>
         </div>
         <div class="modal-body">
-          <p>Explain what this is.</p>
+          <p>Docu-Paws is a record-keeping site for your pet’s medical information.
+            It's the perfect way to keep track of your pet’s age, vaccines, medical conditions,
+            prescription meds, etc.  With Docu-Paws, all information that is important to have
+            in case of a pet emergency is kept together in one place.</p>
           <br><br>
           <!-- <center><a href="#signin-modal" data-toggle="modal" data-target="#signin-modal"><button type="button" id="getStartedWithinAboutModal-button" class="btn btn-success btn-lg">Get Started</button></a>
           <center> -->
@@ -196,6 +200,13 @@
 
       <div class="col-md-12" >
           <div class="row">
+            <div id="greeting">
+              <div id="docupaws"><i class="fa fa-paw" style="font-size:46px"></i>  Docu-Paws</div>
+              <div id="welcome">The convenient way to track your pet's medical information!</div>
+              <!--use &#128062; if font-awesome isn't ok-->
+
+              <div id="getstartedbutton"><a href="#signin-modal" data-toggle="modal" data-target="#signin-modal"><button type="button" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-hand-up"></span>   Get Started</button></a></div>
+            </div>
 
                   <div class="well well-lg">
 
@@ -238,86 +249,35 @@
                       </div>
                     </form>
 
+                    <form id="update-pet">
+                        <h3>Update a Pet</h3>
+                      <div class="productfield">
+                        <label>Application or Service</label>
+                        <input type="text" required="true" placeholder="Insert product name" class="form-control" name="pet[product]" id="text-product2">
+                      </div>
 
+                      <div class="descriptionfield">
+                        <label>Description</label>
+                      <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="pet[description]" id="textarea-description2"></textarea>
+                     </div>
+
+                     <div class="notesfield">
+                       <label>Notes</label>
+                       <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="pet[notes]" id="textarea-notes2"></textarea>
+                     </div><br>
+                     <div><button type="submit" style="success" id="updatedpetsubmit">Submit</button></div>
+                    </form>
 
                     <div class="viewAllPets"></div>
 
                   </div>
 
-                  <!-- <div class='viewAddPetButtons'>
-
-                      <form id="add-pet-button">
-                        <label class='leftbarheading'>Add a New Pet</label>
-                        <br>
-                           <button type="submit">Add Pet</button>
-                         <br><br>
-                      </form>
-
-                      <form id="updates-pet">
-                      </form>
-
-                      <form id="viewMyPets">
-                        <label class='leftbarheading'>My Pets</label>
-                        <br>
-                        <button type="submit">View or Edit</button>
-                        <br><br>
-                      </form>
-                    </div> -->
-
-                  <div id='onGetPetForUpdateSuccessAnnounce'>Your pet has been updated.</div>
-                  <div id='getPetForUpdateFailureAnnounce'>Your pet was not updated.  Please try again.</div>
-                  <div id='createpetSuccessAnnounce'>The pet has been added.  Please select <strong>All Pets</strong> to view the update.</div>
-                  <div id='updateFailureAnnounce'>Your pet update was not successful.  Please try again.</div>
-                  <div id='updateSuccessAnnounce'>Your pet was successfully updated.</div>
-                  <div id='deleteSuccessAnnounce'>Confirmation:  The pet has been deleted.</div>
-                  <div id='deleteFailureAnnounce'>The pet did not successfully delete.  Please try again.</div>
-                  <div id='indexFailureAnnounce'>There are no pets to display at this time.</div>
 
 
-
-                  <!-- <form id="create-pet">
-                    <h3>Add a New Pet</h3>
-                    <div class="productfield">
-                      <label>Application or Service</label>
-                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="pet[product]" id="text-product" aria-required="false">
-                    </div>
-                    <div class="descriptionfield">
-                      <label>Description</label>
-                      <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="pet[description]" id="textarea-description" aria-required="true"></textarea>
-                    </div>
-
-                    <div class="notesfield">
-                     <label>Notes</label>
-                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="pet[notes]" id="textarea-notes"></textarea>
-                    </div>
-                    <div><button type="submit" style="success" id="newpet">Submit</button>
-                    </div>
-                  </form> -->
-
-
-                  <form id="update-pet">
-                      <h3>Update an Pet</h3>
-                    <div class="productfield">
-                      <label>Application or Service</label>
-                      <input type="text" required="true" placeholder="Insert product name" class="form-control" name="pet[product]" id="text-product2">
-                    </div>
-
-                    <div class="descriptionfield">
-                      <label>Description</label>
-                    <textarea type="textarea" required="true" placeholder="Describe symptoms and/or error messages a user might encounter." class="form-control" name="pet[description]" id="textarea-description2"></textarea>
-                   </div>
-
-                   <div class="notesfield">
-                     <label>Notes</label>
-                     <textarea type="textarea" required="false" placeholder="Provide any known workarounds, restoration ETA, etc." class="form-control" name="pet[notes]" id="textarea-notes2"></textarea>
-                   </div>
-                   <div><button type="submit" style="success" id="updatedpetsubmit">Submit</button></div>
-                  </form>
-
-                  <div id="greeting">
-                    <h1 id="welcome">Welcome to Docu-Paws</h1>
-                    <h3 id="welcometext">Please login to begin</h3>
-                  </div>
+                  <!-- <div id="greeting">
+                    <div id="welcome">Welcome to Docu-Paws</div>
+                    <div id="welcometext">Please login to begin</div>
+                  </div> -->
 
     </body>
 </html>

@@ -28,6 +28,7 @@ const myIndex = function () {
 }
 
 const signUp = (data) => {
+  console.log('inside signUp api and data is', data)
   return $.ajax({
     url: config.apiOrigin + '/sign-up',
     method: 'POST',
@@ -102,7 +103,7 @@ const updatePet = (id, data) => {
 }
 
 const showPet = (id) => {
-  // console.log('inside the showPet function', id)
+  console.log('inside the showPet function', id)
   return $.ajax({
     url: config.apiOrigin + '/pets/' + id,
     method: 'GET',

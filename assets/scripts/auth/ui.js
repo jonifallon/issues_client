@@ -6,26 +6,16 @@ const showMyPetsHandlerbars = require('../templates/pet-listing_individual.handl
 const api = require('./api')
 
 const hideItems = function () {
-  $('#deleteSuccessAnnounce').hide()
-  $('#deleteFailureAnnounce').hide()
-  $('#updateSuccessAnnounce').hide()
-  $('#updateFailureAnnounce').hide()
-  $('#indexFailureAnnounce').hide()
-  $('#getPetForUpdateFailureAnnounce').hide()
-  $('#change-password').hide()
   $('#update-pet').hide()
   $('#options').hide()
   $('#create-pet').hide()
   $('.well').hide()
   $('.viewAllPets').empty()
-  $('#createpetSuccessAnnounce').hide()
   $('#create-pet')[0].reset()
   $('#updates-pet')[0].reset()
-  $('#onGetPetForUpdateSuccessAnnounce').hide()
 }
 
 const showItems = function () {
-  $('#change-password').show()
   $('#options').show()
 }
 
@@ -76,6 +66,7 @@ const onMyIndexSuccess = function (data) {
         .then(onGetPetForUpdateSuccess)
         .catch(onGetPetForUpdateFailure)
     $('#update-pet').show()
+    $('.well').show()
   })
   // $('.update_myPet').
   // console.log('inside the onIndexSuccess in ui.js', data)
@@ -85,7 +76,6 @@ const onIndexFailure = function (data) {
   // look through data returned from server
   // console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
-  $('#indexFailureAnnounce').show()
   showItems()
 }
 
@@ -93,14 +83,14 @@ const onMyIndexFailure = function (data) {
   // look through data returned from server
   // console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
-  $('#indexFailureAnnounce').show()
+  // $('#indexFailureAnnounce').show()
   showItems()
 }
 
 const onGetPetForUpdateSuccess = function (data) {
   // console.table(data)
   // this next console log shows right data, but it's passing wrong data to
-  // console.log('inside onGetPetForUpdateSuccess ui.js', data)
+  console.log('inside onGetPetForUpdateSuccess ui.js', data)
   // $(event.target).data('id')
   $('#update-pet').attr('data-id', data.pet.id)
   // console.log('data-id', data.pet.id)
@@ -115,20 +105,25 @@ const onGetPetForUpdateSuccess = function (data) {
 
 const onGetPetForUpdateFailure = function (data) {
   hideItems()
-  $('#getPetForUpdateFailureAnnounce').show()
   // console.log('inside onGetPetForUpdateFailure ui.js', data)
   showItems()
   $('#update-pet').hide()
 }
 
 const signUpSuccess = (data) => {
-  hideItems()
-  // console.log(data)
+  console.log('signUpSuccess ran and data is ', data)
+  $('#signup-modal').modal('hide')
+  $('#signup-error').hide()
+  $('.signout-menu-item').hide()
+  $('.changepassword-menu-item').hide()
+  $('.signup-menu-item').hide()
+  $('.signin-menu-item').show()
+  $('#signin-modal').modal('show')
 }
 
 const signUpFailure = (error) => {
-  hideItems()
-  console.error(error)
+  console.error('sign up failed and the error is ', error)
+  $('#signup-error').show()
 }
 
 const signInSuccess = (data) => {
@@ -185,11 +180,13 @@ const changePasswordFailure = (error) => {
 const deletePetSuccess = (data) => {
   // console.log('inside the deletePetSuccess ui script.  data is:', data)
   // store.pet = data.pet
-  // console.log('you are in the deleteSuccessAnnounce function on ui.js', store.pet)
-  hideItems()
-  $('#deleteSuccessAnnounce').show()
-  showItems()
+  // hideItems()
+  // showItems()
   // api.MyIndex()
+  $('.viewAddPetButtons').show()
+  api.myIndex()
+  .then(onMyIndexSuccess)
+  .catch(onMyIndexFailure)
 }
 
 const deletePetFailure = (data) => {
@@ -198,7 +195,6 @@ const deletePetFailure = (data) => {
   // console.log('inside the deletePetFailure ui script', store.pet)
   hideItems()
   showItems()
-  $('#deleteFailureAnnounce').show()
   $('#options').show()
 }
 
@@ -207,9 +203,9 @@ const createpetSuccess = (data) => {
   store.pet = data.pet
   // console.log('you are in the createpetSuccess function on ui.js', store.pet)
   // hideItems()
-  // $('#createpetSuccessAnnounce').show()
   // showItems()
   // add this to display myPets automatically
+  $('.viewAddPetButtons').show()
   api.myIndex()
   .then(onMyIndexSuccess)
   .catch(onMyIndexFailure)
@@ -223,22 +219,22 @@ const createpetFailure = (error) => {
 
 const updatepetSuccess = (data) => {
   store.pet = data.pet
-  store.user = data.user
+  // store.user = data.user
   $('#update-pet')[0].reset()
   $('#viewAddPetButtons').show()
+  api.myIndex()
+  .then(onMyIndexSuccess)
+  .catch(onMyIndexFailure)
   // api.myIndex()
   // .then(onMyIndexSuccess)
   // .catch(onMyIndexFailure)
   // console.log('inside updatepetSuccess', data)
-  // $('#updateSuccessAnnounce').show()
-  // $('#onGetPetForUpdateSuccessAnnounce').show()
 }
 
 const updatepetFailure = (error) => {
   // console.log('inside updatepetFailure ui')
   hideItems()
   showItems()
-  $('#updateFailureAnnounce').show()
   return error
 }
 

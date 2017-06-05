@@ -7,9 +7,8 @@ const ui = require('./ui')
 const store = require('../store')
 
 const onSignUp = function (event) {
-  const data = getFormFields(this)
-  // this points to event.target
   event.preventDefault()
+  const data = getFormFields(this)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -18,8 +17,7 @@ const onSignUp = function (event) {
 
 const onSignIn = function (event) {
   event.preventDefault()
-  // console.log('signin ran')
-
+  console.log('signin ran')
   const data = getFormFields(this)
   api.signIn(data)
   .then(ui.signInSuccess)
@@ -43,15 +41,15 @@ const onChangePassword = function (event) {
   api.changePassword(data)
   .then(ui.changePasswordSuccess)
   .catch(ui.changePasswordFailure)
-  $('#change-password')[0].reset()
+  // $('#change-password')[0].reset()
 }
 
-const onIndex = function () {
-  event.preventDefault()
-  api.index()
-  .then(ui.onIndexSuccess)
-  .catch(ui.onIndexFailure)
-}
+// const onIndex = function () {
+//   event.preventDefault()
+//   api.index()
+//   .then(ui.onIndexSuccess)
+//   .catch(ui.onIndexFailure)
+// }
 
 const onMyIndex = function () {
   event.preventDefault()
@@ -64,6 +62,7 @@ const populateAddPetForm = function (event) {
   event.preventDefault()
   $('#well').hide()
   $('#create-pet').show()
+  $('.viewAddPetButtons').hide()
   // console.log('inside populateAddPetForm')
 }
 
@@ -111,14 +110,20 @@ const createpet = function (event) {
 
 const onUpdatePet = function (event) {
   event.preventDefault()
-  // console.log('inside the updatePet function in events, and events is', event)
+  console.log('inside the updatePet function in events, and events is', event)
   // const id = $(event.target).data('id')
   const id = store.data.pet.id
-  // console.log('id from the store is ', id)
+  console.log('id from the store is ', id)
   const data = getFormFields(this)
   api.updatePet(id, data)
   .then(ui.updatepetSuccess)
   .catch(ui.updatepetFailure)
+}
+
+const hideSigninShowSignup = function () {
+  $('#signin-modal').modal('hide')
+  $('#signup-modal').modal('show')
+  $('#signin-error').hide()
 }
 
 const addHandlers = () => {
@@ -132,6 +137,7 @@ const addHandlers = () => {
   $('#delete-pet').on('submit', deletePet)
   $('#update-pet').on('submit', onUpdatePet)
   $('#create-pet').on('submit', createpet)
+  $('#signupWithinSigninModal-button').on('click', hideSigninShowSignup)
 }
 
 module.exports = {
