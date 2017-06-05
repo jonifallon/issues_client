@@ -7,7 +7,6 @@ const api = require('./api')
 
 const hideItems = function () {
   $('#update-pet').hide()
-  $('#options').hide()
   $('#create-pet').hide()
   $('.well').hide()
   $('.viewAllPets').empty()
@@ -15,37 +14,11 @@ const hideItems = function () {
   $('#updates-pet')[0].reset()
 }
 
-const showItems = function () {
-  $('#options').show()
-}
-
-// const onIndexSuccess = function (data) {
-//   hideItems()
-//   // console.table(data.pets)
-//   const showPetsHtml = showPetsHandlerbars({ pets: data.pets })
-//   showItems()
-//   $('.well').show()
-//   $('.viewAllPets').show()
-//   $('.viewAllPets').append(showPetsHtml)
-//   // console.log('inside the onIndexSuccess in ui.js', data)
-// }
-
-// const getBlogpostsSuccess = (data) => {
-//   if (data.blogposts.length < 1) {
-//     $('.blogpost-content').append('<h1>No Blogs</h1>')
-//   } else {
-//     const showBlogpostsHtml = showBlogpostsTemplate({ blogposts: data.blogposts })
-//     $('.blogpost-content').append(showBlogpostsHtml)
-//     // console.log('inside getBlogpostsSuccess ', data)
-//   }
-// }
-
 const onMyIndexSuccess = function (data) {
   hideItems()
   // console.table(data.pets)
   // console.log('inside on my index success', data)
   const showPetsHtml = showMyPetsHandlerbars({ pets: data.pets })
-  showItems()
   $('.well').show()
   $('.viewAllPets').show()
   $('.viewAllPets').append(showPetsHtml)
@@ -59,7 +32,6 @@ const onMyIndexSuccess = function (data) {
     const petUpdate = $(event.target).data('id')
     event.preventDefault()
     hideItems()
-    showItems()
     // captures the pet ID input by the user
     // const pet = $('#updatepettextbox').val()
     api.showPet(petUpdate)
@@ -76,7 +48,6 @@ const onIndexFailure = function (data) {
   // look through data returned from server
   // console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
-  showItems()
 }
 
 const onMyIndexFailure = function (data) {
@@ -84,7 +55,6 @@ const onMyIndexFailure = function (data) {
   // console.log('inside the onIndexFailure in ui.js', data)
   hideItems()
   // $('#indexFailureAnnounce').show()
-  showItems()
 }
 
 const onGetPetForUpdateSuccess = function (data) {
@@ -106,7 +76,6 @@ const onGetPetForUpdateSuccess = function (data) {
 const onGetPetForUpdateFailure = function (data) {
   hideItems()
   // console.log('inside onGetPetForUpdateFailure ui.js', data)
-  showItems()
   $('#update-pet').hide()
 }
 
@@ -137,7 +106,6 @@ const signInSuccess = (data) => {
   $('.viewAddPetButtons').show()
   $('#signin-modal').modal('hide')
   hideItems()
-  showItems()
   api.myIndex()
   .then(onMyIndexSuccess)
   .catch(onMyIndexFailure)
@@ -161,26 +129,23 @@ const signOutSuccess = (data) => {
 
 const signOutFailure = (error) => {
   hideItems()
-  showItems()
   console.error(error)
 }
 
 const changePasswordSuccess = (data) => {
   hideItems()
   // console.log('password successfully changed')
-  showItems()
 }
 
 const changePasswordFailure = (error) => {
   hideItems()
-  showItems()
   console.error(error)
 }
 
 const deletePetSuccess = (data) => {
   // console.log('inside the deletePetSuccess ui script.  data is:', data)
   // store.pet = data.pet
-  // hideItems()
+  hideItems()
   // showItems()
   // api.MyIndex()
   $('.viewAddPetButtons').show()
@@ -194,16 +159,13 @@ const deletePetFailure = (data) => {
   // store.pet = data.pet
   // console.log('inside the deletePetFailure ui script', store.pet)
   hideItems()
-  showItems()
-  $('#options').show()
 }
 
 const createpetSuccess = (data) => {
   // console.log('create pet success ran.  data is:', data)
   store.pet = data.pet
   // console.log('you are in the createpetSuccess function on ui.js', store.pet)
-  // hideItems()
-  // showItems()
+  hideItems()
   // add this to display myPets automatically
   $('.viewAddPetButtons').show()
   api.myIndex()
@@ -213,7 +175,6 @@ const createpetSuccess = (data) => {
 
 const createpetFailure = (error) => {
   hideItems()
-  showItems()
   return error
 }
 
@@ -234,7 +195,6 @@ const updatepetSuccess = (data) => {
 const updatepetFailure = (error) => {
   // console.log('inside updatepetFailure ui')
   hideItems()
-  showItems()
   return error
 }
 
@@ -254,7 +214,6 @@ module.exports = {
   deletePetSuccess,
   deletePetFailure,
   onIndexFailure,
-  showItems,
   onGetPetForUpdateSuccess,
   onGetPetForUpdateFailure,
   onMyIndexSuccess,

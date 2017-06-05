@@ -44,13 +44,6 @@ const onChangePassword = function (event) {
   // $('#change-password')[0].reset()
 }
 
-// const onIndex = function () {
-//   event.preventDefault()
-//   api.index()
-//   .then(ui.onIndexSuccess)
-//   .catch(ui.onIndexFailure)
-// }
-
 const onMyIndex = function () {
   event.preventDefault()
   api.myIndex()
@@ -142,5 +135,4 @@ const addHandlers = () => {
 
 module.exports = {
   addHandlers
-  // emailCurrentPage
 }
